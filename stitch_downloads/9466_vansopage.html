@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vanso.ai: Sonic Aura Premium</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .text-glow {
+                text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            }
+            .glass-panel {
+                @apply bg-white/[0.03] backdrop-blur-2xl border border-white/10;
+            }
+            .glass-panel-hover {
+                @apply hover:bg-white/[0.06] hover:border-white/20 transition-all duration-300 ease-out;
+            }
+            .nav-pill {
+                @apply bg-black/50 backdrop-blur-xl border border-white/10 rounded-full;
+            }
+            .text-gradient-aurora {background: linear-gradient(135deg, #FF66C4 0%, #B84DFF 50%, #5CE1FF 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+            .aurora-bg {background: radial-gradient(circle at 50% 50%, rgba(184, 77, 255, 0.15) 0%, rgba(255, 102, 196, 0.1) 50%, rgba(0, 0, 0, 0) 70%);
+            }
+            .card-glow:hover {box-shadow: 0 0 40px rgba(184, 77, 255, 0.15);
+            }
+            .no-scrollbar::-webkit-scrollbar {
+                display: none;
+            }
+            .no-scrollbar {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }.icon-v-shape {
+                width: 24px;
+                height: 24px;
+                background: white;
+                clip-path: polygon(0% 0%, 35% 15%, 50% 30%, 65% 15%, 100% 0%, 50% 100%);
+                border-radius: 4px;}
+        }@keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            animation: marquee 40s linear infinite;
+        }
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }@keyframes aurora-rotate {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        .animate-aurora {
+            animation: aurora-rotate 20s infinite linear;
+        }
+    </style>
+</head>
+<body class="bg-[#000000] text-white font-['Plus_Jakarta_Sans'] antialiased selection:bg-[#B84DFF] selection:text-white overflow-x-hidden">
+<nav class="fixed top-6 left-0 right-0 z-50 flex justify-center w-full px-4">
+<div class="nav-pill flex items-center justify-between px-6 py-3 w-full max-w-6xl shadow-2xl shadow-black/50">
+<div class="flex items-center gap-2 cursor-pointer">
+<div class="relative w-8 h-8 flex items-center justify-center">
+<svg fill="none" height="24" viewBox="0 0 28 24" width="28" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 4C0 1.79086 1.79086 0 4 0H8.5C9.97233 0 11.3442 0.76751 12.1213 2L14 5L15.8787 2C16.6558 0.76751 18.0277 0 19.5 0H24C26.2091 0 28 1.79086 28 4V5.5C28 6.7568 27.4259 7.94042 26.4436 8.7061L15.2218 17.456C14.4939 18.0235 13.5061 18.0235 12.7782 17.456L1.55635 8.7061C0.57412 7.94042 0 6.7568 0 5.5V4Z" fill="white"></path>
+</svg>
+</div>
+<span class="text-xl font-bold tracking-widest text-white">VANSO</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium text-zinc-400 hover:text-white transition-colors duration-300" href="#features">Features</a>
+<a class="text-sm font-medium text-zinc-400 hover:text-white transition-colors duration-300" href="#workflow">How it works</a>
+<a class="text-sm font-medium text-zinc-400 hover:text-white transition-colors duration-300" href="#vision">About us</a>
+<a class="text-sm font-medium text-zinc-400 hover:text-white transition-colors duration-300" href="#contact">Contact</a>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden sm:flex items-center gap-1 text-sm text-zinc-400 hover:text-white cursor-pointer transition-colors group relative">
+<span class="material-symbols-outlined text-[18px]">language</span>
+<span>EN</span>
+<span class="material-symbols-outlined text-[16px]">arrow_drop_down</span>
+<div class="absolute top-full right-0 mt-4 w-40 glass-panel rounded-xl p-2 hidden group-hover:block shadow-xl">
+<div class="px-3 py-2 hover:bg-white/10 rounded-lg cursor-pointer text-white">English</div>
+<div class="px-3 py-2 hover:bg-white/10 rounded-lg cursor-pointer text-zinc-400">Español</div>
+<div class="px-3 py-2 hover:bg-white/10 rounded-lg cursor-pointer text-zinc-400">Português</div>
+<div class="px-3 py-2 hover:bg-white/10 rounded-lg cursor-pointer text-zinc-400">Bahasa Indo</div>
+</div>
+</div>
+<a class="hidden lg:block text-sm font-medium text-zinc-400 hover:text-white transition-colors" href="#">Creator Login</a>
+<button class="bg-white text-black text-sm font-bold px-5 py-2.5 rounded-full hover:scale-105 transition-transform duration-300 shadow-[0_0_15px_rgba(255,102,196,0.3)] hover:shadow-[0_0_20px_rgba(184,77,255,0.4)]">
+                    Get App
+                </button>
+</div>
+</div>
+</nav>
+<header class="relative min-h-screen flex flex-col justify-center items-center text-center px-4 overflow-hidden pt-24">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120vw] h-[120vw] pointer-events-none opacity-60">
+<div class="animate-aurora w-full h-full bg-[radial-gradient(circle_at_center,rgba(255,102,196,0.2),rgba(184,77,255,0.15),transparent_60%)] blur-[100px]"></div>
+</div>
+<div class="relative z-10 max-w-5xl mx-auto space-y-8">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-4 animate-fade-in-up">
+<span class="w-2 h-2 rounded-full bg-[#FF66C4] animate-pulse"></span>
+<span class="text-xs font-medium text-zinc-300 tracking-wide uppercase">Vanso Music Distribution v2.0</span>
+</div>
+<h1 class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.1]">
+<span class="block text-white mb-2">Turn Your AI Music</span>
+<span class="block text-white mb-2">Into Global Hits.</span>
+<span class="block text-gradient-aurora pb-2">Reach 400M+ Listeners.</span>
+</h1>
+<p class="text-lg md:text-xl text-zinc-400 max-w-3xl mx-auto leading-relaxed">
+                From AIGC tracks to studio masters, Vanso is your bridge to native mobile listeners worldwide. Listen to viral drops, or upload yours to trend globally.
+            </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+<button class="group relative px-8 py-4 bg-transparent rounded-full overflow-hidden hover:scale-105 transition-all duration-300">
+<div class="absolute inset-0 bg-gradient-to-r from-[#FF0099] via-[#9D00FF] to-[#00CCFF] opacity-80 group-hover:opacity-100 transition-opacity"></div>
+<span class="relative text-white font-bold flex items-center gap-2">
+<span class="material-symbols-outlined">download</span>
+                        Download App
+                    </span>
+<div class="absolute inset-0 rounded-full ring-2 ring-white/20"></div>
+</button>
+<button class="relative group px-8 py-4 rounded-full overflow-hidden bg-black transition-all duration-300 text-white font-medium flex items-center gap-2">
+<div class="absolute inset-0 rounded-full p-[1px] bg-gradient-to-r from-[#FF66C4] to-[#5CE1FF] opacity-50 group-hover:opacity-100 transition-opacity mask-border"></div>
+<div class="absolute inset-[1px] rounded-full bg-black z-0"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-[#FF66C4] to-[#5CE1FF] opacity-0 group-hover:opacity-10 transition-opacity z-0"></div>
+<span class="relative z-10 flex items-center gap-2">
+        Login to Upload
+        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</span>
+</button>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent pointer-events-none z-20"></div>
+</header>
+<section class="relative z-30 -mt-10 border-y border-white/5 bg-black/50 backdrop-blur-sm overflow-hidden py-6">
+<div class="flex w-max animate-marquee">
+<div class="flex gap-6 px-3">
+<div class="flex items-center gap-3 px-4 py-2 rounded-full glass-panel bg-zinc-900/50 hover:bg-zinc-800 transition-colors cursor-pointer min-w-[300px]">
+<div class="w-8 h-8 rounded-full bg-gradient-to-tr from-[#B84DFF] to-[#FF66C4]"></div>
+<div class="flex flex-col">
+<span class="text-xs text-zinc-400">@neon_drifter dropped</span>
+<span class="text-sm font-bold text-white flex items-center gap-1">Cyber Dreams <span class="text-xs text-[#FF66C4]">🚀 Trending</span></span>
+</div>
+</div>
+<div class="flex items-center gap-3 px-4 py-2 rounded-full glass-panel bg-zinc-900/50 hover:bg-zinc-800 transition-colors cursor-pointer min-w-[300px]">
+<div class="w-8 h-8 rounded-full bg-gradient-to-tr from-[#FF66C4] to-[#FF9E5C]"></div>
+<div class="flex flex-col">
+<span class="text-xs text-zinc-400">@suno_master dropped</span>
+<span class="text-sm font-bold text-white flex items-center gap-1">Midnight Tokyo <span class="text-xs text-[#FF66C4]">🔥 Hot</span></span>
+</div>
+</div>
+<div class="flex items-center gap-3 px-4 py-2 rounded-full glass-panel bg-zinc-900/50 hover:bg-zinc-800 transition-colors cursor-pointer min-w-[300px]">
+<div class="w-8 h-8 rounded-full bg-gradient-to-tr from-[#5CE1FF] to-[#B84DFF]"></div>
+<div class="flex flex-col">
+<span class="text-xs text-zinc-400">@audio_genesis dropped</span>
+<span class="text-sm font-bold text-white flex items-center gap-1">Neural Network <span class="text-xs text-[#5CE1FF]">📈 +20k plays</span></span>
+</div>
+</div>
+<div class="flex items-center gap-3 px-4 py-2 rounded-full glass-panel bg-zinc-900/50 hover:bg-zinc-800 transition-colors cursor-pointer min-w-[300px]">
+<div class="w-8 h-8 rounded-full bg-gradient-to-tr from-[#FF66C4] to-[#5CE1FF]"></div>
+<div class="flex flex-col">
+<span class="text-xs text-zinc-400">@lofi_bot dropped</span>
+<span class="text-sm font-bold text-white flex items-center gap-1">Study Beats v9 <span class="text-xs text-[#5CE1FF]">🎧 Relaxing</span></span>
+</div>
+</div>
+</div>
+<div class="flex gap-6 px-3">
+<div class="flex items-center gap-3 px-4 py-2 rounded-full glass-panel bg-zinc-900/50 hover:bg-zinc-800 transition-colors cursor-pointer min-w-[300px]">
+<div class="w-8 h-8 rounded-full bg-gradient-to-tr from-[#B84DFF] to-[#FF66C4]"></div>
+<div class="flex flex-col">
+<span class="text-xs text-zinc-400">@neon_drifter dropped</span>
+<span class="text-sm font-bold text-white flex items-center gap-1">Cyber Dreams <span class="text-xs text-[#FF66C4]">🚀 Trending</span></span>
+</div>
+</div>
+<div class="flex items-center gap-3 px-4 py-2 rounded-full glass-panel bg-zinc-900/50 hover:bg-zinc-800 transition-colors cursor-pointer min-w-[300px]">
+<div class="w-8 h-8 rounded-full bg-gradient-to-tr from-[#FF66C4] to-[#FF9E5C]"></div>
+<div class="flex flex-col">
+<span class="text-xs text-zinc-400">@suno_master dropped</span>
+<span class="text-sm font-bold text-white flex items-center gap-1">Midnight Tokyo <span class="text-xs text-[#FF66C4]">🔥 Hot</span></span>
+</div>
+</div>
+<div class="flex items-center gap-3 px-4 py-2 rounded-full glass-panel bg-zinc-900/50 hover:bg-zinc-800 transition-colors cursor-pointer min-w-[300px]">
+<div class="w-8 h-8 rounded-full bg-gradient-to-tr from-[#5CE1FF] to-[#B84DFF]"></div>
+<div class="flex flex-col">
+<span class="text-xs text-zinc-400">@audio_genesis dropped</span>
+<span class="text-sm font-bold text-white flex items-center gap-1">Neural Network <span class="text-xs text-[#5CE1FF]">📈 +20k plays</span></span>
+</div>
+</div>
+<div class="flex items-center gap-3 px-4 py-2 rounded-full glass-panel bg-zinc-900/50 hover:bg-zinc-800 transition-colors cursor-pointer min-w-[300px]">
+<div class="w-8 h-8 rounded-full bg-gradient-to-tr from-[#FF66C4] to-[#5CE1FF]"></div>
+<div class="flex flex-col">
+<span class="text-xs text-zinc-400">@lofi_bot dropped</span>
+<span class="text-sm font-bold text-white flex items-center gap-1">Study Beats v9 <span class="text-xs text-[#5CE1FF]">🎧 Relaxing</span></span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="relative py-32 px-4 max-w-7xl mx-auto" id="features">
+<div class="text-center mb-20">
+<h2 class="text-4xl md:text-5xl font-bold mb-6">Built for the <span class="text-gradient-aurora">AI Music Era</span></h2>
+<p class="text-zinc-400 max-w-2xl mx-auto">Seamlessly integrated tools designed for the next generation of creators.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="glass-panel glass-panel-hover rounded-3xl p-8 card-glow group relative overflow-hidden flex flex-col justify-between h-full min-h-[300px] -translate-y-0 hover:-translate-y-1">
+<div class="mb-4 w-12 h-12 rounded-2xl bg-gradient-to-br from-[#5CE1FF] to-[#0099FF] flex items-center justify-center text-white shadow-lg">
+<span class="material-symbols-outlined">smartphone</span>
+</div>
+<div>
+<h3 class="text-xl font-bold text-white mb-3">Massive Mobile Reach</h3>
+<p class="text-zinc-400 leading-relaxed text-sm">Deliver your tracks directly to 400 million+ users via pre-installed mobile music apps worldwide.</p>
+</div>
+<div class="absolute -right-10 -bottom-10 w-32 h-32 bg-[#5CE1FF]/20 rounded-full blur-3xl group-hover:bg-[#5CE1FF]/30 transition-all"></div>
+</div>
+<div class="glass-panel glass-panel-hover rounded-3xl p-8 card-glow group relative overflow-hidden flex flex-col justify-between h-full min-h-[300px] -translate-y-0 hover:-translate-y-1">
+<div class="mb-4 w-12 h-12 rounded-2xl bg-gradient-to-br from-[#9D00FF] to-[#B84DFF] flex items-center justify-center text-white shadow-lg">
+<span class="material-symbols-outlined">bolt</span>
+</div>
+<div>
+<h3 class="text-xl font-bold text-white mb-3">Lightning Distribution</h3>
+<p class="text-zinc-400 leading-relaxed text-sm">Powered by our seamless and frictionless pipeline, your track could reach global listeners in the very next minute.</p>
+</div>
+<div class="absolute -right-10 -bottom-10 w-32 h-32 bg-[#9D00FF]/20 rounded-full blur-3xl group-hover:bg-[#9D00FF]/30 transition-all"></div>
+</div>
+<div class="glass-panel glass-panel-hover rounded-3xl p-8 card-glow group relative overflow-hidden flex flex-col justify-between h-full min-h-[300px] -translate-y-0 hover:-translate-y-1">
+<div class="mb-4 w-12 h-12 rounded-2xl bg-gradient-to-br from-[#FF0099] to-[#FF66C4] flex items-center justify-center text-white shadow-lg">
+<span class="material-symbols-outlined">auto_awesome</span>
+</div>
+<div>
+<h3 class="text-xl font-bold text-white mb-3">AIGC Welcomed</h3>
+<p class="text-zinc-400 leading-relaxed text-sm">We fully embrace AI-generated music. Creativity has no boundaries, and your tools should never be a limitation.</p>
+</div>
+<div class="absolute -right-10 -bottom-10 w-32 h-32 bg-[#FF0099]/20 rounded-full blur-3xl group-hover:bg-[#FF0099]/30 transition-all"></div>
+</div>
+<div class="glass-panel glass-panel-hover rounded-3xl p-8 card-glow group relative overflow-hidden flex flex-col justify-between h-full min-h-[300px] -translate-y-0 hover:-translate-y-1">
+<div class="mb-4 w-12 h-12 rounded-2xl bg-gradient-to-br from-[#B84DFF] to-[#9D00FF] flex items-center justify-center text-white shadow-lg">
+<span class="material-symbols-outlined">psychology</span>
+</div>
+<div>
+<h3 class="text-xl font-bold text-white mb-3">Smart Algorithms</h3>
+<p class="text-zinc-400 leading-relaxed text-sm">Advanced AI analyzes your music DNA to match your tracks with the perfect audience globally.</p>
+</div>
+<div class="absolute -right-10 -bottom-10 w-32 h-32 bg-[#B84DFF]/20 rounded-full blur-3xl group-hover:bg-[#B84DFF]/30 transition-all"></div>
+</div>
+<div class="glass-panel glass-panel-hover rounded-3xl p-8 card-glow group relative overflow-hidden flex flex-col justify-between h-full min-h-[300px] -translate-y-0 hover:-translate-y-1">
+<div class="mb-4 w-12 h-12 rounded-2xl bg-gradient-to-br from-[#00CCFF] to-[#5CE1FF] flex items-center justify-center text-white shadow-lg">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+<div>
+<h3 class="text-xl font-bold text-white mb-3">Transparent Data</h3>
+<p class="text-zinc-400 leading-relaxed text-sm">Track plays, audience demographics, and revenue with our detailed and transparent dashboard.</p>
+</div>
+<div class="absolute -right-10 -bottom-10 w-32 h-32 bg-[#00CCFF]/20 rounded-full blur-3xl group-hover:bg-[#00CCFF]/30 transition-all"></div>
+</div>
+<div class="glass-panel glass-panel-hover rounded-3xl p-8 card-glow group relative overflow-hidden flex flex-col justify-between h-full min-h-[300px] -translate-y-0 hover:-translate-y-1">
+<div class="mb-4 w-12 h-12 rounded-2xl bg-gradient-to-br from-[#FF66C4] to-[#9D00FF] flex items-center justify-center text-white shadow-lg">
+<span class="material-symbols-outlined">security</span>
+</div>
+<div>
+<h3 class="text-xl font-bold text-white mb-3">Open &amp; Compliant</h3>
+<p class="text-zinc-400 leading-relaxed text-sm">We champion the freedom to upload. You are welcome to share any content, as long as it is legally compliant.</p>
+</div>
+<div class="absolute -right-10 -bottom-10 w-32 h-32 bg-[#FF66C4]/20 rounded-full blur-3xl group-hover:bg-[#FF66C4]/30 transition-all"></div>
+</div>
+</div>
+</section>
+<section class="py-24 relative bg-[#050505]" id="workflow">
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(157,0,255,0.05),transparent_40%)]"></div>
+<div class="max-w-7xl mx-auto px-4 relative z-10">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-white">From Creation to <span class="text-gradient-aurora">400M+ Users</span></h2>
+<p class="text-zinc-500 mt-2">The fastest pipeline in the industry.</p>
+</div>
+<div class="relative flex flex-col md:flex-row justify-between items-start gap-8">
+<div class="hidden md:block absolute top-12 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-[#5CE1FF]/20 via-[#B84DFF]/20 to-[#FF66C4]/20 z-0"></div>
+<div class="flex-1 relative z-10 text-center group">
+<div class="w-24 h-24 mx-auto bg-zinc-900 rounded-full border border-white/10 flex items-center justify-center mb-6 group-hover:border-[#5CE1FF]/50 group-hover:shadow-[0_0_30px_rgba(92,225,255,0.2)] transition-all duration-500">
+<span class="material-symbols-outlined text-3xl text-zinc-400 group-hover:text-[#5CE1FF] transition-colors">cloud_upload</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-3">1. Upload AIGC &amp; Originals</h3>
+<p class="text-sm text-zinc-400 px-4">Designed for the AI era. Whether created with Suno, Udio, or your DAW, simply upload your tracks.</p>
+</div>
+<div class="flex-1 relative z-10 text-center group">
+<div class="w-24 h-24 mx-auto bg-zinc-900 rounded-full border border-white/10 flex items-center justify-center mb-6 group-hover:border-[#9D00FF]/50 group-hover:shadow-[0_0_30px_rgba(157,0,255,0.2)] transition-all duration-500">
+<span class="material-symbols-outlined text-3xl text-zinc-400 group-hover:text-[#9D00FF] transition-colors">rocket_launch</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-3">2. Rapid Deployment</h3>
+<p class="text-sm text-zinc-400 px-4">No tedious waiting. Our streamlined distribution pipeline processes your files instantly for immediate release.</p>
+</div>
+<div class="flex-1 relative z-10 text-center group">
+<div class="w-24 h-24 mx-auto bg-zinc-900 rounded-full border border-white/10 flex items-center justify-center mb-6 group-hover:border-[#FF0099]/50 group-hover:shadow-[0_0_30px_rgba(255,0,153,0.2)] transition-all duration-500">
+<span class="material-symbols-outlined text-3xl text-zinc-400 group-hover:text-[#FF0099] transition-colors">public</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-3">3. Reach 400M+ Users</h3>
+<p class="text-sm text-zinc-400 px-4">Your music goes live to over 400 million native mobile listeners worldwide.</p>
+</div>
+</div>
+</div>
+</section>
+<footer class="pt-24 pb-12 border-t border-white/5 bg-black relative overflow-hidden" id="vision">
+<div class="absolute bottom-0 left-0 right-0 h-[500px] bg-[radial-gradient(circle_at_bottom,rgba(184,77,255,0.1),transparent_60%)] pointer-events-none"></div>
+<div class="max-w-7xl mx-auto px-6 relative z-10">
+<div class="text-center mb-24 space-y-8">
+<h2 class="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-white to-zinc-600">Music the World</h2>
+<p class="text-lg md:text-xl text-zinc-400 max-w-4xl mx-auto leading-relaxed font-light">
+                    Vanso is dedicated to democratizing music distribution. We believe in a future where every creator—whether using instruments or algorithms—has a stage. We bridge the gap between creators and the massive potential of mobile ecosystem listeners, building native experiences that make music discovery feel effortless for hundreds of millions of users.
+                </p>
+<button class="relative group px-8 py-3 rounded-full border border-white/20 hover:border-transparent transition-all duration-300 text-white font-medium overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-r from-[#FF0099] to-[#9D00FF] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="relative z-10">Launch Creator Studio</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 border-t border-white/5 pt-12">
+<div class="md:col-span-1 space-y-4">
+<div class="flex items-center gap-2">
+<div class="relative w-7 h-7 flex items-center justify-center">
+<svg fill="none" height="20" viewBox="0 0 28 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 4C0 1.79086 1.79086 0 4 0H8.5C9.97233 0 11.3442 0.76751 12.1213 2L14 5L15.8787 2C16.6558 0.76751 18.0277 0 19.5 0H24C26.2091 0 28 1.79086 28 4V5.5C28 6.7568 27.4259 7.94042 26.4436 8.7061L15.2218 17.456C14.4939 18.0235 13.5061 18.0235 12.7782 17.456L1.55635 8.7061C0.57412 7.94042 0 6.7568 0 5.5V4Z" fill="white"></path>
+</svg>
+</div>
+<span class="text-lg font-bold tracking-widest text-white">VANSO</span>
+</div>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors" href="#">
+<i class="fa-brands fa-x-twitter"></i>
+<span class="text-xs font-bold">X</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors" href="#">
+<span class="text-xs font-bold">TT</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors" href="#">
+<span class="text-xs font-bold">DC</span>
+</a>
+</div>
+</div>
+<div class="md:col-span-1 space-y-4" id="contact">
+<h4 class="text-white font-bold">Contact</h4>
+<ul class="space-y-2 text-sm text-zinc-400">
+<li><a class="hover:text-[#5CE1FF] transition-colors" href="mailto:service@vansound.com">service@vansound.com</a></li>
+<li><a class="hover:text-[#5CE1FF] transition-colors" href="mailto:office2025@vansound.com">office2025@vansound.com</a></li>
+</ul>
+</div>
+<div class="md:col-span-2 flex flex-col md:items-end justify-between">
+<div class="flex flex-wrap gap-6 text-sm text-zinc-500 mb-4">
+<a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-white transition-colors" href="#">User Agreement</a>
+<a class="hover:text-white transition-colors" href="#">Community Guidelines</a>
+<a class="hover:text-white transition-colors" href="#">Copyright Policy</a>
+</div>
+<p class="text-xs text-zinc-600">© 2026 Vanso. All rights reserved.</p>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

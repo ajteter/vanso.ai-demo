@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vanso Creator Studio Dashboard</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3713ec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#131022",
+                        "surface-dark": "#1d1c27",
+                        "surface-darker": "#121118",
+                        "accent-green": "#0bda6c",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "sans": ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white overflow-hidden">
+<div class="flex h-screen w-full">
+<aside class="flex w-[260px] flex-col border-r border-[#1f1d2b] bg-[#121118] h-full shrink-0">
+<div class="p-6 pb-2">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 shrink-0 rounded-full bg-slate-700 bg-cover bg-center border border-[#3f3b54]" data-alt="User avatar of a young creative person" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD0SjSD52aDvhgg5F3Sh8gPX-ULzeuVrJ_kvjrMyV9cOQ_0UpqIfQEbD4SaWtGesYEt-JfL0vF80xbiz8XMhxrLI8Cl9x4nJ4CXyKHFZEKRCB1K4wA3_AIDWLDdNPCMxJ4sqWwQrwiS6UuodnW748XEpSb9_kEAVWjPQqkhUGMQvl8IxOf8fx6yuvLZtdYDH3WSYxWXfPDd364KTBFxwTgsT30U6rV1wS3MtDqBJ4OvBOCu0QAGy0L-e6f5-op7rWWi6M-AbR46YAs')"></div>
+<div class="flex flex-col overflow-hidden">
+<h2 class="truncate text-sm font-semibold text-white">Alex Creator</h2>
+<p class="truncate text-xs text-[#a19db9]">@alex_beats</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 flex flex-col gap-1 px-4 py-6">
+<a class="group flex items-center gap-3 rounded-lg bg-primary px-3 py-2.5 text-white transition-colors" href="#">
+<span class="material-symbols-outlined fill-icon text-[20px]">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="group flex items-center gap-3 rounded-lg px-3 py-2.5 text-[#a19db9] hover:bg-[#1d1c27] hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">music_note</span>
+<span class="text-sm font-medium">My Drops</span>
+</a>
+</nav>
+<div class="p-4 border-t border-[#1f1d2b]">
+<div class="flex items-center gap-2 px-2 py-1 text-[#a19db9]">
+<span class="material-symbols-outlined text-[18px]">info</span>
+<span class="text-xs font-medium">Vanso Studio v1.0.2</span>
+</div>
+</div>
+</aside>
+<main class="flex-1 h-full overflow-y-auto bg-background-dark">
+<div class="container mx-auto max-w-7xl p-10">
+<header class="flex flex-wrap items-center justify-between gap-4 mb-8">
+<div>
+<h1 class="text-3xl font-bold text-white tracking-tight mb-2">Dashboard</h1>
+<p class="text-[#a19db9] text-sm">Welcome back, Alex. Here's what's happening with your music today.</p>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded-lg flex items-center gap-2 font-semibold text-sm transition-all">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                    New Drop
+                </button>
+</header>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+<div class="rounded-2xl bg-[#1d1c27] p-8 border border-[#2b2839] relative overflow-hidden group">
+<div class="absolute top-1/2 -translate-y-1/2 right-8 opacity-10">
+<span class="material-symbols-outlined text-[80px] text-white fill-icon">play_circle</span>
+</div>
+<div class="relative z-10">
+<p class="text-[#a19db9] text-sm font-medium mb-2">Total Plays</p>
+<div class="flex items-baseline gap-3">
+<h3 class="text-4xl font-bold text-white tracking-tight">12,540</h3>
+<span class="text-accent-green text-sm font-medium flex items-center">
+<span class="material-symbols-outlined text-[16px] mr-1">trending_up</span>
+                                12%
+                            </span>
+</div>
+</div>
+</div>
+<div class="rounded-2xl bg-[#1d1c27] p-8 border border-[#2b2839] relative overflow-hidden group">
+<div class="absolute top-1/2 -translate-y-1/2 right-8 opacity-10">
+<span class="material-symbols-outlined text-[80px] text-white fill-icon">favorite</span>
+</div>
+<div class="relative z-10">
+<p class="text-[#a19db9] text-sm font-medium mb-2">Likes &amp; Saves</p>
+<div class="flex items-baseline gap-3">
+<h3 class="text-4xl font-bold text-white tracking-tight">843</h3>
+<span class="text-accent-green text-sm font-medium flex items-center">
+<span class="material-symbols-outlined text-[16px] mr-1">trending_up</span>
+                                5%
+                            </span>
+</div>
+</div>
+</div>
+</div>
+<div class="rounded-2xl bg-[#121118] border border-[#1f1d2b] overflow-hidden">
+<div class="px-6 py-5 border-b border-[#1f1d2b] flex justify-between items-center">
+<h3 class="text-lg font-semibold text-white">Recent Drops</h3>
+<button class="text-sm text-primary hover:text-white transition-colors">View All</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-[#1f1d2b] text-[11px] uppercase tracking-widest text-[#5d5a7a]">
+<th class="px-6 py-4 font-semibold w-24">Cover</th>
+<th class="px-6 py-4 font-semibold">Track Title</th>
+<th class="px-6 py-4 font-semibold">Upload Date</th>
+<th class="px-6 py-4 font-semibold text-right">Play Count</th>
+<th class="px-6 py-4 font-semibold text-center w-32">Status</th>
+</tr>
+</thead>
+<tbody class="text-sm divide-y divide-[#1f1d2b]">
+<tr class="group hover:bg-[#1d1c27]/40 transition-colors">
+<td class="px-6 py-4">
+<div class="h-12 w-12 rounded border border-[#2b2839] bg-cover bg-center" data-alt="Neon pink and blue abstract album cover art" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB6sCoQCHQD-kkC-ihGZURGa5oCQxGnCXsynxnu_3g_dXRtxLRr3MwrquZ2pRig8GBRsykDALri5fvaMlmA9y5Tw4S34gQRBfqVb0fq7zyUNeiCkYN3ZbnPJAlTmlUHg9RNJuEJeuS3Hgb0WlFVXsUQW2TikqYXmpSsGp4WzwtXPy08CmJHq8hPAZWs9Bbr8C9dcXViqk1ttRpYsN4bM26HurvxaxqpW_AG50EXdo12yyRW56MXLj5yid0Ug9VGRPeHuMKviwLwjLQ')"></div>
+</td>
+<td class="px-6 py-4 font-medium text-white">Neon Nights</td>
+<td class="px-6 py-4 text-[#a19db9]">Oct 24, 2023</td>
+<td class="px-6 py-4 text-white text-right font-medium">1,204</td>
+<td class="px-6 py-4 text-center">
+<span class="inline-flex items-center rounded-full bg-green-400/10 px-3 py-1 text-[10px] font-bold text-green-400 ring-1 ring-inset ring-green-400/20 uppercase">Live</span>
+</td>
+</tr>
+<tr class="group hover:bg-[#1d1c27]/40 transition-colors">
+<td class="px-6 py-4">
+<div class="h-12 w-12 rounded border border-[#2b2839] bg-cover bg-center" data-alt="Moody dark blue water texture album cover" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAJbhogtrawrJEX76qvgsMsqK7DIisQapiQIVhcFO9iqjJFegfXecQtvNjoukaky6ioDNi6MiKJMIOo9uYu0Lo5RfV8Fjpnxe77Gj_9jZtmb5tm5e0VRnz6pSeirpYRPEF_YRdop_8Wu21BobsQxKl61tUuawNacZpxMoo-ysFL10GQ8TMdrKjCYKjFSt6GcPWoa88pZCOHqpL7RSrwJyB_JrCt1_lvi6xBxeIstWxDcO5FHizHgFdZ1b1udINEE0I7m5HPgTYEv5M')"></div>
+</td>
+<td class="px-6 py-4 font-medium text-white">Deep Focus</td>
+<td class="px-6 py-4 text-[#a19db9]">Oct 12, 2023</td>
+<td class="px-6 py-4 text-white text-right font-medium">3,400</td>
+<td class="px-6 py-4 text-center">
+<span class="inline-flex items-center rounded-full bg-green-400/10 px-3 py-1 text-[10px] font-bold text-green-400 ring-1 ring-inset ring-green-400/20 uppercase">Live</span>
+</td>
+</tr>
+<tr class="group hover:bg-[#1d1c27]/40 transition-colors">
+<td class="px-6 py-4">
+<div class="h-12 w-12 rounded border border-[#2b2839] bg-cover bg-center" data-alt="Green tropical leaves pattern album cover" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDzLCdQcflm-ALHtBEIGOttx6Y0MmoVj2r2SK-0nI8PcR09K0CV1jay4OA6Gm4cE1ueB70tKNhH6029Ri_KdwLOR3X6sYpMEs1fJRbq84ArD3NmnOWADjZhmrKnUagdpgezLQOCpBpdzM2rP26BWrm1E6fI9j2nV-bCyyHJcEYQQJ4U9HdHvpXf8wSZbfrWwMVU00rQlV5r0QdWKOEeClq5Ydc3sdOa8YWziW_xWBPqgulvZ9TugPXPfms10vvcsHWnd-zAjRmowbM')"></div>
+</td>
+<td class="px-6 py-4 font-medium text-white">Urban Jungle</td>
+<td class="px-6 py-4 text-[#a19db9]">Sep 30, 2023</td>
+<td class="px-6 py-4 text-white text-right font-medium">890</td>
+<td class="px-6 py-4 text-center">
+<span class="inline-flex items-center rounded-full bg-yellow-400/10 px-3 py-1 text-[10px] font-bold text-yellow-400 ring-1 ring-inset ring-yellow-400/20 uppercase">Processing</span>
+</td>
+</tr>
+<tr class="group hover:bg-[#1d1c27]/40 transition-colors">
+<td class="px-6 py-4">
+<div class="h-12 w-12 rounded border border-[#2b2839] bg-cover bg-center" data-alt="Cozy coffee shop interior blurred background album cover" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDHYDgqAUGP-QPsNTPb-UW1F5Ap0Af4P0u4ufrSYfILx6QLKCbu2shWK61cXysSiuXSm9TpeTt8nBc48FK8BodsBBT-cuIMV9sNTe9wtDXBmq6cxxlVAVk92dXfY3LGPjHrXqXz1Oek3meINNbdqokE2dQfo-isLXR65qzqj7q3ljZc7gZNt5U7f2IvnCJgaAHjifIycosFjDs3es2k5PgZ5laGlevZ7HVXZXLa9Qmv7ahFQ2YFdZTXIzbHPROKDPd8FeZxzBBlCsM')"></div>
+</td>
+<td class="px-6 py-4 font-medium text-white">Lo-Fi Sunday</td>
+<td class="px-6 py-4 text-[#a19db9]">Sep 15, 2023</td>
+<td class="px-6 py-4 text-white text-right font-medium">5,100</td>
+<td class="px-6 py-4 text-center">
+<span class="inline-flex items-center rounded-full bg-green-400/10 px-3 py-1 text-[10px] font-bold text-green-400 ring-1 ring-inset ring-green-400/20 uppercase">Live</span>
+</td>
+</tr>
+<tr class="group hover:bg-[#1d1c27]/40 transition-colors">
+<td class="px-6 py-4">
+<div class="h-12 w-12 rounded border border-[#2b2839] bg-cover bg-center" data-alt="Abstract vibrant geometric shapes album cover" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA78WptQkTUfnDNuXIFBOUAoBKt2OIbkpDgz6iUI9Vcp8GtMCngOob1h2zn1cNmy057V0EdaJ-0IzdGlWiQl0z8cnWpbn2jTd2gbOPV-V2GX_2fJmRDI-QAc4SQBwuyq8luFo22XLzBqHMlGoRHvIUuMTO-Owq98vb1pCq6MnuX_mxXvHR2WpnzRsnoWNlmQc5CEeeI-h_333A3F3c9lrakzZQJfS9LgpKFJpfyfi3GLiM8Aq6IXBQm_Aw8Pl8ahH_QKgnlp2lOiQ8')"></div>
+</td>
+<td class="px-6 py-4 font-medium text-white">Bass Drops</td>
+<td class="px-6 py-4 text-[#a19db9]">Aug 22, 2023</td>
+<td class="px-6 py-4 text-white text-right font-medium">2,300</td>
+<td class="px-6 py-4 text-center">
+<span class="inline-flex items-center rounded-full bg-gray-400/10 px-3 py-1 text-[10px] font-bold text-gray-400 ring-1 ring-inset ring-gray-400/20 uppercase">Draft</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

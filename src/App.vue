@@ -3,6 +3,7 @@ import Navbar from './components/Navbar.vue';
 import Hero from './components/Hero.vue';
 import LiveTicker from './components/LiveTicker.vue';
 import Features from './components/Features.vue';
+import Workflow from './components/Workflow.vue';
 import Footer from './components/Footer.vue';
 </script>
 
@@ -20,6 +21,11 @@ import Footer from './components/Footer.vue';
     <!-- Features / Creator Grid -->
     <section class="relative">
       <Features />
+    </section>
+
+    <!-- Workflow Section -->
+    <section class="relative border-t border-white/5">
+      <Workflow />
     </section>
     
     <!-- Footer -->

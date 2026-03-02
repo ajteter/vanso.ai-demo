@@ -1,71 +1,32 @@
-<script setup>
-import { Globe, Menu } from 'lucide-vue-next';
-import { ref } from 'vue';
-
-const isMenuOpen = ref(false);
-const isLangOpen = ref(false);
-</script>
-
 <template>
-  <div class="fixed top-0 left-0 right-0 z-50 flex justify-center mt-6 px-4 pointer-events-none transition-all duration-300">
-    <nav class="flex items-center justify-between w-full max-w-5xl px-6 py-3 bg-white/5 backdrop-blur-2xl border border-white/10 rounded-full pointer-events-auto">
-      
-      <!-- Left: Logo -->
-      <div class="flex items-center gap-2 cursor-pointer">
-        <span class="text-xl font-bold tracking-widest text-white">VANSO</span>
-      </div>
-
-      <!-- Center: Links (Desktop) -->
-      <div class="hidden md:flex items-center gap-6">
-        <a href="#features" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors duration-300">Features</a>
-        <a href="#how-it-works" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors duration-300">How it works</a>
-        <a href="#about" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors duration-300">About us</a>
-        <a href="#footer" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors duration-300">Contact</a>
-      </div>
-
-      <!-- Right: Actions (Desktop & Mobile) -->
-      <div class="flex items-center gap-4 md:gap-5">
-        
-        <!-- Language Switcher -->
-        <div class="relative">
-          <button @click="isLangOpen = !isLangOpen" class="flex items-center gap-1 text-sm text-zinc-400 hover:text-white transition-colors duration-200">
-            <Globe class="w-4 h-4" />
-            <span>EN ▾</span>
-          </button>
-          <div v-if="isLangOpen" class="absolute top-full right-0 mt-2 w-32 bg-[#0A0A0B] border border-white/10 rounded-xl overflow-hidden py-1 shadow-2xl z-50">
-            <a href="#" class="block px-4 py-2 text-sm text-zinc-400 hover:text-white hover:bg-white/5">English</a>
-            <a href="#" class="block px-4 py-2 text-sm text-zinc-400 hover:text-white hover:bg-white/5">Español</a>
-            <a href="#" class="block px-4 py-2 text-sm text-zinc-400 hover:text-white hover:bg-white/5">Português</a>
-            <a href="#" class="block px-4 py-2 text-sm text-zinc-400 hover:text-white hover:bg-white/5">Bahasa</a>
-          </div>
+  <div class="content-stretch flex h-[100px] items-start justify-center px-[16px] relative shrink-0 w-full z-50 mt-4">
+    <div class="backdrop-blur-[12px] bg-white/5 border border-white/10 content-stretch flex h-full items-center justify-between max-w-[1152px] pl-[24px] pr-[23.99px] py-[12px] relative rounded-[9999px] shrink-0 w-full md:w-[1152px]">
+      <div class="relative shrink-0 flex items-center gap-[10px] cursor-pointer hover:opacity-80 transition-opacity">
+        <img alt="Vanso Logo" class="rounded-[100px] size-[40px] pointer-events-none object-cover" src="/assets/vanso-logo.png" />
+        <div class="h-[24px] relative shrink-0 w-[108px]">
+          <img alt="Vanso" class="absolute h-full object-contain" src="/assets/vanso-text.svg" />
         </div>
-
-        <!-- Creator Login (Hidden on Mobile) -->
-        <a href="#" class="hidden md:block text-sm text-zinc-400 hover:text-white transition-colors duration-200">
-          Creator Login
-        </a>
-
-        <!-- Get App -->
-        <button class="bg-white text-black rounded-full px-5 py-2 text-sm font-medium hover:scale-105 transition-transform duration-300 shadow-[0_0_15px_rgba(255,255,255,0.3)]">
-          Get App
-        </button>
-
-        <!-- Mobile Menu Toggle -->
-        <button @click="isMenuOpen = !isMenuOpen" class="md:hidden text-white hover:text-zinc-300">
-          <Menu class="w-6 h-6" />
-        </button>
       </div>
-
-    </nav>
-
-    <!-- Mobile Menu -->
-    <div v-if="isMenuOpen" class="absolute top-16 left-4 right-4 bg-[#0A0A0B]/95 backdrop-blur-2xl border border-white/10 rounded-2xl p-6 flex flex-col gap-4 pointer-events-auto shadow-2xl md:hidden">
-      <a href="#features" @click="isMenuOpen = false" class="text-base font-medium text-white hover:text-[#00F0FF] transition-colors">Features</a>
-      <a href="#how-it-works" @click="isMenuOpen = false" class="text-base font-medium text-white hover:text-[#00F0FF] transition-colors">How it works</a>
-      <a href="#about" @click="isMenuOpen = false" class="text-base font-medium text-white hover:text-[#00F0FF] transition-colors">About us</a>
-      <a href="#footer" @click="isMenuOpen = false" class="text-base font-medium text-white hover:text-[#00F0FF] transition-colors">Contact</a>
-      <div class="h-[1px] bg-white/10 w-full my-2"></div>
-      <a href="#" class="text-base font-medium text-zinc-400 hover:text-white transition-colors">Creator Login</a>
+      <div class="relative shrink-0">
+        <div class="content-stretch flex gap-[16px] items-center relative">
+          <div class="content-stretch flex gap-[4px] items-center relative shrink-0 cursor-pointer hover:text-white transition-colors">
+            <img alt="Globe" class="size-[15px]" src="/assets/icon-container.svg" />
+            <div class="flex flex-col font-normal h-[20px] justify-center text-[#a1a1aa] text-[14px]">
+              <p class="leading-[20px]">EN</p>
+            </div>
+            <img alt="Arrow down" class="w-[6.667px]" src="/assets/icon-container1.svg" />
+          </div>
+          <a href="#" class="font-normal justify-center text-[#a1a1aa] text-[14px] whitespace-nowrap hover:text-white transition-colors">
+            Sign in
+          </a>
+          <button class="content-stretch flex items-center justify-center px-[20px] py-[10px] relative rounded-[9999px] shadow-[0px_0px_15px_0px_rgba(255,102,196,0.3)] shrink-0 hover:scale-105 transition-transform" style="background-image: linear-gradient(156deg, #F5328A 19%, #ECA08B 57%, #54E3D5 91%);">
+            <span class="font-bold h-[20px] justify-center text-[14px] text-white">Get App</span>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
+
+<script setup>
+</script>

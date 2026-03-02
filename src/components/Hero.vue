@@ -1,6 +1,6 @@
 <template>
-  <div class="content-stretch flex flex-col items-center overflow-visible py-[48px] relative shrink-0 w-full mt-10 md:mt-20">
-    <div class="content-stretch flex flex-col gap-[64px] items-center py-[64px] relative shrink-0 w-full md:w-[1024px]">
+  <div class="content-stretch flex flex-col items-center overflow-visible py-[24px] relative shrink-0 w-full">
+    <div class="content-stretch flex flex-col gap-[48px] items-center py-[48px] relative shrink-0 w-full md:w-[1024px]">
       <div class="content-stretch flex flex-col gap-[8px] items-center relative shrink-0 w-full">
         <div class="flex flex-col font-bold justify-center shrink-0 text-[48px] md:text-[96px] text-center text-white tracking-[-2.4px] leading-tight">
           <p class="leading-tight md:leading-[96px]">Turn Your AI Music</p>

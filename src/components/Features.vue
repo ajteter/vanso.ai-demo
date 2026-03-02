@@ -4,9 +4,9 @@
       <div class="content-stretch flex flex-col items-center relative shrink-0 w-full">
         <div class="flex flex-col font-bold justify-center text-[36px] md:text-[48px] text-center text-white leading-[1.2]">
           <p class="whitespace-pre-wrap">
-            <span>Built for the </span>
+            <span>Built for the</span>
             <span class="bg-clip-text text-[transparent] font-bold" style="background-image: linear-gradient(175deg, #54E3D5 33%, #F5328A 91%)">
-              AI Music Era
+             AI Music Era
             </span>
           </p>
         </div>

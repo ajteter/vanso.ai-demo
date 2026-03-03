@@ -21,7 +21,7 @@
         <!-- Step 1: w=416, h=200 -->
         <div class="flex-1 flex flex-col items-center text-center relative min-w-0">
           <!-- Circle: 96x96, centered -->
-          <div class="bg-[#18181b] border border-[rgba(255,255,255,0.1)] flex items-center justify-center rounded-full size-[96px] z-10 mb-[24px]">
+          <div class="bg-white/5 backdrop-blur-xl border border-white/10 flex items-center justify-center rounded-full size-[96px] z-10 mb-[24px] shadow-lg">
             <img alt="Upload" class="w-[27.5px] h-[20px]" src="/assets/icon-workflow-1.svg" />
           </div>
           <!-- Title: h=28 -->
@@ -32,7 +32,7 @@
         
         <!-- Step 2: w=416, h=220 -->
         <div class="flex-1 flex flex-col items-center text-center relative min-w-0">
-          <div class="bg-[#18181b] border border-[rgba(255,255,255,0.1)] flex items-center justify-center rounded-full size-[96px] z-10 mb-[24px]">
+          <div class="bg-white/5 backdrop-blur-xl border border-white/10 flex items-center justify-center rounded-full size-[96px] z-10 mb-[24px] shadow-lg">
             <img alt="Deploy" class="w-[25px] h-[25px]" src="/assets/icon-workflow-2.svg" />
           </div>
           <h3 class="font-bold text-[20px] text-white leading-[28px] mb-[12px]">2. Rapid Deployment</h3>
@@ -41,7 +41,7 @@
         
         <!-- Step 3: w=416, h=200 -->
         <div class="flex-1 flex flex-col items-center text-center relative min-w-0">
-          <div class="bg-[#18181b] border border-[rgba(255,255,255,0.1)] flex items-center justify-center rounded-full size-[96px] z-10 mb-[24px]">
+          <div class="bg-white/5 backdrop-blur-xl border border-white/10 flex items-center justify-center rounded-full size-[96px] z-10 mb-[24px] shadow-lg">
             <img alt="Global" class="size-[25px]" src="/assets/icon-workflow-3.svg" />
           </div>
           <h3 class="font-bold text-[20px] text-white leading-[28px] mb-[12px]">3. Reach 400M+ Users</h3>

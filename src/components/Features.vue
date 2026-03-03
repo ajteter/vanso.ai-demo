@@ -17,7 +17,7 @@
     <!-- Cards grid: x=16, y=240, w=1248, h=624 — 3 cols, 24px gap, each card 400x300 -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-[24px] max-w-[1248px] mx-auto mt-[48px] px-4 relative shrink-0 w-full">
       <!-- Card 1: 400x300 -->
-      <div class="backdrop-blur-[20px] bg-white/5 border border-white/10 flex flex-col items-start overflow-hidden relative rounded-[24px] group hover:-translate-y-1 transition-transform h-[300px]">
+      <div class="bg-white/5 backdrop-blur-2xl border border-white/10 flex flex-col items-start overflow-hidden relative rounded-3xl group hover:bg-white/10 hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(255,255,255,0.05)] hover:border-white/20 transition-all duration-300 h-[300px]">
         <div class="p-[33px] flex flex-col justify-between h-full w-full">
           <div class="size-[48px] rounded-[16px] flex items-center justify-center shadow-lg" style="background-image: linear-gradient(134deg, #F5328A 19%, #ECA08B 58%, #54E3D5 91%);">
             <img alt="" class="w-[15px] h-[22px]" src="/assets/icon-feature1.svg" />
@@ -31,7 +31,7 @@
       </div>
       
       <!-- Card 2: 400x300 -->
-      <div class="backdrop-blur-[20px] bg-white/5 border border-white/10 flex flex-col items-start overflow-hidden relative rounded-[24px] group hover:-translate-y-1 transition-transform h-[300px]">
+      <div class="bg-white/5 backdrop-blur-2xl border border-white/10 flex flex-col items-start overflow-hidden relative rounded-3xl group hover:bg-white/10 hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(255,255,255,0.05)] hover:border-white/20 transition-all duration-300 h-[300px]">
         <div class="p-[33px] flex flex-col justify-between h-full w-full">
           <div class="size-[48px] rounded-[16px] flex items-center justify-center shadow-lg" style="background-image: linear-gradient(135deg, #b84dff 47%, #F5328A 100%);">
             <img alt="" class="w-[16px] h-[20px]" src="/assets/icon-feature2.svg" />
@@ -45,7 +45,7 @@
       </div>
       
       <!-- Card 3: 400x300 -->
-      <div class="backdrop-blur-[20px] bg-white/5 border border-white/10 flex flex-col items-start overflow-hidden relative rounded-[24px] group hover:-translate-y-1 transition-transform h-[300px]">
+      <div class="bg-white/5 backdrop-blur-2xl border border-white/10 flex flex-col items-start overflow-hidden relative rounded-3xl group hover:bg-white/10 hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(255,255,255,0.05)] hover:border-white/20 transition-all duration-300 h-[300px]">
         <div class="p-[33px] flex flex-col justify-between h-full w-full">
           <div class="size-[48px] rounded-[16px] flex items-center justify-center shadow-lg" style="background-image: linear-gradient(135deg, #54E3D5 23%, #F5328A 100%);">
             <img alt="" class="w-[22px] h-[22px]" src="/assets/icon-feature3.svg" />
@@ -59,7 +59,7 @@
       </div>
       
       <!-- Card 4: 400x300 -->
-      <div class="backdrop-blur-[20px] bg-white/5 border border-white/10 flex flex-col items-start overflow-hidden relative rounded-[24px] group hover:-translate-y-1 transition-transform h-[300px]">
+      <div class="bg-white/5 backdrop-blur-2xl border border-white/10 flex flex-col items-start overflow-hidden relative rounded-3xl group hover:bg-white/10 hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(255,255,255,0.05)] hover:border-white/20 transition-all duration-300 h-[300px]">
         <div class="p-[33px] flex flex-col justify-between h-full w-full">
           <div class="size-[48px] rounded-[16px] flex items-center justify-center shadow-lg" style="background-image: linear-gradient(135deg, #54E3D5 0%, #b84dff 100%);">
             <img alt="" class="w-[19px] h-[20px]" src="/assets/icon-feature4.svg" />
@@ -73,7 +73,7 @@
       </div>
       
       <!-- Card 5: 400x300 -->
-      <div class="backdrop-blur-[20px] bg-white/5 border border-white/10 flex flex-col items-start overflow-hidden relative rounded-[24px] group hover:-translate-y-1 transition-transform h-[300px]">
+      <div class="bg-white/5 backdrop-blur-2xl border border-white/10 flex flex-col items-start overflow-hidden relative rounded-3xl group hover:bg-white/10 hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(255,255,255,0.05)] hover:border-white/20 transition-all duration-300 h-[300px]">
         <div class="p-[33px] flex flex-col justify-between h-full w-full">
           <div class="size-[48px] rounded-[16px] flex items-center justify-center shadow-lg" style="background-image: linear-gradient(135deg, #ECA08B 43%, #54E3D5 100%);">
             <img alt="" class="w-[18px] h-[18px]" src="/assets/icon-feature5.svg" />
@@ -87,7 +87,7 @@
       </div>
       
       <!-- Card 6: 400x300 -->
-      <div class="backdrop-blur-[20px] bg-white/5 border border-white/10 flex flex-col items-start overflow-hidden relative rounded-[24px] group hover:-translate-y-1 transition-transform h-[300px]">
+      <div class="bg-white/5 backdrop-blur-2xl border border-white/10 flex flex-col items-start overflow-hidden relative rounded-3xl group hover:bg-white/10 hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(255,255,255,0.05)] hover:border-white/20 transition-all duration-300 h-[300px]">
         <div class="p-[33px] flex flex-col justify-between h-full w-full">
           <div class="size-[48px] rounded-[16px] flex items-center justify-center shadow-lg" style="background-image: linear-gradient(135deg, #b84dff 0%, #54E3D5 100%);">
             <img alt="" class="w-[16px] h-[20px]" src="/assets/icon-workflow-arrow.svg" />

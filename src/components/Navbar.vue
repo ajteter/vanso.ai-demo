@@ -13,10 +13,10 @@
           <span class="font-normal text-[#a1a1aa] text-[14px] leading-[20px]">EN</span>
           <img alt="Arrow down" class="w-[7px] h-[4px] opacity-60" src="/assets/icon-container1.svg" />
         </div>
-        <a href="#" class="font-normal text-[#a1a1aa] text-[14px] whitespace-nowrap hover:text-white transition-colors leading-[20px]">
+        <button class="font-normal text-[#a1a1aa] text-[14px] whitespace-nowrap hover:text-white transition-colors leading-[20px] cursor-pointer" @click="$emit('open-login')">
           Sign in
-        </a>
-        <button class="flex items-center justify-center px-[20px] py-[10px] rounded-[9999px] shadow-[0px_0px_15px_0px_rgba(255,102,196,0.3)] shrink-0 hover:scale-105 transition-transform" style="background-image: linear-gradient(156deg, #F5328A 19%, #ECA08B 57%, #54E3D5 91%);">
+        </button>
+        <button class="bg-gradient-to-br from-vanso-magenta via-vanso-peach to-vanso-cyan text-white font-semibold rounded-full px-[24px] py-[10px] shadow-[0_0_20px_rgba(245,50,138,0.3)] hover:scale-105 hover:shadow-[0_0_30px_rgba(84,227,213,0.5)] transition-all duration-300 flex items-center justify-center shrink-0">
           <span class="font-bold text-[14px] text-white leading-[20px]">Get App</span>
         </button>
       </div>
@@ -25,4 +25,5 @@
 </template>
 
 <script setup>
+defineEmits(['open-login']);
 </script>

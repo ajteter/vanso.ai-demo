@@ -4,6 +4,12 @@
   --color-background: #000000;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
 
+  --color-vanso-magenta: #F5328A;
+  --color-vanso-cyan: #54E3D5;
+  --color-vanso-peach: #ECA08B;
+  --color-vanso-bg: #000000;
+  --color-vanso-card: #0A0A0B;
+
   @keyframes fluid {
     0% {
       transform: translate(0, 0) scale(1);

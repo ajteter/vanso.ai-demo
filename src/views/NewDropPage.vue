@@ -12,6 +12,7 @@ const coverFile = ref(null);
 const audioFile = ref(null);
 const audioFileName = ref('');
 const isDragging = ref(false);
+const confirmed = ref(false);
 
 function handleFileDrop(e) {
   isDragging.value = false;
@@ -208,15 +209,38 @@ function goBack() {
     </div>
 
     <!-- Action Buttons -->
-    <div class="border-t border-[rgba(255,255,255,0.1)] flex gap-[16px] items-center justify-end pt-[25px] w-full">
-      <button class="border border-transparent rounded-full px-[25px] py-[13px] cursor-pointer transition-colors duration-200 hover:bg-[rgba(255,255,255,0.05)]">
-        <span class="font-medium text-[14px] text-[#a1a1aa] text-center leading-[20px]">Save Draft</span>
-      </button>
-      <button 
-        class="bg-gradient-to-br from-vanso-magenta via-vanso-peach to-vanso-cyan text-white font-semibold rounded-full px-[40px] py-[12px] shadow-[0px_0px_25px_0px_rgba(245,50,138,0.4)] hover:shadow-[0_0_35px_rgba(84,227,213,0.6)] transition-shadow duration-300 cursor-pointer"
-      >
-        <span class="font-bold text-[14px] text-center tracking-[0.35px] leading-[20px]">Post Drop</span>
-      </button>
+    <div class="border-t border-[rgba(255,255,255,0.1)] flex items-center justify-between pt-[25px] w-full">
+      <!-- Checkbox Confirmation -->
+      <label class="flex items-start gap-[10px] cursor-pointer max-w-[600px] shrink">
+        <div class="relative flex items-center mt-[2px]">
+          <input 
+            v-model="confirmed" 
+            type="checkbox" 
+            class="peer appearance-none size-[16px] border border-[rgba(255,255,255,0.2)] bg-[rgba(255,255,255,0.05)] rounded-[4px] checked:bg-vanso-cyan checked:border-vanso-cyan cursor-pointer transition-colors"
+          />
+          <svg class="absolute w-[10px] h-[10px] left-[3px] top-[3px] text-black opacity-0 peer-checked:opacity-100 pointer-events-none" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 7L5.5 10.5L12 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="text-[13px] text-[#a1a1aa] leading-[18px]">
+          By uploading, you confirm that this content comply with our 
+          <a href="https://h5.vansound.com/#/communityrule.html" target="_blank" class="text-vanso-cyan hover:underline hover:text-white transition-colors" @click.stop>Community Guidelines</a> 
+          and you don't infringe anyone else's rights.
+        </span>
+      </label>
+
+      <!-- Buttons -->
+      <div class="flex gap-[16px] items-center shrink-0">
+        <button class="border border-transparent rounded-full px-[25px] py-[13px] cursor-pointer transition-colors duration-200 hover:bg-[rgba(255,255,255,0.05)]">
+          <span class="font-medium text-[14px] text-[#a1a1aa] text-center leading-[20px]">Save Draft</span>
+        </button>
+        <button 
+          :disabled="!confirmed"
+          class="bg-gradient-to-br from-vanso-magenta via-vanso-peach to-vanso-cyan text-white font-semibold rounded-full px-[40px] py-[12px] shadow-[0px_0px_25px_0px_rgba(245,50,138,0.4)] disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-[0_0_35px_rgba(84,227,213,0.6)] transition-all duration-300 cursor-pointer"
+        >
+          <span class="font-bold text-[14px] text-center tracking-[0.35px] leading-[20px]">Post Drop</span>
+        </button>
+      </div>
     </div>
   </div>
 </template>

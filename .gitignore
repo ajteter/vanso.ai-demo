@@ -26,3 +26,4 @@ dist-ssr
 # pdf
 pdf/
 pdf
+*.pdf

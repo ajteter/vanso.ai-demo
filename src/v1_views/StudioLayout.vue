@@ -18,8 +18,8 @@ function closeProfile() {
   <div class="bg-black flex flex-col items-start relative size-full min-h-screen text-white font-['Inter',sans-serif]">
     <!-- BG blur spots -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
-      <div class="absolute bg-[#f5328a] blur-[75px] h-[512px] left-[-128px] opacity-20 rounded-full top-[-205px] w-[640px]"></div>
-      <div class="absolute bg-[#54e3d5] blur-[75px] bottom-[-205px] h-[512px] opacity-20 right-[-128px] rounded-full w-[640px]"></div>
+      <div class="absolute bg-vanso-magenta blur-[75px] h-128 left-[-128px] opacity-20 rounded-full top-[-205px] w-160"></div>
+      <div class="absolute bg-vanso-cyan blur-[75px] bottom-[-205px] h-128 opacity-20 right-[-128px] rounded-full w-160"></div>
     </div>
 
     <!-- Main container -->

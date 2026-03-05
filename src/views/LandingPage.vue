@@ -15,18 +15,18 @@ const showLoginModal = ref(false);
   <div class="bg-black flex flex-col items-start relative size-full overflow-x-hidden min-h-screen text-white font-['Plus_Jakarta_Sans',sans-serif]">
     
     <!-- BG blur spot 1: Magenta glow top-left — breathe delay 0s -->
-    <div class="glow-orb glow-orb-1 absolute top-[-20px] left-[-164px] w-[640px] h-[512px] bg-[#f5328a] rounded-full blur-[120px] pointer-events-none z-0"></div>
+    <div class="glow-orb glow-orb-1 absolute top-[-20px] left-[-164px] w-160 h-128 bg-vanso-magenta rounded-full blur-[120px] pointer-events-none z-0"></div>
     
     <!-- BG blur spot 2: Cyan glow top-right — breathe delay 2s -->
-    <div class="glow-orb glow-orb-2 absolute top-[384px] right-[-189px] w-[640px] h-[512px] pointer-events-none z-0">
+    <div class="glow-orb glow-orb-2 absolute top-[384px] right-[-189px] w-160 h-128 pointer-events-none z-0">
       <img alt="" class="block w-full h-full" src="/assets/bg-blur.svg" />
     </div>
     
     <!-- BG blur spot 3: Magenta glow bottom-left — breathe delay 4s -->
-    <div class="glow-orb glow-orb-3 absolute top-[2547px] left-[-164px] w-[640px] h-[512px] bg-[#f5328a] rounded-full blur-[120px] pointer-events-none z-0"></div>
+    <div class="glow-orb glow-orb-3 absolute top-[2547px] left-[-164px] w-160 h-128 bg-vanso-magenta rounded-full blur-[120px] pointer-events-none z-0"></div>
     
     <!-- BG blur spot 4: Cyan glow bottom-right — breathe delay 6s -->
-    <div class="glow-orb glow-orb-4 absolute top-[2876px] right-[-189px] w-[640px] h-[512px] pointer-events-none z-0">
+    <div class="glow-orb glow-orb-4 absolute top-[2876px] right-[-189px] w-160 h-128 pointer-events-none z-0">
       <img alt="" class="block w-full h-full" src="/assets/bg-blur.svg" />
     </div>
 

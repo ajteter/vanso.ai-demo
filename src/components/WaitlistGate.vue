@@ -23,7 +23,7 @@ const submit = () => {
 </script>
 
 <template>
-  <div class="w-full max-w-3xl mx-auto py-32 px-4 min-h-[500px] flex items-center justify-center relative">
+  <div class="w-full max-w-3xl mx-auto py-32 px-4 min-h-125 flex items-center justify-center relative">
     
     <!-- Background Glow -->
     <div class="absolute inset-0 bg-neon-purple/5 blur-[100px] rounded-full pointer-events-none"></div>
@@ -72,8 +72,8 @@ const submit = () => {
           </div>
           
           <div class="border-t-2 border-dashed border-white/10 my-8 relative">
-            <div class="absolute -left-14 -top-3 w-6 h-6 bg-[#050505] rounded-full"></div>
-            <div class="absolute -right-14 -top-3 w-6 h-6 bg-[#050505] rounded-full"></div>
+            <div class="absolute -left-14 -top-3 w-6 h-6 bg-zinc-950 rounded-full"></div>
+            <div class="absolute -right-14 -top-3 w-6 h-6 bg-zinc-950 rounded-full"></div>
           </div>
           
           <div class="flex justify-between items-end">

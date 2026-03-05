@@ -52,6 +52,12 @@ npm run build
 
 ## 📅 更新日志 (Changelog)
 
+### v2.0.1 (2026-03-05) - Tailwind v4 语义化规范升级 (Semantic Optimization)
+*   **🧹 Hex 硬编码大扫除**: 依据 Tailwind 4 的 `"Never Use Hex Colors"` 准则，使用 Python 脚本全局清洗了所有 `.vue` 与 `MASTER.md` 示例中的 `[#F5328A]` 等绝对值。全面纳入 `text-vanso-magenta` 等在 `style.css` 声明的最佳实践 Semantic Tokens。
+*   **📏 布局步进还原 (Rem Scaling)**: 系统性擦除了作为逃生舱口滥用的任意像素值 (如 `p-[16px]` 或 `gap-[24px]`)，全部还原至原生缩放系统 (如 `p-4`, `gap-6`)，保证响应式布局随视口灵活伸缩，消灭了臃肿的冗余类名。
+*   **🎨 色彩泛型约束**: 将原先野蛮生长的近黑色系或暗灰色阶（如 `#1a1a1a`, `#a1a1aa`）统一编排归队于 `zinc-950` 或 `zinc-400` 内置系统色板。提升了设计系统的一致性并降低维护成本。
+*   **💡 阴影体系升维**: 应用了 Tailwind v4 最新阴影语法，将繁琐的 `shadow-[0_0_20px_rgba(...)]` 解耦为明确的形态表现附带颜色透明度解析器（如 `shadow-[0_0_20px] shadow-vanso-magenta/30`），极大提升了代码可读性。
+
 ### v2.0 (2026-03-05)
 *   **🎉 新设计系统落地**: 全面实施 Vanso "Premium Dark Mode (Sonic Aura)" 设计系统。所有 Web 组件现已遵照 `MASTER.md` 升级，带来极其震撼的视觉呈现效果和品牌统一感。
 *   **⚙️ UI/UX 规范升级**: 导入专业产品级交互标准。移除了所有界面中可能导致布局抖动的粗糙 Hover 缩放；规范所有的色阶为 Tailwind 标准 `zinc` 灰阶以达到最高无障碍阅读要求；重建表单和卡片毛玻璃光照阴影的悬停渐变。

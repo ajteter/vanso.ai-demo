@@ -42,18 +42,18 @@
 A glowing background using extremely blurred `mix-blend-screen` standard divs.
 ```html
 <!-- Example Aura -->
-<div class="fixed top-10 left-10 w-[500px] h-[500px] bg-[#F5328A] rounded-full mix-blend-screen blur-[150px] opacity-20 animate-pulse"></div>
+<div class="fixed top-10 left-10 w-[500px] h-[500px] bg-vanso-magenta rounded-full mix-blend-screen blur-[150px] opacity-20 animate-pulse"></div>
 ```
 
 ### Primary CTA
 ```html
-<button class="bg-gradient-to-br from-[#F5328A] via-[#ECA08B] to-[#54E3D5] text-white font-semibold rounded-full px-8 py-4 shadow-[0_0_20px_rgba(245,50,138,0.3)] hover:scale-105 hover:shadow-[0_0_30px_rgba(245,50,138,0.5)] transition-all duration-300 cursor-pointer">
+<button class="bg-gradient-to-br from-vanso-magenta via-vanso-peach to-vanso-cyan text-white font-semibold rounded-full px-8 py-4 shadow-[0_0_20px] shadow-vanso-magenta/30 hover:scale-105 hover:shadow-[0_0_30px] hover:shadow-vanso-magenta/50 transition-all duration-300 cursor-pointer">
 </button>
 ```
 
 ### Highlight Text Gradient
 ```html
-<span class="bg-clip-text text-transparent bg-gradient-to-r from-[#54E3D5] to-[#F5328A]">Highlighted text</span>
+<span class="bg-clip-text text-transparent bg-gradient-to-r from-vanso-cyan to-vanso-magenta">Highlighted text</span>
 ```
 
 ### Glassmorphism Cards

@@ -48,28 +48,28 @@ onBeforeUnmount(() => document.removeEventListener('click', handleClickOutside))
 </script>
 
 <template>
-  <aside class="bg-vanso-card border-r border-white/10 flex flex-col h-full items-start justify-between overflow-visible p-[17px] shrink-0 w-[260px]">
+  <aside class="bg-vanso-card border-r border-white/10 flex flex-col h-full items-start justify-between overflow-visible p-[17px] shrink-0 w-65">
     <!-- Top section: Logo + Nav -->
     <div class="w-full">
-      <div class="flex flex-col gap-[40px] items-center pt-[24px] w-full">
+      <div class="flex flex-col gap-10 items-center pt-[24px] w-full">
         <!-- Logo -->
-        <div class="flex gap-[10px] items-center justify-center w-full cursor-pointer" @click="navigateTo('Dashboard')">
-          <div class="relative rounded-full shrink-0 size-[40px]">
+        <div class="flex gap-2.5 items-center justify-center w-full cursor-pointer" @click="navigateTo('Dashboard')">
+          <div class="relative rounded-full shrink-0 size-10">
             <img alt="Vanso Logo" class="absolute inset-0 object-cover pointer-events-none rounded-full size-full" src="/vanso-logo.webp" />
           </div>
-          <div class="h-[24px] shrink-0 w-[108px]">
-            <img alt="Vanso" class="block max-w-none h-[24px] w-[108px]" src="/assets/vanso-text.svg" />
+          <div class="h-6 shrink-0 w-27">
+            <img alt="Vanso" class="block max-w-none h-6 w-27" src="/assets/vanso-text.svg" />
           </div>
         </div>
 
         <!-- Navigation -->
-        <nav class="flex flex-col gap-[8px] items-center w-full">
+        <nav class="flex flex-col gap-2 items-center w-full">
           <!-- Dashboard Link -->
           <button
-            class="flex gap-[12px] items-center py-[10px] rounded-[8px] w-full transition-colors duration-300 cursor-pointer"
+            class="flex gap-3 items-center py-[10px] rounded-lg w-full transition-colors duration-300 cursor-pointer"
             :class="currentPage === 'Dashboard' 
-              ? 'bg-white/10 border-l-2 border-[#f5328a] pl-[14px] pr-[12px]' 
-              : 'px-[12px] hover:bg-white/5'"
+              ? 'bg-white/10 border-l-2 border-vanso-magenta pl-[14px] pr-[12px]' 
+              : 'px-3 hover:bg-white/5'"
             @click="navigateTo('Dashboard')"
           >
             <!-- Dashboard Icon (grid) -->
@@ -80,17 +80,17 @@ onBeforeUnmount(() => document.removeEventListener('click', handleClickOutside))
               <rect x="11" y="11" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
             </svg>
             <span 
-              class="font-['Inter',sans-serif] font-medium text-[14px] leading-[21px]"
+              class="font-['Inter',sans-serif] font-medium text-sm leading-[21px]"
               :class="currentPage === 'Dashboard' ? 'text-white' : 'text-zinc-400'"
             >Dashboard</span>
           </button>
 
           <!-- My Drops Link -->
           <button
-            class="flex gap-[12px] items-center py-[10px] rounded-[8px] w-full transition-colors duration-300 cursor-pointer"
+            class="flex gap-3 items-center py-[10px] rounded-lg w-full transition-colors duration-300 cursor-pointer"
             :class="(currentPage === 'MyDrops' || currentPage === 'NewDrop')
-              ? 'bg-white/10 border-l-2 border-[#f5328a] pl-[14px] pr-[12px]' 
-              : 'px-[12px] hover:bg-white/5'"
+              ? 'bg-white/10 border-l-2 border-vanso-magenta pl-[14px] pr-[12px]' 
+              : 'px-3 hover:bg-white/5'"
             @click="navigateTo('MyDrops')"
           >
             <!-- My Drops Icon (music note) -->
@@ -100,7 +100,7 @@ onBeforeUnmount(() => document.removeEventListener('click', handleClickOutside))
               <circle cx="9.5" cy="12.5" r="2.5" stroke="currentColor" stroke-width="1.2"/>
             </svg>
             <span 
-              class="font-['Inter',sans-serif] font-medium text-[14px] leading-[21px]"
+              class="font-['Inter',sans-serif] font-medium text-sm leading-[21px]"
               :class="(currentPage === 'MyDrops' || currentPage === 'NewDrop') ? 'text-white' : 'text-zinc-400'"
             >My Drops</span>
           </button>
@@ -114,47 +114,47 @@ onBeforeUnmount(() => document.removeEventListener('click', handleClickOutside))
       <Transition name="dropdown">
         <div 
           v-if="showDropdown"
-          class="absolute bottom-[68px] left-[12px] right-[12px] bg-[#1a1a1a] border border-white/10 rounded-[12px] shadow-[0_-8px_30px_rgba(0,0,0,0.5)] overflow-hidden z-50"
+          class="absolute bottom-[68px] left-[12px] right-[12px] bg-zinc-950 border border-white/10 rounded-xl shadow-[0_-8px_30px_rgba(0,0,0,0.5)] overflow-hidden z-50"
         >
           <button
-            class="flex gap-[10px] items-center w-full px-[16px] py-[12px] cursor-pointer transition-colors duration-300 hover:bg-white/5"
+            class="flex gap-2.5 items-center w-full px-4 py-3 cursor-pointer transition-colors duration-300 hover:bg-white/5"
             @click="openProfile"
           >
             <!-- User icon -->
-            <svg class="size-[16px] text-zinc-400" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg class="size-4 text-zinc-400" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="8" cy="5" r="3" stroke="currentColor" stroke-width="1.3"/>
               <path d="M2 14c0-2.761 2.686-5 6-5s6 2.239 6 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
             </svg>
-            <span class="font-medium text-[14px] text-white leading-[20px]">Profile</span>
+            <span class="font-medium text-sm text-white leading-[20px]">Profile</span>
           </button>
           <div class="h-px bg-white/10 mx-[12px]"></div>
           <button
-            class="flex gap-[10px] items-center w-full px-[16px] py-[12px] cursor-pointer transition-colors duration-300 hover:bg-white/5"
+            class="flex gap-2.5 items-center w-full px-4 py-3 cursor-pointer transition-colors duration-300 hover:bg-white/5"
             @click="signOut"
           >
             <!-- Sign out icon -->
-            <svg class="size-[16px] text-[#eb493d]" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg class="size-4 text-red-500" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M6 14H3.333A1.333 1.333 0 0 1 2 12.667V3.333A1.333 1.333 0 0 1 3.333 2H6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M10.667 11.333 14 8l-3.333-3.333M14 8H6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            <span class="font-medium text-[14px] text-[#eb493d] leading-[20px]">Sign Out</span>
+            <span class="font-medium text-sm text-red-500 leading-[20px]">Sign Out</span>
           </button>
         </div>
       </Transition>
 
-      <div class="border-t border-white/10 flex gap-[12px] items-center pb-[16px] pt-[17px] px-[12px] w-full">
+      <div class="border-t border-white/10 flex gap-3 items-center pb-[16px] pt-[17px] px-3 w-full">
         <!-- Avatar circle -->
         <div 
-          class="relative rounded-full shrink-0 size-[40px] cursor-pointer bg-gradient-to-tr from-vanso-magenta to-vanso-cyan"
+          class="relative rounded-full shrink-0 size-10 cursor-pointer bg-gradient-to-tr from-vanso-magenta to-vanso-cyan"
           @click="openProfile"
         >
           <div class="flex items-center justify-center size-full">
-            <span class="font-['Inter',sans-serif] font-bold text-[14px] text-white text-center leading-[20px]">JD</span>
+            <span class="font-['Inter',sans-serif] font-bold text-sm text-white text-center leading-[20px]">JD</span>
           </div>
         </div>
         <!-- Name -->
         <div class="shrink-0">
-          <span class="font-['Inter',sans-serif] font-medium text-[14px] text-white leading-[20px]">John Doe</span>
+          <span class="font-['Inter',sans-serif] font-medium text-sm text-white leading-[20px]">John Doe</span>
         </div>
         <!-- Chevron (toggles dropdown) -->
         <svg 

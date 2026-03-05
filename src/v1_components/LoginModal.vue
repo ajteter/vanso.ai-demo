@@ -15,7 +15,7 @@ function signInWithGoogle() {
     <!-- Overlay -->
     <Transition name="login-overlay">
       <div 
-        class="fixed inset-0 bg-black/70 backdrop-blur-lg z-[300] flex items-center justify-center"
+        class="fixed inset-0 bg-black/70 backdrop-blur-[6px] z-[300] flex items-center justify-center"
         @click.self="$emit('close')"
       >
         <!-- Modal Card -->
@@ -24,10 +24,10 @@ function signInWithGoogle() {
             
             <!-- Close Button -->
             <button 
-              class="absolute top-[16px] right-[16px] size-[32px] flex items-center justify-center rounded-full cursor-pointer transition-colors duration-300 hover:bg-white/5"
+              class="absolute top-[16px] right-[16px] size-[32px] flex items-center justify-center rounded-full cursor-pointer transition-colors duration-200 hover:bg-white/5"
               @click="$emit('close')"
             >
-              <svg class="size-[12px] text-zinc-400" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg class="size-[12px] text-[#a1a1aa]" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 1L11 11M1 11L11 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
               </svg>
             </button>
@@ -42,7 +42,7 @@ function signInWithGoogle() {
 
             <!-- Sign in with Google Button -->
             <button 
-              class="flex items-center justify-center gap-[12px] w-full bg-white hover:bg-gray-100 rounded-full py-[14px] px-[24px] transition-colors duration-300 cursor-pointer shadow-[0_2px_8px_rgba(0,0,0,0.15)]"
+              class="flex items-center justify-center gap-[12px] w-full bg-white hover:bg-gray-100 rounded-full py-[14px] px-[24px] transition-colors duration-200 cursor-pointer shadow-[0_2px_8px_rgba(0,0,0,0.15)]"
               @click="signInWithGoogle"
             >
               <!-- Google Icon -->
@@ -56,11 +56,11 @@ function signInWithGoogle() {
             </button>
 
             <!-- Privacy Notice -->
-            <p class="text-[12px] text-zinc-500 text-center leading-[18px] max-w-[300px]">
+            <p class="text-[12px] text-[#71717a] text-center leading-[18px] max-w-[300px]">
               By continuing, you accept our 
-              <a href="#" class="text-zinc-400 underline hover:text-white transition-colors">Privacy Policy</a> 
+              <a href="#" class="text-[#a1a1aa] underline hover:text-white transition-colors">Privacy Policy</a> 
               and 
-              <a href="#" class="text-zinc-400 underline hover:text-white transition-colors">Terms of Use</a>
+              <a href="#" class="text-[#a1a1aa] underline hover:text-white transition-colors">Terms of Use</a>
             </p>
           </div>
         </Transition>

@@ -78,16 +78,16 @@ function confirmDelete() {
       <!-- Table Header -->
       <div class="border-b border-white/10 flex items-center w-full">
         <div class="flex-1 px-[24px] py-[16px]">
-          <span class="font-semibold text-[11px] text-zinc-400 tracking-[1.1px] uppercase">Song Info</span>
+          <span class="font-semibold text-[11px] text-[#a1a1aa] tracking-[1.1px] uppercase">Song Info</span>
         </div>
         <div class="w-[200px] px-[24px] py-[16px]">
-          <span class="font-semibold text-[11px] text-zinc-400 tracking-[1.1px] uppercase">Metrics</span>
+          <span class="font-semibold text-[11px] text-[#a1a1aa] tracking-[1.1px] uppercase">Metrics</span>
         </div>
         <div class="w-[160px] px-[24px] py-[16px]">
-          <span class="font-semibold text-[11px] text-zinc-400 tracking-[1.1px] uppercase">Updated</span>
+          <span class="font-semibold text-[11px] text-[#a1a1aa] tracking-[1.1px] uppercase">Updated</span>
         </div>
         <div class="w-[120px] px-[24px] py-[16px] text-center">
-          <span class="font-semibold text-[11px] text-zinc-400 tracking-[1.1px] uppercase">Actions</span>
+          <span class="font-semibold text-[11px] text-[#a1a1aa] tracking-[1.1px] uppercase">Actions</span>
         </div>
       </div>
 
@@ -96,13 +96,13 @@ function confirmDelete() {
         <div 
           v-for="(drop, i) in drops" 
           :key="i"
-          class="flex items-center w-full transition-colors duration-300 hover:bg-white/5"
+          class="flex items-center w-full transition-colors duration-150 hover:bg-[rgba(255,255,255,0.02)]"
           :class="i > 0 ? 'border-t border-[rgba(255,255,255,0.05)]' : ''"
         >
           <!-- Song Info (cover + title) -->
           <div class="flex-1 px-[24px] py-[16px] flex items-center gap-[16px]">
             <div 
-              class="rounded-[8px] size-[48px] border border-white/10 shrink-0"
+              class="rounded-[8px] size-[48px] border border-[rgba(255,255,255,0.1)] shrink-0"
               :style="{ backgroundImage: getCoverGradient(drop.cover) }"
             ></div>
             <span class="font-medium text-[14px] text-white leading-[20px]">{{ drop.title }}</span>
@@ -113,31 +113,31 @@ function confirmDelete() {
               <svg class="size-[16px] text-[#54e3d5]" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M8 1.333A6.667 6.667 0 1 0 14.667 8 6.667 6.667 0 0 0 8 1.333zm-1.333 9.334V5.333L10 8l-3.333 2.667z"/>
               </svg>
-              <span class="font-normal text-[13px] text-zinc-400 leading-[20px]">{{ drop.plays }}</span>
+              <span class="font-normal text-[13px] text-[#a1a1aa] leading-[20px]">{{ drop.plays }}</span>
             </div>
             <div class="flex items-center gap-[4px]">
               <svg class="size-[14px] text-[#f5328a]" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M8 14.25l-1.025-.933C3.1 9.85 1 7.95 1 5.625 1 3.725 2.525 2.2 4.425 2.2c1.088 0 2.138.506 2.825 1.306A3.91 3.91 0 0 1 10.075 2.2C11.975 2.2 13.5 3.725 13.5 5.625c0 2.325-2.1 4.225-5.975 7.7L8 14.25z"/>
               </svg>
-              <span class="font-normal text-[13px] text-zinc-400 leading-[20px]">{{ drop.likes }}</span>
+              <span class="font-normal text-[13px] text-[#a1a1aa] leading-[20px]">{{ drop.likes }}</span>
             </div>
           </div>
           <!-- Updated date -->
           <div class="w-[160px] px-[24px] py-[16px]">
-            <span class="font-normal text-[13px] text-zinc-400 leading-[20px]">{{ drop.date }}</span>
+            <span class="font-normal text-[13px] text-[#a1a1aa] leading-[20px]">{{ drop.date }}</span>
           </div>
           <!-- Actions (edit + delete) -->
           <div class="w-[120px] px-[24px] py-[16px] flex items-center justify-center gap-[12px]">
             <button 
-              class="flex items-center justify-center rounded-[6px] size-[32px] cursor-pointer transition-colors duration-300 hover:bg-white/5"
+              class="flex items-center justify-center rounded-[6px] size-[32px] cursor-pointer transition-colors duration-200 hover:bg-[rgba(255,255,255,0.05)]"
               @click="openEditDrawer(drop)"
             >
-              <svg class="size-[16px] text-zinc-400" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg class="size-[16px] text-[#a1a1aa]" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M11.333 2A1.886 1.886 0 0 1 14 4.667L5.333 13.333H2V10l8.667-8.667.666.667z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </button>
             <button 
-              class="flex items-center justify-center rounded-[6px] size-[32px] cursor-pointer transition-colors duration-300 hover:bg-[rgba(239,68,68,0.1)]"
+              class="flex items-center justify-center rounded-[6px] size-[32px] cursor-pointer transition-colors duration-200 hover:bg-[rgba(239,68,68,0.1)]"
               @click="requestDelete(i)"
             >
               <svg class="size-[16px] text-[#eb493d]" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -151,9 +151,9 @@ function confirmDelete() {
 
     <!-- Load More Button -->
     <div class="flex justify-center w-full">
-      <button class="flex gap-[8px] items-center px-[24px] py-[10px] rounded-full bg-white/5 border border-white/10 cursor-pointer transition-colors duration-300 hover:bg-[rgba(255,255,255,0.08)]">
+      <button class="flex gap-[8px] items-center px-[24px] py-[10px] rounded-full bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] cursor-pointer transition-colors duration-200 hover:bg-[rgba(255,255,255,0.08)]">
         <span class="font-medium text-[14px] text-white text-center leading-[20px]">Load More</span>
-        <svg class="size-[12px] text-zinc-400" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="size-[12px] text-[#a1a1aa]" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </button>
@@ -174,10 +174,10 @@ function confirmDelete() {
     <Transition name="drawer">
       <div 
         v-if="showEditDrawer && editingDrop"
-        class="fixed right-0 top-0 bottom-0 z-[101] backdrop-blur-xl bg-[#0e0e0e] border-l border-white/10 flex flex-col w-[500px] max-w-[100vw]"
+        class="fixed right-0 top-0 bottom-0 z-[101] backdrop-blur-[12px] bg-[#0e0e0e] border-l border-[rgba(255,255,255,0.1)] flex flex-col w-[500px] max-w-[100vw]"
       >
         <!-- Header -->
-        <div class="border-b border-white/10 w-full shrink-0">
+        <div class="border-b border-[rgba(255,255,255,0.1)] w-full shrink-0">
           <div class="flex items-center justify-between py-[24px] px-[32px]">
             <div class="flex gap-[12px] items-center">
               <svg class="size-[18px] text-white" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -186,10 +186,10 @@ function confirmDelete() {
               <h2 class="font-bold text-[20px] text-white tracking-[-0.5px] leading-[28px]">Edit Details</h2>
             </div>
             <button 
-              class="bg-white/5 border border-white/10 rounded-full size-[36px] flex items-center justify-center cursor-pointer transition-colors duration-300 hover:bg-white/10"
+              class="bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded-full size-[36px] flex items-center justify-center cursor-pointer transition-colors duration-200 hover:bg-[rgba(255,255,255,0.1)]"
               @click="closeEditDrawer"
             >
-              <svg class="size-[10px] text-zinc-400" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg class="size-[10px] text-[#a1a1aa]" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 1L9 9M1 9L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
               </svg>
             </button>
@@ -202,22 +202,22 @@ function confirmDelete() {
             <!-- Cover Art -->
             <div class="flex flex-col gap-[12px] items-center w-full">
               <div 
-                class="rounded-[12px] w-[200px] h-[200px] border border-white/10 shadow-[0px_10px_30px_rgba(0,0,0,0.3)]"
+                class="rounded-[12px] w-[200px] h-[200px] border border-[rgba(255,255,255,0.1)] shadow-[0px_10px_30px_rgba(0,0,0,0.3)]"
                 :style="{ backgroundImage: getCoverGradient(editingDrop.cover), backgroundSize: 'cover' }"
               ></div>
               <span class="font-medium text-[14px] text-[#54e3d5] text-center leading-[20px] cursor-pointer hover:underline">Change Image</span>
             </div>
 
             <!-- Audio Filename (locked) -->
-            <div class="bg-white/5 border border-white/10 rounded-[12px] flex items-center gap-[12px] p-[16px] w-full">
-              <div class="size-[40px] rounded-[8px] bg-white/5 flex items-center justify-center shrink-0">
-                <svg class="size-[20px] text-zinc-400" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div class="bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded-[12px] flex items-center gap-[12px] p-[16px] w-full">
+              <div class="size-[40px] rounded-[8px] bg-[rgba(255,255,255,0.05)] flex items-center justify-center shrink-0">
+                <svg class="size-[20px] text-[#a1a1aa]" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M11 1H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7l-6-6z" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
                   <path d="M11 1v6h6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </div>
               <div class="flex flex-col flex-1 min-w-0">
-                <span class="font-semibold text-[11px] text-zinc-400 tracking-[0.5px] uppercase leading-[16px]">Audio Filename</span>
+                <span class="font-semibold text-[11px] text-[#a1a1aa] tracking-[0.5px] uppercase leading-[16px]">Audio Filename</span>
                 <span class="font-medium text-[14px] text-white leading-[20px] truncate">song_final.mp3</span>
               </div>
               <svg class="size-[16px] text-[#eb493d] shrink-0" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -228,8 +228,8 @@ function confirmDelete() {
 
             <!-- Title -->
             <div class="flex flex-col gap-[8px] w-full">
-              <label class="font-medium text-[14px] text-zinc-400 leading-[20px]">Title</label>
-              <div class="bg-white/5 border border-white/10 rounded-[8px] overflow-hidden">
+              <label class="font-medium text-[14px] text-[#a1a1aa] leading-[20px]">Title</label>
+              <div class="bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded-[8px] overflow-hidden">
                 <input 
                   v-model="editingDrop.title"
                   type="text" 
@@ -240,8 +240,8 @@ function confirmDelete() {
 
             <!-- Language -->
             <div class="flex flex-col gap-[8px] w-full">
-              <label class="font-medium text-[14px] text-zinc-400 leading-[20px]">Language</label>
-              <div class="relative bg-white/5 border border-white/10 rounded-[8px] overflow-hidden h-[44px]">
+              <label class="font-medium text-[14px] text-[#a1a1aa] leading-[20px]">Language</label>
+              <div class="relative bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded-[8px] overflow-hidden h-[44px]">
                 <select class="bg-transparent w-full h-full px-[17px] text-[14px] text-white outline-none appearance-none cursor-pointer font-normal">
                   <option value="English" class="bg-[#1a1a1a]">English</option>
                   <option value="Spanish" class="bg-[#1a1a1a]">Spanish</option>
@@ -250,7 +250,7 @@ function confirmDelete() {
                   <option value="Japanese" class="bg-[#1a1a1a]">Japanese</option>
                   <option value="Korean" class="bg-[#1a1a1a]">Korean</option>
                 </select>
-                <svg class="absolute right-[12px] top-1/2 -translate-y-1/2 size-[10px] text-zinc-400 pointer-events-none" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg class="absolute right-[12px] top-1/2 -translate-y-1/2 size-[10px] text-[#a1a1aa] pointer-events-none" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </div>
@@ -259,7 +259,7 @@ function confirmDelete() {
             <!-- Lyrics -->
             <div class="flex flex-col gap-[8px] w-full">
               <div class="flex items-center justify-between w-full">
-                <label class="font-medium text-[14px] text-zinc-400 leading-[20px]">Lyrics</label>
+                <label class="font-medium text-[14px] text-[#a1a1aa] leading-[20px]">Lyrics</label>
                 <button class="flex gap-[4px] items-center px-[8px] py-[4px] rounded-[4px] cursor-pointer hover:bg-[rgba(84,227,213,0.05)]">
                   <svg class="size-[13px] text-[#54e3d5]" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M6.5 10V2M6.5 2L3.5 5M6.5 2L9.5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -268,7 +268,7 @@ function confirmDelete() {
                   <span class="font-semibold text-[12px] text-[#54e3d5] text-center leading-[16px]">Upload .txt/.lrc</span>
                 </button>
               </div>
-              <div class="bg-white/5 border border-white/10 rounded-[8px] overflow-hidden">
+              <div class="bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded-[8px] overflow-hidden">
                 <textarea 
                   placeholder="Enter or paste lyrics here..."
                   class="bg-transparent w-full px-[17px] py-[13px] text-[14px] text-white placeholder-[#a1a1aa] outline-none resize-none font-normal leading-[20px] min-h-[150px]"
@@ -278,8 +278,8 @@ function confirmDelete() {
 
             <!-- Description -->
             <div class="flex flex-col gap-[8px] w-full">
-              <label class="font-medium text-[14px] text-zinc-400 leading-[20px]">Description</label>
-              <div class="bg-white/5 border border-white/10 rounded-[8px] overflow-hidden">
+              <label class="font-medium text-[14px] text-[#a1a1aa] leading-[20px]">Description</label>
+              <div class="bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded-[8px] overflow-hidden">
                 <textarea 
                   v-model="editingDrop.description"
                   placeholder="Tell your fans about this track..."
@@ -291,10 +291,10 @@ function confirmDelete() {
         </div>
 
         <!-- Footer Actions -->
-        <div class="backdrop-blur-lg bg-[rgba(0,0,0,0.2)] border-t border-white/10 shrink-0 w-full">
+        <div class="backdrop-blur-[6px] bg-[rgba(0,0,0,0.2)] border-t border-[rgba(255,255,255,0.1)] shrink-0 w-full">
           <div class="flex gap-[16px] items-center justify-center py-[24px] px-[32px]">
             <button 
-              class="border border-white/10 rounded-full flex-[1] py-[13px] cursor-pointer transition-colors duration-300 hover:bg-white/5"
+              class="border border-[rgba(255,255,255,0.1)] rounded-full flex-[1] py-[13px] cursor-pointer transition-colors duration-200 hover:bg-[rgba(255,255,255,0.05)]"
               @click="closeEditDrawer"
             >
               <span class="font-medium text-[14px] text-white text-center leading-[20px] block">Cancel</span>
@@ -333,19 +333,19 @@ function confirmDelete() {
             <!-- Title -->
             <h3 class="font-bold text-[20px] text-white text-center leading-[28px]">Delete Drop?</h3>
             <!-- Description -->
-            <p class="text-[14px] text-zinc-400 text-center leading-[22px]">
+            <p class="text-[14px] text-[#a1a1aa] text-center leading-[22px]">
               This action cannot be undone. The track and all associated data will be permanently removed.
             </p>
             <!-- Actions -->
             <div class="flex gap-[12px] w-full mt-[4px]">
               <button
-                class="flex-1 border border-white/10 rounded-full py-[12px] cursor-pointer transition-colors duration-300 hover:bg-white/5"
+                class="flex-1 border border-white/10 rounded-full py-[12px] cursor-pointer transition-colors duration-200 hover:bg-white/5"
                 @click="cancelDelete"
               >
                 <span class="font-medium text-[14px] text-white text-center leading-[20px] block">Cancel</span>
               </button>
               <button
-                class="flex-1 bg-[#eb493d] rounded-full py-[12px] cursor-pointer transition-all duration-300 hover:bg-[#d43b2f] shadow-[0_0_15px_rgba(235,73,61,0.3)]"
+                class="flex-1 bg-[#eb493d] rounded-full py-[12px] cursor-pointer transition-all duration-200 hover:bg-[#d43b2f] shadow-[0_0_15px_rgba(235,73,61,0.3)]"
                 @click="confirmDelete"
               >
                 <span class="font-bold text-[14px] text-white text-center leading-[20px] block">Delete</span>

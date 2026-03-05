@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue';
-import AppSidebar from '../components/AppSidebar.vue';
-import ProfilePanel from '../components/ProfilePanel.vue';
+import AppSidebar from '../v1_components/AppSidebar.vue';
+import ProfilePanel from '../v1_components/ProfilePanel.vue';
 
 const showProfilePanel = ref(false);
 
@@ -42,7 +42,7 @@ function closeProfile() {
     <Transition name="profile-overlay">
       <div 
         v-if="showProfilePanel" 
-        class="fixed inset-0 z-40 backdrop-blur-xl bg-[rgba(0,0,0,0.3)]"
+        class="fixed inset-0 z-40 backdrop-blur-[12px] bg-[rgba(0,0,0,0.3)]"
         @click="closeProfile"
       ></div>
     </Transition>

@@ -36,10 +36,10 @@ function getStatusStyles(status) {
       };
     case 'draft':
       return {
-        bg: 'bg-white/5',
+        bg: 'bg-[rgba(255,255,255,0.05)]',
         border: 'shadow-[inset_0px_0px_0px_1px_rgba(255,255,255,0.1)]',
         glow: '',
-        text: 'text-zinc-400',
+        text: 'text-[#a1a1aa]',
         label: 'Draft',
       };
     default:
@@ -89,7 +89,7 @@ function getCoverGradient(idx) {
           </svg>
         </div>
         <div class="flex flex-col gap-[8px] items-start w-full relative z-[1]">
-          <span class="font-medium text-[14px] text-zinc-400 tracking-[0.7px] uppercase leading-[20px]">{{ stats[0].label }}</span>
+          <span class="font-medium text-[14px] text-[#a1a1aa] tracking-[0.7px] uppercase leading-[20px]">{{ stats[0].label }}</span>
           <div class="flex gap-[12px] items-end w-full">
             <span class="font-bold text-[48px] leading-[48px] tracking-[-1.2px] bg-clip-text text-transparent bg-gradient-to-r from-vanso-cyan to-vanso-magenta">{{ stats[0].value }}</span>
             <div class="bg-vanso-cyan/10 border border-vanso-cyan/20 flex items-center px-[9px] py-[5px] rounded-full">
@@ -112,7 +112,7 @@ function getCoverGradient(idx) {
           </svg>
         </div>
         <div class="flex flex-col gap-[8px] items-start w-full relative z-[1]">
-          <span class="font-medium text-[14px] text-zinc-400 tracking-[0.7px] uppercase leading-[20px]">{{ stats[1].label }}</span>
+          <span class="font-medium text-[14px] text-[#a1a1aa] tracking-[0.7px] uppercase leading-[20px]">{{ stats[1].label }}</span>
           <div class="flex gap-[12px] items-end w-full">
             <span class="font-bold text-[48px] leading-[48px] tracking-[-1.2px] bg-clip-text text-transparent bg-gradient-to-r from-vanso-cyan to-vanso-magenta">{{ stats[1].value }}</span>
           </div>
@@ -131,21 +131,21 @@ function getCoverGradient(idx) {
       </div>
 
       <!-- Table Columns Header -->
-      <div class="border-b border-white/10 flex items-start w-full">
+      <div class="border-b border-[rgba(255,255,255,0.1)] flex items-start w-full">
         <div class="w-[96px] px-[24px] py-[16px]">
-          <span class="font-semibold text-[11px] text-zinc-400 tracking-[1.1px] uppercase">Cover</span>
+          <span class="font-semibold text-[11px] text-[#a1a1aa] tracking-[1.1px] uppercase">Cover</span>
         </div>
         <div class="flex-1 px-[24px] py-[16px]">
-          <span class="font-semibold text-[11px] text-zinc-400 tracking-[1.1px] uppercase">Track Title</span>
+          <span class="font-semibold text-[11px] text-[#a1a1aa] tracking-[1.1px] uppercase">Track Title</span>
         </div>
         <div class="flex-1 px-[24px] py-[16px]">
-          <span class="font-semibold text-[11px] text-zinc-400 tracking-[1.1px] uppercase">Upload Date</span>
+          <span class="font-semibold text-[11px] text-[#a1a1aa] tracking-[1.1px] uppercase">Upload Date</span>
         </div>
         <div class="w-[200px] px-[24px] py-[16px] text-right">
-          <span class="font-semibold text-[11px] text-zinc-400 tracking-[1.1px] uppercase">Play Count</span>
+          <span class="font-semibold text-[11px] text-[#a1a1aa] tracking-[1.1px] uppercase">Play Count</span>
         </div>
         <div class="w-[140px] px-[24px] py-[16px] text-center">
-          <span class="font-semibold text-[11px] text-zinc-400 tracking-[1.1px] uppercase">Status</span>
+          <span class="font-semibold text-[11px] text-[#a1a1aa] tracking-[1.1px] uppercase">Status</span>
         </div>
       </div>
 
@@ -154,13 +154,13 @@ function getCoverGradient(idx) {
         <div 
           v-for="(drop, i) in recentDrops" 
           :key="i"
-          class="flex items-center w-full transition-colors duration-300 hover:bg-white/5"
-          :class="i > 0 ? 'border-t border-white/10' : ''"
+          class="flex items-center w-full transition-colors duration-150 hover:bg-[rgba(255,255,255,0.02)]"
+          :class="i > 0 ? 'border-t border-[rgba(255,255,255,0.1)]' : ''"
         >
           <!-- Cover -->
           <div class="w-[96px] px-[24px] py-[16px]">
             <div 
-              class="rounded-[8px] size-[48px] border border-white/10"
+              class="rounded-[8px] size-[48px] border border-[rgba(255,255,255,0.1)]"
               :style="{ backgroundImage: getCoverGradient(drop.cover) }"
             ></div>
           </div>
@@ -170,7 +170,7 @@ function getCoverGradient(idx) {
           </div>
           <!-- Date -->
           <div class="flex-1 px-[24px] py-[30px]">
-            <span class="font-normal text-[14px] text-zinc-400 leading-[20px]">{{ drop.date }}</span>
+            <span class="font-normal text-[14px] text-[#a1a1aa] leading-[20px]">{{ drop.date }}</span>
           </div>
           <!-- Play Count -->
           <div class="w-[200px] px-[24px] py-[30px] text-right">

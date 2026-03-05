@@ -1,5 +1,59 @@
-# Vue 3 + Vite
+# Vanso.ai - Web 产品原型 (Prototype)
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## 📌 项目概述 (Overview)
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+Vanso.ai 是面向下一代音乐创作者的 AI 生成与全球发行平台。本项目为该 Web 产品的**高保真功能原型**。
+
+原型核心展示了：
+1. **Premium Dark Mode ("Sonic Aura")** 视觉风范：结合赛博朋克深色美学与顶级交互质感，大量应用高质量的“毛玻璃 (Glassmorphism)”特效、精准的泛光 (Aura)、以及高极客属性的悬停动效。
+2. **完整的创作者使用体验闭环**：包含品牌落地页 (Landing Page)、创作者控制台 (Dashboard)、新作品上传或 AI 生成引擎 (New Drop) 和数字资产管理 (My Drops)。
+
+本项目旨在为产品验证、交互体验评估及后续开发提供高度真实的 Web 交互沙盒环境。
+
+## 🛠 技术栈 (Tech Stack)
+
+*   **框架**: Vue 3 (Script Setup 语法) + Vite 构建
+*   **路由**: Vue Router 4 (具备层级化视图及原型版本隔离)
+*   **样式体系**: Tailwind CSS 4+，配合极细粒度的自定义系统色彩和动画扩展。
+
+## 🎨 设计系统与 UI/UX 规范 (Design System & Guidelines)
+
+项目的所有前端效果已严格约束在 Vanso 私有设计系统 `$MASTER.md` 之下。该规范不仅确立了品牌色彩池，更是严格落实了专业环境下的产品级 UI/UX 约束：
+
+*   **视觉环境**: 禁用高亮大块背景图以降低噪点，完全确立 `#000000` 黑夜底色，卡片表面为低反射的 `bg-white/5` 配合 `backdrop-blur` 处理。
+*   **辅助无障碍性 (Accessibility)**: 严格执行极高对比度的字色反差（纯白 `#ffffff` 或 锌灰 `text-zinc-400`）。
+*   **交互微动效 (Micro interactions)**: 完全消除简单的缩放导致排版抖动 (Layout shifting)；规定互动反馈动画（`duration-300`）应展现为悬浮色变与阴影呼吸层次。
+
+## ✨ 核心原型模块 (Key Modules)
+
+*   **首页模块 (`/`)**: 动态渐变背景文字，流体氛围背景光球呼吸效果，核心功能特点的 `Bento Grid` 响应式展示。
+*   **创作者控制台 (`/studio`)**: 嵌套式应用层，包含左侧边栏长期上下文留存模型，右侧视图涵盖：
+    *   **概览 (`/studio`)**: 数据展示、核心指标、近期上传追踪榜单。
+    *   **创建发布 (`/studio/new-drop`)**: 包含高保真的表单填写沙盒，带拖拽交互的云音乐文件上传热区，并辅以条款勾选及按钮禁用校验功能。
+    *   **资产管理 (`/studio/my-drops`)**: 滑动编辑抽屉（Drawer）、具有防越界蒙层的二次确认拦截框，体验行级记录的增删查改（CRUD）演示。
+*   **版本路由备份 (`/v1/*`)**: 旧版无设计规范迭代前的原型界面均被安全存放于该路由名下，以作为 A/B 测试或者视觉还原度比较。
+
+## 🚀 本地运行测试 (How to Run)
+
+该原型开箱即用，通过 NodeJS 环境一键本地启动预览：
+
+```bash
+# 1. 安装依赖
+npm install
+
+# 2. 启动本地开发与体验服务器
+npm run dev
+
+# 3. 构建发布应用代码
+npm run build
+```
+
+---
+
+## 📅 更新日志 (Changelog)
+
+### v2.0 (2026-03-05)
+*   **🎉 新设计系统落地**: 全面实施 Vanso "Premium Dark Mode (Sonic Aura)" 设计系统。所有 Web 组件现已遵照 `MASTER.md` 升级，带来极其震撼的视觉呈现效果和品牌统一感。
+*   **⚙️ UI/UX 规范升级**: 导入专业产品级交互标准。移除了所有界面中可能导致布局抖动的粗糙 Hover 缩放；规范所有的色阶为 Tailwind 标准 `zinc` 灰阶以达到最高无障碍阅读要求；重建表单和卡片毛玻璃光照阴影的悬停渐变。
+*   **🛡️ 架构调整**: 将过往旧版无规范原型抽离至 `/v1` 路由安全边界下方，例如 `v1_views` 与 `v1_components`，实现了新旧应用界面的完全共存与对比预览能力。
+*   **🧩 组件化增强**: 修复旧路由跳转并提炼出高复用的背景特效挂载形式。

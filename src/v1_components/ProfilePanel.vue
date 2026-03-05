@@ -9,9 +9,9 @@ const country = ref('United States');
 </script>
 
 <template>
-  <div class="fixed right-0 top-0 bottom-0 z-50 backdrop-blur-xl bg-[#0e0e0e] border-l border-white/10 flex flex-col w-[560px] max-w-[100vw]">
+  <div class="fixed right-0 top-0 bottom-0 z-50 backdrop-blur-[12px] bg-[#0e0e0e] border-l border-[rgba(255,255,255,0.1)] flex flex-col w-[560px] max-w-[100vw]">
     <!-- Header -->
-    <div class="border-b border-white/10 w-full shrink-0">
+    <div class="border-b border-[rgba(255,255,255,0.1)] w-full shrink-0">
       <div class="flex items-center justify-between py-[24px] px-[32px]">
         <div class="flex gap-[12px] items-center">
           <!-- Settings icon -->
@@ -22,10 +22,10 @@ const country = ref('United States');
         </div>
         <!-- Close button -->
         <button 
-          class="bg-white/5 border border-white/10 rounded-full size-[36px] flex items-center justify-center cursor-pointer transition-colors duration-300 hover:bg-white/10"
+          class="bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded-full size-[36px] flex items-center justify-center cursor-pointer transition-colors duration-200 hover:bg-[rgba(255,255,255,0.1)]"
           @click="$emit('close')"
         >
-          <svg class="size-[10px] text-zinc-400" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg class="size-[10px] text-[#a1a1aa]" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1 1L9 9M1 9L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
           </svg>
         </button>
@@ -61,10 +61,10 @@ const country = ref('United States');
         <div class="flex flex-col gap-[24px] items-start w-full">
           <!-- Username -->
           <div class="flex flex-col gap-[8px] w-full">
-            <label class="font-medium text-[14px] text-zinc-400 leading-[20px]">Username</label>
+            <label class="font-medium text-[14px] text-[#a1a1aa] leading-[20px]">Username</label>
             <div class="relative">
-              <div class="bg-white/5 border border-white/10 rounded-[8px] overflow-hidden flex items-center h-[44px]">
-                <span class="text-zinc-500 text-[16px] pl-[12px] font-normal">@</span>
+              <div class="bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded-[8px] overflow-hidden flex items-center h-[44px]">
+                <span class="text-[#71717a] text-[16px] pl-[12px] font-normal">@</span>
                 <input 
                   v-model="username"
                   type="text" 
@@ -73,28 +73,28 @@ const country = ref('United States');
               </div>
             </div>
             <div class="flex items-center justify-end w-full">
-              <span class="text-[12px] text-zinc-400 text-right leading-[16px]">Max 30 characters</span>
+              <span class="text-[12px] text-[#a1a1aa] text-right leading-[16px]">Max 30 characters</span>
             </div>
           </div>
 
           <!-- Description -->
           <div class="flex flex-col gap-[8px] w-full">
-            <label class="font-medium text-[14px] text-zinc-400 leading-[20px]">Description</label>
-            <div class="bg-white/5 border border-white/10 rounded-[8px] overflow-hidden">
+            <label class="font-medium text-[14px] text-[#a1a1aa] leading-[20px]">Description</label>
+            <div class="bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded-[8px] overflow-hidden">
               <textarea 
                 v-model="description"
                 class="bg-transparent w-full px-[13px] py-[13px] text-[14px] text-white outline-none resize-none font-normal leading-[20px] min-h-[100px]"
               ></textarea>
             </div>
             <div class="flex items-center justify-end w-full">
-              <span class="text-[12px] text-zinc-400 text-right leading-[16px]">Max 150 characters</span>
+              <span class="text-[12px] text-[#a1a1aa] text-right leading-[16px]">Max 150 characters</span>
             </div>
           </div>
 
           <!-- Country/Region -->
           <div class="flex flex-col gap-[8px] w-full">
-            <label class="font-medium text-[14px] text-zinc-400 leading-[20px]">Country/Region</label>
-            <div class="relative bg-white/5 border border-white/10 rounded-[8px] overflow-hidden h-[44px]">
+            <label class="font-medium text-[14px] text-[#a1a1aa] leading-[20px]">Country/Region</label>
+            <div class="relative bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded-[8px] overflow-hidden h-[44px]">
               <select 
                 v-model="country"
                 class="bg-transparent w-full h-full px-[12px] text-[14px] text-white outline-none appearance-none cursor-pointer font-normal"
@@ -109,7 +109,7 @@ const country = ref('United States');
                 <option value="South Korea" class="bg-[#1a1a1a]">South Korea</option>
               </select>
               <!-- Chevron -->
-              <svg class="absolute right-[12px] top-1/2 -translate-y-1/2 size-[10px] text-zinc-400 pointer-events-none" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg class="absolute right-[12px] top-1/2 -translate-y-1/2 size-[10px] text-[#a1a1aa] pointer-events-none" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
@@ -131,9 +131,9 @@ const country = ref('United States');
             <div class="flex items-center justify-between w-full">
               <div class="flex flex-col gap-[4px]">
                 <span class="font-medium text-[14px] text-[rgba(255,255,255,0.9)] leading-[20px]">Delete Account</span>
-                <span class="text-[12px] text-zinc-400 leading-[16px]">Permanently delete your account and all data.</span>
+                <span class="text-[12px] text-[#a1a1aa] leading-[16px]">Permanently delete your account and all data.</span>
               </div>
-              <button class="border border-[rgba(235,73,61,0.5)] rounded-[8px] px-[17px] py-[9px] cursor-pointer transition-colors duration-300 hover:bg-[rgba(235,73,61,0.1)]">
+              <button class="border border-[rgba(235,73,61,0.5)] rounded-[8px] px-[17px] py-[9px] cursor-pointer transition-colors duration-200 hover:bg-[rgba(235,73,61,0.1)]">
                 <span class="font-medium text-[14px] text-[#eb493d] text-center leading-[20px]">Delete Account</span>
               </button>
             </div>
@@ -143,10 +143,10 @@ const country = ref('United States');
     </div>
 
     <!-- Footer Actions -->
-    <div class="backdrop-blur-lg bg-[rgba(0,0,0,0.2)] border-t border-white/10 shrink-0 w-full">
+    <div class="backdrop-blur-[6px] bg-[rgba(0,0,0,0.2)] border-t border-[rgba(255,255,255,0.1)] shrink-0 w-full">
       <div class="flex gap-[16px] items-center justify-center py-[24px] px-[32px]">
         <button 
-          class="border border-white/10 rounded-full flex-[1] py-[13px] cursor-pointer transition-colors duration-300 hover:bg-white/5"
+          class="border border-[rgba(255,255,255,0.1)] rounded-full flex-[1] py-[13px] cursor-pointer transition-colors duration-200 hover:bg-[rgba(255,255,255,0.05)]"
           @click="$emit('close')"
         >
           <span class="font-medium text-[14px] text-white text-center leading-[20px] block">Cancel</span>

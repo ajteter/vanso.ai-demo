@@ -66,14 +66,14 @@ onBeforeUnmount(() => document.removeEventListener('click', handleClickOutside))
         <nav class="flex flex-col gap-[8px] items-center w-full">
           <!-- Dashboard Link -->
           <button
-            class="flex gap-[12px] items-center py-[10px] rounded-[8px] w-full transition-colors duration-300 cursor-pointer"
+            class="flex gap-[12px] items-center py-[10px] rounded-[8px] w-full transition-colors duration-200 cursor-pointer"
             :class="currentPage === 'Dashboard' 
-              ? 'bg-white/10 border-l-2 border-[#f5328a] pl-[14px] pr-[12px]' 
-              : 'px-[12px] hover:bg-white/5'"
+              ? 'bg-[rgba(255,255,255,0.1)] border-l-2 border-[#f5328a] pl-[14px] pr-[12px]' 
+              : 'px-[12px] hover:bg-[rgba(255,255,255,0.05)]'"
             @click="navigateTo('Dashboard')"
           >
             <!-- Dashboard Icon (grid) -->
-            <svg class="shrink-0 size-[18px]" :class="currentPage === 'Dashboard' ? 'text-white' : 'text-zinc-400'" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg class="shrink-0 size-[18px]" :class="currentPage === 'Dashboard' ? 'text-white' : 'text-[#a1a1aa]'" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="1" y="1" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
               <rect x="11" y="1" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
               <rect x="1" y="11" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
@@ -81,27 +81,27 @@ onBeforeUnmount(() => document.removeEventListener('click', handleClickOutside))
             </svg>
             <span 
               class="font-['Inter',sans-serif] font-medium text-[14px] leading-[21px]"
-              :class="currentPage === 'Dashboard' ? 'text-white' : 'text-zinc-400'"
+              :class="currentPage === 'Dashboard' ? 'text-white' : 'text-[#a1a1aa]'"
             >Dashboard</span>
           </button>
 
           <!-- My Drops Link -->
           <button
-            class="flex gap-[12px] items-center py-[10px] rounded-[8px] w-full transition-colors duration-300 cursor-pointer"
+            class="flex gap-[12px] items-center py-[10px] rounded-[8px] w-full transition-colors duration-200 cursor-pointer"
             :class="(currentPage === 'MyDrops' || currentPage === 'NewDrop')
-              ? 'bg-white/10 border-l-2 border-[#f5328a] pl-[14px] pr-[12px]' 
-              : 'px-[12px] hover:bg-white/5'"
+              ? 'bg-[rgba(255,255,255,0.1)] border-l-2 border-[#f5328a] pl-[14px] pr-[12px]' 
+              : 'px-[12px] hover:bg-[rgba(255,255,255,0.05)]'"
             @click="navigateTo('MyDrops')"
           >
             <!-- My Drops Icon (music note) -->
-            <svg class="shrink-0 size-[18px]" :class="(currentPage === 'MyDrops' || currentPage === 'NewDrop') ? 'text-white' : 'text-zinc-400'" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg class="shrink-0 size-[18px]" :class="(currentPage === 'MyDrops' || currentPage === 'NewDrop') ? 'text-white' : 'text-[#a1a1aa]'" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M4 14V3.5L11 1.5V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               <circle cx="2.5" cy="14.5" r="2.5" stroke="currentColor" stroke-width="1.2"/>
               <circle cx="9.5" cy="12.5" r="2.5" stroke="currentColor" stroke-width="1.2"/>
             </svg>
             <span 
               class="font-['Inter',sans-serif] font-medium text-[14px] leading-[21px]"
-              :class="(currentPage === 'MyDrops' || currentPage === 'NewDrop') ? 'text-white' : 'text-zinc-400'"
+              :class="(currentPage === 'MyDrops' || currentPage === 'NewDrop') ? 'text-white' : 'text-[#a1a1aa]'"
             >My Drops</span>
           </button>
         </nav>
@@ -117,11 +117,11 @@ onBeforeUnmount(() => document.removeEventListener('click', handleClickOutside))
           class="absolute bottom-[68px] left-[12px] right-[12px] bg-[#1a1a1a] border border-white/10 rounded-[12px] shadow-[0_-8px_30px_rgba(0,0,0,0.5)] overflow-hidden z-50"
         >
           <button
-            class="flex gap-[10px] items-center w-full px-[16px] py-[12px] cursor-pointer transition-colors duration-300 hover:bg-white/5"
+            class="flex gap-[10px] items-center w-full px-[16px] py-[12px] cursor-pointer transition-colors duration-150 hover:bg-white/5"
             @click="openProfile"
           >
             <!-- User icon -->
-            <svg class="size-[16px] text-zinc-400" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg class="size-[16px] text-[#a1a1aa]" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="8" cy="5" r="3" stroke="currentColor" stroke-width="1.3"/>
               <path d="M2 14c0-2.761 2.686-5 6-5s6 2.239 6 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
             </svg>
@@ -129,7 +129,7 @@ onBeforeUnmount(() => document.removeEventListener('click', handleClickOutside))
           </button>
           <div class="h-px bg-white/10 mx-[12px]"></div>
           <button
-            class="flex gap-[10px] items-center w-full px-[16px] py-[12px] cursor-pointer transition-colors duration-300 hover:bg-white/5"
+            class="flex gap-[10px] items-center w-full px-[16px] py-[12px] cursor-pointer transition-colors duration-150 hover:bg-white/5"
             @click="signOut"
           >
             <!-- Sign out icon -->
@@ -142,7 +142,7 @@ onBeforeUnmount(() => document.removeEventListener('click', handleClickOutside))
         </div>
       </Transition>
 
-      <div class="border-t border-white/10 flex gap-[12px] items-center pb-[16px] pt-[17px] px-[12px] w-full">
+      <div class="border-t border-[rgba(255,255,255,0.1)] flex gap-[12px] items-center pb-[16px] pt-[17px] px-[12px] w-full">
         <!-- Avatar circle -->
         <div 
           class="relative rounded-full shrink-0 size-[40px] cursor-pointer bg-gradient-to-tr from-vanso-magenta to-vanso-cyan"
@@ -158,7 +158,7 @@ onBeforeUnmount(() => document.removeEventListener('click', handleClickOutside))
         </div>
         <!-- Chevron (toggles dropdown) -->
         <svg 
-          class="ml-auto shrink-0 w-[10px] h-[5px] text-zinc-400 cursor-pointer transition-transform duration-300"
+          class="ml-auto shrink-0 w-[10px] h-[5px] text-[#a1a1aa] cursor-pointer transition-transform duration-200"
           :class="showDropdown ? 'rotate-180' : ''"
           @click.stop="toggleDropdown" 
           viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg"

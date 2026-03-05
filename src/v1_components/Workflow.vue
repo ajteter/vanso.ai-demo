@@ -10,7 +10,7 @@
           <span>From Creation to </span>
           <span class="bg-clip-text text-[transparent] font-bold" style="background-image: linear-gradient(176deg, #F5328A 43%, #54E3D5 77%)">400M+ Users</span>
         </h2>
-        <p class="font-normal text-zinc-500 text-[16px] text-center leading-[24px]">The fastest pipeline in the industry.</p>
+        <p class="font-normal text-[#71717a] text-[16px] text-center leading-[24px]">The fastest pipeline in the industry.</p>
       </div>
       
       <!-- Steps container: x=16, y=136, w=1248, h=220 -->
@@ -27,7 +27,7 @@
           <!-- Title: h=28 -->
           <h3 class="font-bold text-[20px] text-white leading-[28px] mb-[12px]">1. Upload AIGC & Originals</h3>
           <!-- Desc: w=338, h=60 -->
-          <p class="font-normal text-[14px] text-zinc-400 leading-[20px] max-w-[338px]">Designed for the AI era. Whether created with AI music generator or your DAW, simply upload your tracks.</p>
+          <p class="font-normal text-[14px] text-[#a1a1aa] leading-[20px] max-w-[338px]">Designed for the AI era. Whether created with AI music generator or your DAW, simply upload your tracks.</p>
         </div>
         
         <!-- Step 2: w=416, h=220 -->
@@ -36,7 +36,7 @@
             <img alt="Deploy" class="w-[25px] h-[25px]" src="/assets/icon-workflow-2.svg" />
           </div>
           <h3 class="font-bold text-[20px] text-white leading-[28px] mb-[12px]">2. Rapid Deployment</h3>
-          <p class="font-normal text-[14px] text-zinc-400 leading-[20px] max-w-[340px]">No tedious waiting. Our streamlined distribution pipeline processes your files instantly for immediate release.</p>
+          <p class="font-normal text-[14px] text-[#a1a1aa] leading-[20px] max-w-[340px]">No tedious waiting. Our streamlined distribution pipeline processes your files instantly for immediate release.</p>
         </div>
         
         <!-- Step 3: w=416, h=200 -->
@@ -45,7 +45,7 @@
             <img alt="Global" class="size-[25px]" src="/assets/icon-workflow-3.svg" />
           </div>
           <h3 class="font-bold text-[20px] text-white leading-[28px] mb-[12px]">3. Reach 400M+ Users</h3>
-          <p class="font-normal text-[14px] text-zinc-400 leading-[20px] max-w-[348px]">Your music goes live to over 400 million mobile listeners worldwide.</p>
+          <p class="font-normal text-[14px] text-[#a1a1aa] leading-[20px] max-w-[348px]">Your music goes live to over 400 million mobile listeners worldwide.</p>
         </div>
       </div>
     </div>
@@ -61,7 +61,7 @@
         <!-- "Music the World": h=72, text-[60px] -->
         <h2 class="bg-clip-text bg-gradient-to-b from-white to-[#52525b] font-bold text-[48px] md:text-[60px] text-[transparent] text-center leading-[72px] mb-[72px]">Music the World</h2>
         <!-- Body text: x=145, w=990, h=112 -->
-        <p class="font-normal text-zinc-400 text-[16px] md:text-[20px] text-center leading-[28px] max-w-[990px] mx-auto">Vanso is dedicated to democratizing music distribution. We believe in a future where every creator—whether using instruments or algorithms—has a stage. We bridge the gap between creators and the massive potential of mobile ecosystem listeners, building native experiences that make music discovery feel effortless for hundreds of millions of users.</p>
+        <p class="font-normal text-[#a1a1aa] text-[16px] md:text-[20px] text-center leading-[28px] max-w-[990px] mx-auto">Vanso is dedicated to democratizing music distribution. We believe in a future where every creator—whether using instruments or algorithms—has a stage. We bridge the gap between creators and the massive potential of mobile ecosystem listeners, building native experiences that make music discovery feel effortless for hundreds of millions of users.</p>
       </div>
     </div>
   </div>

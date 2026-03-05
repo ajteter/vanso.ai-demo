@@ -27,6 +27,32 @@ const routes = [
             },
         ],
     },
+    {
+        path: '/v1',
+        name: 'LandingV1',
+        component: () => import('../v1_views/LandingPage.vue'),
+    },
+    {
+        path: '/v1/studio',
+        component: () => import('../v1_views/StudioLayout.vue'),
+        children: [
+            {
+                path: '',
+                name: 'DashboardV1',
+                component: () => import('../v1_views/DashboardPage.vue'),
+            },
+            {
+                path: 'new-drop',
+                name: 'NewDropV1',
+                component: () => import('../v1_views/NewDropPage.vue'),
+            },
+            {
+                path: 'my-drops',
+                name: 'MyDropsV1',
+                component: () => import('../v1_views/MyDropsPage.vue'),
+            },
+        ],
+    },
 ]
 
 const router = createRouter({

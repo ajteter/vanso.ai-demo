@@ -1,5 +1,5 @@
 <template>
-  <div class="backdrop-blur-md content-stretch flex flex-col items-start overflow-hidden py-[24px] relative shrink-0 w-full select-none">
+  <div class="backdrop-blur-[2px] content-stretch flex flex-col items-start overflow-hidden py-[24px] relative shrink-0 w-full select-none">
     
     <!-- Single row marquee with cards -->
     <div class="h-[184px] relative shrink-0 w-[200%] flex animate-marquee">
@@ -10,14 +10,14 @@
               <div class="flex gap-[12px] items-center px-[12px] relative w-full">
                 <div class="bg-cover bg-center border border-white/20 rounded-full shrink-0 size-[32px]" style="background-image: url('/assets/img-border.png')"></div>
                 <div class="flex flex-col items-start relative">
-                  <div class="flex font-normal h-[16px] items-center text-zinc-400 text-[12px]">
+                  <div class="flex font-normal h-[16px] items-center text-[#a1a1aa] text-[12px]">
                     <span class="leading-[16px]">{{ card.user }} </span>
                     <span class="leading-[16px] text-[#eca08b] ml-1">dropped</span>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="backdrop-blur-xl bg-black/40 border border-white/5 relative rounded-[16px] shrink-0 w-[300px]">
+            <div class="backdrop-blur-[12px] bg-black/40 border border-white/5 relative rounded-[16px] shrink-0 w-[300px]">
               <div class="flex flex-col gap-[16px] items-center justify-center overflow-clip p-[16px] rounded-[inherit] w-full">
                 <div class="relative shrink-0 w-full">
                   <div class="flex gap-[16px] items-start relative w-full">
@@ -55,14 +55,14 @@
               <div class="flex gap-[12px] items-center px-[12px] relative w-full">
                 <div class="bg-cover bg-center border border-white/20 rounded-full shrink-0 size-[32px]" style="background-image: url('/assets/img-border.png')"></div>
                 <div class="flex flex-col items-start relative">
-                  <div class="flex font-normal h-[16px] items-center text-zinc-400 text-[12px]">
+                  <div class="flex font-normal h-[16px] items-center text-[#a1a1aa] text-[12px]">
                     <span class="leading-[16px]">{{ card.user }} </span>
                     <span class="leading-[16px] text-[#eca08b] ml-1">dropped</span>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="backdrop-blur-xl bg-black/40 border border-white/5 relative rounded-[16px] shrink-0 w-[300px]">
+            <div class="backdrop-blur-[12px] bg-black/40 border border-white/5 relative rounded-[16px] shrink-0 w-[300px]">
               <div class="flex flex-col gap-[16px] items-center justify-center overflow-clip p-[16px] rounded-[inherit] w-full">
                 <div class="relative shrink-0 w-full">
                   <div class="flex gap-[16px] items-start relative w-full">

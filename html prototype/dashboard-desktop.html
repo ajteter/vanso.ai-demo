@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vanso Creator Studio - Desktop</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            vanso: {
+              magenta: '#F5328A',
+              cyan: '#54E3D5',
+              peach: '#ECA08B',
+              bg: '#000000',
+              card: '#0A0A0B',
+              blue: '#247CFF'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #000000;
+      color: #FFFFFF;
+      overflow-x: hidden;
+    }
+    
+    /* Top Tab Navigation Styles */
+    .top-tab {
+      position: relative;
+      color: #A1A1AA;
+      transition: color 0.3s;
+    }
+    .top-tab.active {
+      color: #FFFFFF;
+      font-weight: 700;
+    }
+    .top-tab.active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, #54E3D5, #F5328A);
+      border-radius: 2px;
+    }
+
+    /* Active Card Styles */
+    .metric-card.active {
+      background-color: rgba(255, 255, 255, 0.08);
+      border-color: var(--card-color);
+      box-shadow: 0 0 20px -5px var(--card-color);
+    }
+    .metric-card.active .indicator {
+      opacity: 1;
+      background-color: var(--card-color);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #000; }
+    ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #555; }
+    
+    /* Drawer Animations */
+    #drawer-overlay {
+      transition: opacity 0.3s ease;
+      opacity: 0;
+      pointer-events: none;
+    }
+    #drawer-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #drawer-content {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateX(100%);
+    }
+    #drawer-overlay.open #drawer-content {
+      transform: translateX(0);
+    }
+
+    /* Page Switcher */
+    .page-section {
+      display: none;
+      animation: fadeIn 0.4s ease-out forwards;
+    }
+    .page-section.active {
+      display: flex;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="antialiased min-h-screen relative">
+
+  <!-- Sonic Aura Backgrounds -->
+  <div class="fixed top-[-10%] left-[-5%] w-[600px] h-[600px] bg-vanso-magenta rounded-full mix-blend-screen blur-[150px] opacity-10 animate-pulse pointer-events-none z-[-1]"></div>
+  <div class="fixed bottom-[-10%] right-[-5%] w-[500px] h-[500px] bg-vanso-cyan rounded-full mix-blend-screen blur-[150px] opacity-10 pointer-events-none z-[-1]"></div>
+
+  <div class="w-full max-w-7xl mx-auto p-10 flex flex-col gap-8">
+    
+    <!-- 0. Main Navigation Tabs -->
+    <div class="flex items-center gap-8 border-b border-white/10 pb-4">
+      <button class="top-tab active text-2xl tracking-tight cursor-pointer" onclick="switchPage('overview')">账号总览</button>
+      <button class="top-tab text-2xl tracking-tight cursor-pointer" onclick="switchPage('tracks')">单曲数据</button>
+    </div>
+
+    <!-- ==================== PAGE 1: ACCOUNT OVERVIEW ==================== -->
+    <div id="page-overview" class="page-section active flex-col gap-8 w-full">
+      <!-- 1. Header & Global Filters -->
+      <div class="flex items-center justify-between w-full">
+        <h1 class="font-extrabold text-3xl tracking-tight text-white">数据总览</h1>
+        
+        <!-- Filter Toggle -->
+        <div class="bg-white/5 backdrop-blur-md border border-white/10 p-1 rounded-full flex">
+          <button class="filter-btn active px-6 py-2 rounded-full text-sm font-medium transition-colors duration-300 bg-white/10 text-white shadow-sm">
+            近 7 日
+          </button>
+          <button class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-colors duration-300 text-zinc-400 hover:text-white">
+            近 30 日
+          </button>
+        </div>
+      </div>
+
+      <!-- 2. The Big 4 Summary Cards -->
+      <div class="grid grid-cols-4 gap-6 w-full" id="cards-container">
+        
+        <!-- Card 1 -->
+        <div class="metric-card active relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 cursor-pointer transition-all duration-300 hover:bg-white/10 group flex flex-col gap-2" style="--card-color: #247CFF" data-title="播放总数趋势" data-color="#247CFF">
+          <div class="absolute top-[-1px] left-0 w-full h-[3px] rounded-t-2xl opacity-0 transition-opacity duration-300 indicator"></div>
+          <span class="text-zinc-400 font-medium text-sm tracking-wide">播放总数</span>
+          <div class="text-[40px] leading-tight font-extrabold text-white mt-2">12,450</div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="metric-card relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 cursor-pointer transition-all duration-300 hover:bg-white/10 group flex flex-col gap-2" style="--card-color: #F5328A" data-title="互动总量趋势" data-color="#F5328A">
+          <div class="absolute top-[-1px] left-0 w-full h-[3px] rounded-t-2xl opacity-0 transition-opacity duration-300 indicator"></div>
+          <span class="text-zinc-400 font-medium text-sm tracking-wide">互动总量</span>
+          <div class="text-[40px] leading-tight font-extrabold text-white mt-2">843</div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="metric-card relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 cursor-pointer transition-all duration-300 hover:bg-white/10 group flex flex-col gap-2" style="--card-color: #54E3D5" data-title="新增粉丝趋势" data-color="#54E3D5">
+          <div class="absolute top-[-1px] left-0 w-full h-[3px] rounded-t-2xl opacity-0 transition-opacity duration-300 indicator"></div>
+          <span class="text-zinc-400 font-medium text-sm tracking-wide">新增粉丝</span>
+          <div class="text-[40px] leading-tight font-extrabold text-white mt-2">120</div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="metric-card relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 cursor-pointer transition-all duration-300 hover:bg-white/10 group flex flex-col gap-2" style="--card-color: #ECA08B" data-title="主页访问趋势" data-color="#ECA08B">
+          <div class="absolute top-[-1px] left-0 w-full h-[3px] rounded-t-2xl opacity-0 transition-opacity duration-300 indicator"></div>
+          <span class="text-zinc-400 font-medium text-sm tracking-wide">主页访问</span>
+          <div class="text-[40px] leading-tight font-extrabold text-white mt-2">3,200</div>
+        </div>
+
+      </div>
+
+      <!-- 3. The Main Trend Chart -->
+      <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 transition-colors duration-300 w-full flex flex-col gap-8 relative" id="chart-container" style="--chart-color: #247CFF">
+        <h3 class="font-bold text-xl text-white" id="chart-title">播放总数趋势</h3>
+
+        <div class="w-full h-[300px] relative mt-4">
+          <svg class="w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 1000 240">
+            <defs>
+              <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="var(--chart-color)" stop-opacity="0.3"/>
+                <stop offset="100%" stop-color="var(--chart-color)" stop-opacity="0.0"/>
+              </linearGradient>
+            </defs>
+            
+            <!-- Horizontal Grid Lines -->
+            <path d="M0,40 L1000,40 M0,100 L1000,100 M0,160 L1000,160 M0,220 L1000,220" stroke="rgba(255,255,255,0.05)" stroke-width="1" fill="none"></path>
+            
+            <!-- Chart Area & Line -->
+            <g class="transition-all duration-500 ease-in-out">
+              <path d="M0,240 L0,180 C100,150 200,200 300,140 C400,90 500,150 600,80 C700,50 800,110 900,40 C950,20 1000,60 1000,60 L1000,240 Z" fill="url(#chartGradient)"></path>
+              <path d="M0,180 C100,150 200,200 300,140 C400,90 500,150 600,80 C700,50 800,110 900,40 C950,20 1000,60 1000,60" fill="none" stroke="var(--chart-color)" stroke-width="3" stroke-linecap="round"></path>
+            </g>
+          </svg>
+
+          <!-- Interactive Tooltip Hint -->
+          <div class="absolute top-[25%] left-[90%] -translate-x-1/2 -translate-y-full mb-3 bg-[#1E1E1E]/90 backdrop-blur-md border border-white/10 text-white text-sm px-4 py-2 rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] pointer-events-none flex flex-col items-center z-10">
+            <span class="text-zinc-400 text-xs mb-1">03-06</span>
+            <span class="font-bold text-[var(--chart-color)]">3,200 <span class="text-white font-medium ml-1" id="tooltip-label">播放</span></span>
+            <div class="absolute bottom-[-5px] left-1/2 -translate-x-1/2 w-2 h-2 bg-[#1E1E1E]/90 border-r border-b border-white/10 rotate-45"></div>
+          </div>
+          
+          <!-- Data Point Dot -->
+          <div class="absolute top-[25%] left-[90%] w-4 h-4 bg-[#0A0A0B] rounded-full border-[3px] border-[var(--chart-color)] -translate-x-1/2 -translate-y-1/2 shadow-[0_0_15px_var(--chart-color)] z-10"></div>
+          
+          <!-- X-Axis -->
+          <div class="absolute bottom-[-32px] left-0 w-full flex justify-between text-zinc-500 text-sm px-2 font-medium">
+            <span>03-01</span>
+            <span>03-02</span>
+            <span>03-03</span>
+            <span>03-04</span>
+            <span>03-05</span>
+            <span>03-06</span>
+            <span>03-07</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Bottom Analytics Dashboard -->
+      <div class="grid grid-cols-1 gap-6 w-full mt-4">
+
+        <!-- Right Card: Engagement Breakdown -->
+        <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-colors duration-300 flex items-center justify-between">
+          <div class="flex flex-col h-full justify-start">
+            <h3 class="font-bold text-xl text-white mb-8">互动构成</h3>
+            <div class="flex flex-col gap-5">
+              <div class="flex items-center gap-3">
+                <div class="w-3 h-3 rounded-full bg-vanso-magenta shadow-[0_0_10px_#F5328A]"></div>
+                <span class="text-white font-medium">点赞 <span class="text-zinc-500 ml-2">60%</span></span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-3 h-3 rounded-full bg-vanso-peach shadow-[0_0_10px_#ECA08B]"></div>
+                <span class="text-white font-medium">收藏 <span class="text-zinc-500 ml-2">30%</span></span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-3 h-3 rounded-full bg-vanso-cyan shadow-[0_0_10px_#54E3D5]"></div>
+                <span class="text-white font-medium">评论 <span class="text-zinc-500 ml-2">10%</span></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Donut Chart SVG -->
+          <div class="relative w-40 h-40 mr-4">
+            <svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+              <!-- Background Ring -->
+              <circle cx="18" cy="18" r="15.91549430918954" fill="transparent" stroke="rgba(255,255,255,0.05)" stroke-width="4"></circle>
+              <!-- Cyan 10% -->
+              <circle cx="18" cy="18" r="15.91549430918954" fill="transparent" stroke="#54E3D5" stroke-width="4" stroke-dasharray="10 90" stroke-dashoffset="0" stroke-linecap="round"></circle>
+              <!-- Peach 30% -->
+              <circle cx="18" cy="18" r="15.91549430918954" fill="transparent" stroke="#ECA08B" stroke-width="4" stroke-dasharray="30 70" stroke-dashoffset="-10" stroke-linecap="round"></circle>
+              <!-- Magenta 60% -->
+              <circle cx="18" cy="18" r="15.91549430918954" fill="transparent" stroke="#F5328A" stroke-width="4" stroke-dasharray="60 40" stroke-dashoffset="-40" stroke-linecap="round"></circle>
+            </svg>
+          </div>
+
+        </div>
+
+      </div>
+    </div> <!-- End Page 1 -->
+
+    <!-- ==================== PAGE 2: TRACKS LIST ==================== -->
+    <div id="page-tracks" class="page-section flex-col gap-6 w-full">
+      <div class="flex items-center justify-between w-full">
+        <h1 class="font-extrabold text-3xl tracking-tight text-white">单曲数据</h1>
+        <div class="bg-white/5 backdrop-blur-md border border-white/10 p-1 rounded-lg">
+          <input type="text" placeholder="搜索歌曲..." class="bg-transparent border-none outline-none text-sm text-white px-4 py-1.5 w-48 placeholder:text-zinc-600">
+        </div>
+      </div>
+
+      <!-- Tracks List -->
+      <div class="flex flex-col gap-3 w-full mt-2">
+        
+        <!-- Track Item 1 -->
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-4 flex items-center justify-between hover:bg-white/10 transition-all cursor-pointer group" onclick="openDrawer('Cyberpunk City', '12,540', '42%')">
+          <div class="flex items-center gap-4">
+            <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-vanso-cyan to-vanso-magenta shadow-md flex items-center justify-center relative overflow-hidden">
+              <div class="absolute inset-0 bg-black/20 mix-blend-overlay"></div>
+              <svg class="w-6 h-6 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"></path></svg>
+            </div>
+            <div class="flex flex-col gap-1">
+              <span class="font-bold text-lg text-white group-hover:text-vanso-cyan transition-colors">Cyberpunk City</span>
+              <span class="text-xs text-zinc-500">2026-03-01</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-12 pr-6">
+            <div class="flex flex-col text-right">
+              <span class="text-xs text-zinc-500 mb-0.5">播放量</span>
+              <span class="text-white font-medium">12,540</span>
+            </div>
+            <div class="flex flex-col text-right w-16">
+              <span class="text-xs text-zinc-500 mb-0.5">完播率</span>
+              <span class="text-vanso-cyan font-medium">42%</span>
+            </div>
+            <svg class="w-5 h-5 text-zinc-600 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </div>
+        </div>
+
+        <!-- Track Item 2 -->
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-4 flex items-center justify-between hover:bg-white/10 transition-all cursor-pointer group" onclick="openDrawer('Neon Lights', '8,320', '58%')">
+          <div class="flex items-center gap-4">
+            <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 shadow-md flex items-center justify-center relative overflow-hidden">
+              <div class="absolute inset-0 bg-black/20 mix-blend-overlay"></div>
+              <svg class="w-6 h-6 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"></path></svg>
+            </div>
+            <div class="flex flex-col gap-1">
+              <span class="font-bold text-lg text-white group-hover:text-vanso-cyan transition-colors">Neon Lights</span>
+              <span class="text-xs text-zinc-500">2026-02-24</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-12 pr-6">
+            <div class="flex flex-col text-right">
+              <span class="text-xs text-zinc-500 mb-0.5">播放量</span>
+              <span class="text-white font-medium">8,320</span>
+            </div>
+            <div class="flex flex-col text-right w-16">
+              <span class="text-xs text-zinc-500 mb-0.5">完播率</span>
+              <span class="text-vanso-cyan font-medium">58%</span>
+            </div>
+            <svg class="w-5 h-5 text-zinc-600 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </div>
+        </div>
+
+        <!-- Track Item 3 (Zero plays edge case test) -->
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-4 flex items-center justify-between hover:bg-white/10 transition-all cursor-pointer group" onclick="openDrawer('Silent Echoes (Draft)', '0', '0%')">
+          <div class="flex items-center gap-4">
+            <div class="w-14 h-14 rounded-lg bg-zinc-800 shadow-md flex items-center justify-center relative overflow-hidden">
+              <svg class="w-6 h-6 text-zinc-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"></path></svg>
+            </div>
+            <div class="flex flex-col gap-1">
+              <span class="font-bold text-lg text-zinc-300 group-hover:text-white transition-colors">Silent Echoes (Draft)</span>
+              <span class="text-xs text-zinc-600">刚刚上传</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-12 pr-6">
+            <div class="flex flex-col text-right">
+              <span class="text-xs text-zinc-500 mb-0.5">播放量</span>
+              <span class="text-zinc-400 font-medium">0</span>
+            </div>
+            <div class="flex flex-col text-right w-16">
+              <span class="text-xs text-zinc-500 mb-0.5">完播率</span>
+              <span class="text-zinc-600 font-medium">-</span>
+            </div>
+            <svg class="w-5 h-5 text-zinc-600 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </div>
+        </div>
+
+      </div>
+    </div> <!-- End Page 2 -->
+
+  </div>
+
+  <!-- Single Track Analytics Drawer -->
+  <div id="drawer-overlay" class="fixed inset-0 z-50 flex justify-end">
+    <!-- Backdrop -->
+    <div class="absolute inset-0 bg-black/60 backdrop-blur-sm cursor-pointer" onclick="closeDrawer()"></div>
+    
+    <!-- Drawer Panel -->
+    <div id="drawer-content" class="relative w-[500px] max-w-full h-full bg-[#0A0A0B] border-l border-white/10 shadow-2xl flex flex-col">
+      <!-- Close Button -->
+      <button class="absolute top-6 right-6 p-2 rounded-full bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white transition-colors cursor-pointer z-20" onclick="closeDrawer()">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+      </button>
+
+      <!-- Content Inner -->
+      <div class="p-8 overflow-y-auto flex-1 flex flex-col gap-8 custom-scrollbar">
+        
+        <!-- 1. Header (Track Info) -->
+        <div class="flex items-center gap-4 mt-2">
+          <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-vanso-cyan to-vanso-magenta shadow-lg shadow-vanso-magenta/20 flex items-center justify-center shrink-0 overflow-hidden relative" id="drawer-cover">
+            <div class="absolute inset-0 bg-black/20 mix-blend-overlay"></div>
+            <svg class="w-6 h-6 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"></path></svg>
+          </div>
+          <div class="flex flex-col gap-1 pr-8">
+            <h2 class="text-2xl font-bold text-white tracking-tight leading-none truncate" id="drawer-title">Cyberpunk City</h2>
+            <p class="text-sm text-[#A1A1AA]">上传时间: 2026-03-01</p>
+          </div>
+        </div>
+
+        <!-- 2 & 3. Hero Metrics + Content Quality Diagnosis (Side-by-Side) -->
+        <div class="grid grid-cols-2 gap-4 w-full">
+          <!-- Total Plays -->
+          <div class="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col justify-center gap-2 relative overflow-hidden group hover:bg-white/10 transition-colors">
+            <span class="text-[#A1A1AA] text-sm font-medium z-10">累计播放次数</span>
+            <span class="text-[36px] font-extrabold text-white leading-none tracking-tight z-10 mt-2" id="drawer-plays">12,540</span>
+            <div class="absolute right-[-20px] bottom-[-20px] opacity-[0.03] group-hover:opacity-[0.06] transition-opacity">
+              <svg class="w-24 h-24 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+
+          <!-- Completion Rate -->
+          <div class="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col items-center justify-center relative group hover:bg-white/10 transition-colors">
+            <span class="absolute top-4 left-5 text-[#A1A1AA] text-sm font-medium">完播率</span>
+            
+            <div id="drawer-chart-container" class="relative w-28 h-28 flex items-center justify-center mt-6">
+              <!-- Normal State -->
+              <svg id="drawer-chart-svg" class="w-full h-full transform -rotate-90 absolute inset-0" viewBox="0 0 36 36">
+                <!-- Background -->
+                <circle cx="18" cy="18" r="16" fill="transparent" stroke="rgba(255,255,255,0.1)" stroke-width="3.5"></circle>
+                <!-- Progress -->
+                <circle id="drawer-chart-progress" cx="18" cy="18" r="16" fill="transparent" stroke="#38E4D7" stroke-width="3.5" stroke-dasharray="42 100" stroke-dashoffset="0" stroke-linecap="round" class="transition-all duration-1000 ease-out"></circle>
+              </svg>
+              <span id="drawer-chart-text" class="text-2xl font-extrabold text-white tracking-tight z-10">42%</span>
+            </div>
+            
+            <!-- Empty/Zero State -->
+            <div id="drawer-empty-state" class="absolute inset-0 flex flex-col items-center justify-center bg-[#0A0A0B]/80 backdrop-blur-sm hidden rounded-2xl">
+               <svg class="w-6 h-6 text-zinc-500 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+               <span class="text-xs font-medium text-zinc-400">暂无数据</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Interaction Details -->
+        <div class="flex flex-col gap-4 mt-4">
+          <div class="flex items-center gap-2">
+            <h3 class="text-lg font-bold text-white tracking-tight">互动明细</h3>
+            <div class="h-px flex-1 bg-gradient-to-r from-white/10 to-transparent"></div>
+          </div>
+          
+          <div class="grid grid-cols-3 gap-4">
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-5 flex flex-col items-center justify-center gap-3 hover:bg-white/10 transition-colors">
+              <div class="w-10 h-10 rounded-full bg-vanso-magenta/10 flex items-center justify-center text-xl">👍</div>
+              <div class="flex flex-col items-center gap-1">
+                <span class="text-2xl font-bold text-white leading-none" id="drawer-likes">320</span>
+                <span class="text-xs text-zinc-500 font-medium">点赞</span>
+              </div>
+            </div>
+            
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-5 flex flex-col items-center justify-center gap-3 hover:bg-white/10 transition-colors">
+              <div class="w-10 h-10 rounded-full bg-vanso-peach/10 flex items-center justify-center text-xl">⭐</div>
+              <div class="flex flex-col items-center gap-1">
+                <span class="text-2xl font-bold text-white leading-none" id="drawer-saves">150</span>
+                <span class="text-xs text-zinc-500 font-medium">收藏</span>
+              </div>
+            </div>
+            
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-5 flex flex-col items-center justify-center gap-3 hover:bg-white/10 transition-colors">
+              <div class="w-10 h-10 rounded-full bg-vanso-cyan/10 flex items-center justify-center text-xl">💬</div>
+              <div class="flex flex-col items-center gap-1">
+                <span class="text-2xl font-bold text-white leading-none" id="drawer-comments">24</span>
+                <span class="text-xs text-zinc-500 font-medium">评论</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Tab switching logic for top navigation
+    function switchPage(pageId) {
+      // Update Tabs
+      const tabs = document.querySelectorAll('.top-tab');
+      tabs.forEach(t => t.classList.remove('active'));
+      event.target.classList.add('active');
+      
+      // Update Pages
+      const pages = document.querySelectorAll('.page-section');
+      pages.forEach(p => p.classList.remove('active'));
+      document.getElementById('page-' + pageId).classList.add('active');
+    }
+
+    // Card switching logic in Overview
+    const cards = document.querySelectorAll('.metric-card');
+    const chartContainer = document.getElementById('chart-container');
+    const chartTitle = document.getElementById('chart-title');
+    const tooltipLabel = document.getElementById('tooltip-label');
+
+    const labels = {
+      '播放总数趋势': '播放',
+      '互动总量趋势': '互动',
+      '新增粉丝趋势': '粉丝',
+      '主页访问趋势': '次访问'
+    };
+
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        cards.forEach(c => c.classList.remove('active'));
+        card.classList.add('active');
+        
+        const newColor = card.getAttribute('data-color');
+        const newTitle = card.getAttribute('data-title');
+        
+        chartContainer.style.setProperty('--chart-color', newColor);
+        chartTitle.textContent = newTitle;
+        tooltipLabel.textContent = labels[newTitle] || '';
+      });
+    });
+
+    // Filter toggle logic
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        filterBtns.forEach(b => {
+          b.className = 'filter-btn px-6 py-2 rounded-full text-sm font-medium transition-colors duration-300 text-zinc-400 hover:text-white cursor-pointer';
+        });
+        e.target.className = 'filter-btn active px-6 py-2 rounded-full text-sm font-medium transition-colors duration-300 bg-white/10 text-white shadow-sm cursor-pointer';
+      });
+    });
+
+    // Drawer Logic (Dynamic Data injection)
+    const drawerOverlay = document.getElementById('drawer-overlay');
+    
+    function openDrawer(title, plays, completion) {
+      // Set Text Data
+      document.getElementById('drawer-title').textContent = title;
+      document.getElementById('drawer-plays').textContent = plays;
+      
+      // Handle Zero/Empty state logic
+      const isZero = plays === '0';
+      const emptyStateEl = document.getElementById('drawer-empty-state');
+      const chartSvgEl = document.getElementById('drawer-chart-svg');
+      const chartTextEl = document.getElementById('drawer-chart-text');
+      const progressEl = document.getElementById('drawer-chart-progress');
+      
+      if (isZero) {
+        emptyStateEl.classList.remove('hidden');
+        chartSvgEl.classList.add('opacity-10');
+        chartTextEl.classList.add('hidden');
+        // Fake zero stats for empty tracks
+        document.getElementById('drawer-likes').textContent = '0';
+        document.getElementById('drawer-saves').textContent = '0';
+        document.getElementById('drawer-comments').textContent = '0';
+      } else {
+        emptyStateEl.classList.add('hidden');
+        chartSvgEl.classList.remove('opacity-10');
+        chartTextEl.classList.remove('hidden');
+        
+        // Parse percentage and animate circle
+        chartTextEl.textContent = completion;
+        const percentVal = parseInt(completion.replace('%', ''));
+        progressEl.setAttribute('stroke-dasharray', `${percentVal} 100`);
+        
+        // Fake random stats based on track for visual variety
+        document.getElementById('drawer-likes').textContent = Math.floor(Math.random() * 500) + 50;
+        document.getElementById('drawer-saves').textContent = Math.floor(Math.random() * 200) + 10;
+        document.getElementById('drawer-comments').textContent = Math.floor(Math.random() * 50) + 1;
+      }
+      
+      // Open Drawer
+      drawerOverlay.classList.add('open');
+    }
+    
+    function closeDrawer() {
+      drawerOverlay.classList.remove('open');
+    }
+  </script>
+</body>
+</html>

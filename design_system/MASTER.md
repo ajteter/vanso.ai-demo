@@ -46,8 +46,7 @@ A glowing background using extremely blurred `mix-blend-screen` standard divs.
 ```
 
 ### Primary CTA
-```html
-<button class="bg-gradient-to-br from-vanso-magenta via-vanso-peach to-vanso-cyan text-white font-semibold rounded-full px-8 py-4 shadow-[0_0_20px] shadow-vanso-magenta/30 hover:scale-105 hover:shadow-[0_0_30px] hover:shadow-vanso-magenta/50 transition-all duration-300 cursor-pointer">
+<button class="text-white font-semibold rounded-full px-8 py-4 shadow-[0_0_20px] shadow-vanso-magenta/30 hover:scale-105 hover:shadow-[0_0_30px] hover:shadow-vanso-magenta/50 transition-all duration-300 cursor-pointer" style="background: linear-gradient(134deg, #F5328A 19.26%, #ECA08B 57.57%, #54E3D5 91.14%);">
 </button>
 ```
 

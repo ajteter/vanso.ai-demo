@@ -63,8 +63,7 @@
       left: 0;
       width: 100%;
       height: 2px;
-      /* Brand gradient accent for active tab indicator */
-      background: linear-gradient(134deg, #F5328A 19.26%, #ECA08B 57.57%, #54E3D5 91.14%);
+      background: #FFFFFF;
       border-radius: 2px;
     }
     /* Mobile touch feedback */
@@ -86,6 +85,7 @@
     }
     .metric-card.active .indicator {
       opacity: 1;
+      background: var(--card-color);
     }
     
     /* Hide scrollbar for clean H5 */
@@ -158,29 +158,29 @@
       <div class="grid grid-cols-2 gap-3 w-full" id="cards-container">
         
         <!-- Card 1 (Active by default - uses Cyan accent) -->
-        <div class="metric-card active relative bg-[#0A0A0B] border border-vanso-border rounded-2xl p-4 transition-all duration-300 flex flex-col gap-1 cursor-pointer" data-title="播放总数" data-color="#54E3D5">
-          <div class="absolute top-[-1px] left-0 w-full h-[2px] rounded-t-2xl transition-opacity duration-300 indicator" style="background: linear-gradient(134deg, #F5328A 19.26%, #ECA08B 57.57%, #54E3D5 91.14%);"></div>
+        <div class="metric-card active relative bg-[#0A0A0B] border border-vanso-border rounded-2xl p-4 transition-all duration-300 flex flex-col gap-1 cursor-pointer" data-title="播放总数" data-color="#54E3D5" style="--card-color: #54E3D5">
+          <div class="absolute top-[-1px] left-0 w-full h-[2px] rounded-t-2xl transition-opacity duration-300 indicator"></div>
           <span class="text-zinc-500 font-medium text-[12px] tracking-wide line-clamp-2 break-words min-h-[32px]">播放总数</span>
           <div class="text-[26px] font-bold text-white mt-1 truncate tracking-tight">12,450</div>
         </div>
 
-        <!-- Card 2 -->
-        <div class="metric-card relative bg-[#0A0A0B] border border-vanso-border rounded-2xl p-4 transition-all duration-300 flex flex-col gap-1 cursor-pointer" data-title="互动总量" data-color="#ECA08B">
-          <div class="absolute top-[-1px] left-0 w-full h-[2px] rounded-t-2xl opacity-0 transition-opacity duration-300 indicator" style="background: linear-gradient(134deg, #F5328A 19.26%, #ECA08B 57.57%, #54E3D5 91.14%);"></div>
+        <!-- Card 2 (Peach) -->
+        <div class="metric-card relative bg-[#0A0A0B] border border-vanso-border rounded-2xl p-4 transition-all duration-300 flex flex-col gap-1 cursor-pointer" data-title="互动总量" data-color="#ECA08B" style="--card-color: #ECA08B">
+          <div class="absolute top-[-1px] left-0 w-full h-[2px] rounded-t-2xl opacity-0 transition-opacity duration-300 indicator"></div>
           <span class="text-zinc-500 font-medium text-[12px] tracking-wide line-clamp-2 break-words min-h-[32px]">互动总量</span>
           <div class="text-[26px] font-bold text-white mt-1 truncate tracking-tight">843</div>
         </div>
 
-        <!-- Card 3 -->
-        <div class="metric-card relative bg-[#0A0A0B] border border-vanso-border rounded-2xl p-4 transition-all duration-300 flex flex-col gap-1 cursor-pointer" data-title="新增粉丝" data-color="#F5328A">
-          <div class="absolute top-[-1px] left-0 w-full h-[2px] rounded-t-2xl opacity-0 transition-opacity duration-300 indicator" style="background: linear-gradient(134deg, #F5328A 19.26%, #ECA08B 57.57%, #54E3D5 91.14%);"></div>
+        <!-- Card 3 (Magenta) -->
+        <div class="metric-card relative bg-[#0A0A0B] border border-vanso-border rounded-2xl p-4 transition-all duration-300 flex flex-col gap-1 cursor-pointer" data-title="新增粉丝" data-color="#F5328A" style="--card-color: #F5328A">
+          <div class="absolute top-[-1px] left-0 w-full h-[2px] rounded-t-2xl opacity-0 transition-opacity duration-300 indicator"></div>
           <span class="text-zinc-500 font-medium text-[12px] tracking-wide line-clamp-2 break-words min-h-[32px]">新增粉丝</span>
           <div class="text-[26px] font-bold text-white mt-1 truncate tracking-tight">120</div>
         </div>
 
-        <!-- Card 4 -->
-        <div class="metric-card relative bg-[#0A0A0B] border border-vanso-border rounded-2xl p-4 transition-all duration-300 flex flex-col gap-1 cursor-pointer" data-title="主页访问" data-color="#A1A1AA">
-          <div class="absolute top-[-1px] left-0 w-full h-[2px] rounded-t-2xl opacity-0 transition-opacity duration-300 indicator" style="background: linear-gradient(134deg, #F5328A 19.26%, #ECA08B 57.57%, #54E3D5 91.14%);"></div>
+        <!-- Card 4 (White) -->
+        <div class="metric-card relative bg-[#0A0A0B] border border-vanso-border rounded-2xl p-4 transition-all duration-300 flex flex-col gap-1 cursor-pointer" data-title="主页访问" data-color="#FFFFFF" style="--card-color: #FFFFFF">
+          <div class="absolute top-[-1px] left-0 w-full h-[2px] rounded-t-2xl opacity-0 transition-opacity duration-300 indicator"></div>
           <span class="text-zinc-500 font-medium text-[12px] tracking-wide line-clamp-2 break-words min-h-[32px]">主页访问</span>
           <div class="text-[26px] font-bold text-white mt-1 truncate tracking-tight">3,200</div>
         </div>

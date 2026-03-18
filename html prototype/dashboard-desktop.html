@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="zh-CN" class="dark">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vanso Creator Studio - Desktop</title>
+  <title>Vanso Creator Studio - Desktop Dashboard</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script>
@@ -18,11 +19,18 @@
               peach: '#ECA08B',
               bg: '#000000',
               card: '#0A0A0B',
-              blue: '#247CFF'
+              border: 'rgba(255, 255, 255, 0.08)',
+              hover: 'rgba(255, 255, 255, 0.04)'
             }
           },
           fontFamily: {
             sans: ['Inter', 'sans-serif'],
+          },
+          fontSize: {
+            'v-small': ['12px', '16px'],
+            'v-base': ['16px', '24px'],
+            'v-large': ['24px', '32px'],
+            'v-xl': ['32px', '40px'],
           }
         }
       }
@@ -33,60 +41,89 @@
       background-color: #000000;
       color: #FFFFFF;
       overflow-x: hidden;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
-    
+
     /* Top Tab Navigation Styles */
     .top-tab {
       position: relative;
-      color: #A1A1AA;
+      color: #71717A;
       transition: color 0.3s;
+      padding-bottom: 12px;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
     }
+
     .top-tab.active {
       color: #FFFFFF;
       font-weight: 700;
     }
+
     .top-tab.active::after {
       content: '';
       position: absolute;
-      bottom: -4px;
+      bottom: -1px;
       left: 0;
       width: 100%;
       height: 2px;
-      background: linear-gradient(90deg, #54E3D5, #F5328A);
+      background: #FFFFFF;
       border-radius: 2px;
     }
 
-    /* Active Card Styles */
-    .metric-card.active {
-      background-color: rgba(255, 255, 255, 0.08);
-      border-color: var(--card-color);
-      box-shadow: 0 0 20px -5px var(--card-color);
-    }
-    .metric-card.active .indicator {
-      opacity: 1;
-      background-color: var(--card-color);
+    /* Active Card Styles (Full Border) */
+    .metric-card {
+      border: 1px solid var(--color-vanso-border);
+      transition: all 0.2s ease;
     }
 
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #000; }
-    ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: #555; }
-    
-    /* Drawer Animations */
+    .metric-card:active {
+      transform: scale(0.98);
+    }
+
+    .metric-card.active {
+      background-color: rgba(255, 255, 255, 0.03);
+      border-color: var(--card-color);
+      box-shadow: 0 0 15px -2px var(--card-color);
+    }
+
+    /* Custom Scrollbar for Desktop */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #333;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+    /* Drawer Animations (Slide from Right) */
     #drawer-overlay {
       transition: opacity 0.3s ease;
       opacity: 0;
       pointer-events: none;
     }
+
     #drawer-overlay.open {
       opacity: 1;
       pointer-events: auto;
     }
+
     #drawer-content {
       transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       transform: translateX(100%);
     }
+
     #drawer-overlay.open #drawer-content {
       transform: translateX(0);
     }
@@ -94,116 +131,163 @@
     /* Page Switcher */
     .page-section {
       display: none;
-      animation: fadeIn 0.4s ease-out forwards;
+      animation: fadeIn 0.35s ease-out forwards;
     }
+
     .page-section.active {
       display: flex;
     }
+
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .track-item:active {
+      transform: scale(0.99);
+      background-color: rgba(255, 255, 255, 0.06);
     }
   </style>
 </head>
-<body class="antialiased min-h-screen relative">
 
-  <!-- Sonic Aura Backgrounds -->
-  <div class="fixed top-[-10%] left-[-5%] w-[600px] h-[600px] bg-vanso-magenta rounded-full mix-blend-screen blur-[150px] opacity-10 animate-pulse pointer-events-none z-[-1]"></div>
-  <div class="fixed bottom-[-10%] right-[-5%] w-[500px] h-[500px] bg-vanso-cyan rounded-full mix-blend-screen blur-[150px] opacity-10 pointer-events-none z-[-1]"></div>
+<body class="antialiased min-h-screen relative selection:bg-white/20 selection:text-white">
 
-  <div class="w-full max-w-7xl mx-auto p-10 flex flex-col gap-8">
-    
-    <!-- 0. Main Navigation Tabs -->
-    <div class="flex items-center gap-8 border-b border-white/10 pb-4">
-      <button class="top-tab active text-2xl tracking-tight cursor-pointer" onclick="switchPage('overview')">账号总览</button>
-      <button class="top-tab text-2xl tracking-tight cursor-pointer" onclick="switchPage('tracks')">单曲数据</button>
+  <div class="w-full max-w-6xl mx-auto p-10 flex flex-col gap-8">
+
+    <!-- App Header: Main Tabs & Language Switcher -->
+    <div class="flex items-center justify-between border-b border-vanso-border pb-2">
+      <!-- Main Navigation Tabs -->
+      <div class="flex items-center gap-10">
+        <button class="top-tab active text-v-base tracking-tight cursor-pointer transition-colors hover:text-white"
+          onclick="switchPage('overview')" data-i18n="nav_overview">数据总览</button>
+        <button class="top-tab text-v-base tracking-tight cursor-pointer transition-colors hover:text-white"
+          onclick="switchPage('tracks')" data-i18n="nav_tracks">单曲数据</button>
+      </div>
+
+      <!-- Language Switcher -->
+      <button id="lang-toggle" onclick="toggleLanguage()"
+        class="px-4 py-1.5 rounded-full bg-white/5 border border-vanso-border text-v-small text-zinc-400 hover:text-white transition-colors cursor-pointer self-start mt-2">
+        EN / 中文
+      </button>
     </div>
 
     <!-- ==================== PAGE 1: ACCOUNT OVERVIEW ==================== -->
     <div id="page-overview" class="page-section active flex-col gap-8 w-full">
-      <!-- 1. Header & Global Filters -->
-      <div class="flex items-center justify-between w-full">
-        <h1 class="font-extrabold text-3xl tracking-tight text-white">数据总览</h1>
-        
-        <!-- Filter Toggle -->
-        <div class="bg-white/5 backdrop-blur-md border border-white/10 p-1 rounded-full flex">
-          <button class="filter-btn active px-6 py-2 rounded-full text-sm font-medium transition-colors duration-300 bg-white/10 text-white shadow-sm">
-            近 7 日
-          </button>
-          <button class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-colors duration-300 text-zinc-400 hover:text-white">
-            近 30 日
-          </button>
-        </div>
+
+      <!-- Filter Toggle -->
+      <div class="bg-white/5 backdrop-blur-md border border-vanso-border p-1 rounded-lg flex self-start">
+        <button
+          class="filter-btn active px-8 py-2 rounded-md text-white bg-white/10 font-medium transition-all text-v-small whitespace-nowrap text-center cursor-pointer min-h-[40px]"
+          data-i18n="filter_7d">近 7 日</button>
+        <button
+          class="filter-btn px-8 py-2 rounded-md text-zinc-500 transition-all text-v-small whitespace-nowrap text-center cursor-pointer min-h-[40px] hover:text-white"
+          data-i18n="filter_30d">近 30 日</button>
       </div>
 
-      <!-- 2. The Big 4 Summary Cards -->
+      <!-- 2. The Big 4 Summary Cards (4-Column Grid for Desktop) -->
       <div class="grid grid-cols-4 gap-6 w-full" id="cards-container">
-        
+
         <!-- Card 1 -->
-        <div class="metric-card active relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 cursor-pointer transition-all duration-300 hover:bg-white/10 group flex flex-col gap-2" style="--card-color: #247CFF" data-title="播放总数趋势" data-color="#247CFF">
-          <div class="absolute top-[-1px] left-0 w-full h-[3px] rounded-t-2xl opacity-0 transition-opacity duration-300 indicator"></div>
-          <span class="text-zinc-400 font-medium text-sm tracking-wide">播放总数</span>
-          <div class="text-[40px] leading-tight font-extrabold text-white mt-2">12,450</div>
+        <div
+          class="metric-card active bg-[#0A0A0B] rounded-2xl p-6 flex flex-col gap-2 cursor-pointer hover:bg-vanso-hover"
+          data-title-i18n="metric_plays" data-title="播放总数" data-color="#FFFFFF" style="--card-color: #FFFFFF">
+          <div
+            class="absolute top-[-1px] left-0 w-full h-[2px] rounded-t-2xl opacity-0 transition-opacity duration-300 indicator">
+          </div>
+          <span class="text-zinc-500 font-medium text-v-base tracking-wide line-clamp-1 break-words"
+            data-i18n="metric_plays">播放总数</span>
+          <div class="text-v-xl font-bold text-white mt-2 truncate tracking-tight">12,450</div>
         </div>
 
         <!-- Card 2 -->
-        <div class="metric-card relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 cursor-pointer transition-all duration-300 hover:bg-white/10 group flex flex-col gap-2" style="--card-color: #F5328A" data-title="互动总量趋势" data-color="#F5328A">
-          <div class="absolute top-[-1px] left-0 w-full h-[3px] rounded-t-2xl opacity-0 transition-opacity duration-300 indicator"></div>
-          <span class="text-zinc-400 font-medium text-sm tracking-wide">互动总量</span>
-          <div class="text-[40px] leading-tight font-extrabold text-white mt-2">843</div>
+        <div class="metric-card bg-[#0A0A0B] rounded-2xl p-6 flex flex-col gap-2 cursor-pointer hover:bg-vanso-hover"
+          data-title-i18n="metric_engagement" data-title="互动总量" data-color="#ECA08B" style="--card-color: #ECA08B">
+          <div
+            class="absolute top-[-1px] left-0 w-full h-[2px] rounded-t-2xl opacity-0 transition-opacity duration-300 indicator">
+          </div>
+          <span class="text-zinc-500 font-medium text-v-base tracking-wide line-clamp-1 break-words"
+            data-i18n="metric_engagement">互动总量</span>
+          <div class="text-v-xl font-bold text-white mt-2 truncate tracking-tight">843</div>
         </div>
 
         <!-- Card 3 -->
-        <div class="metric-card relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 cursor-pointer transition-all duration-300 hover:bg-white/10 group flex flex-col gap-2" style="--card-color: #54E3D5" data-title="新增粉丝趋势" data-color="#54E3D5">
-          <div class="absolute top-[-1px] left-0 w-full h-[3px] rounded-t-2xl opacity-0 transition-opacity duration-300 indicator"></div>
-          <span class="text-zinc-400 font-medium text-sm tracking-wide">新增粉丝</span>
-          <div class="text-[40px] leading-tight font-extrabold text-white mt-2">120</div>
+        <div class="metric-card bg-[#0A0A0B] rounded-2xl p-6 flex flex-col gap-2 cursor-pointer hover:bg-vanso-hover"
+          data-title-i18n="metric_followers" data-title="新增粉丝" data-color="#F5328A" style="--card-color: #F5328A">
+          <div
+            class="absolute top-[-1px] left-0 w-full h-[2px] rounded-t-2xl opacity-0 transition-opacity duration-300 indicator">
+          </div>
+          <span class="text-zinc-500 font-medium text-v-base tracking-wide line-clamp-1 break-words"
+            data-i18n="metric_followers">新增粉丝</span>
+          <div class="text-v-xl font-bold text-white mt-2 truncate tracking-tight">120</div>
         </div>
 
         <!-- Card 4 -->
-        <div class="metric-card relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 cursor-pointer transition-all duration-300 hover:bg-white/10 group flex flex-col gap-2" style="--card-color: #ECA08B" data-title="主页访问趋势" data-color="#ECA08B">
-          <div class="absolute top-[-1px] left-0 w-full h-[3px] rounded-t-2xl opacity-0 transition-opacity duration-300 indicator"></div>
-          <span class="text-zinc-400 font-medium text-sm tracking-wide">主页访问</span>
-          <div class="text-[40px] leading-tight font-extrabold text-white mt-2">3,200</div>
+        <div class="metric-card bg-[#0A0A0B] rounded-2xl p-6 flex flex-col gap-2 cursor-pointer hover:bg-vanso-hover"
+          data-title-i18n="metric_visits" data-title="主页访问" data-color="#54E3D5" style="--card-color: #54E3D5">
+          <div
+            class="absolute top-[-1px] left-0 w-full h-[2px] rounded-t-2xl opacity-0 transition-opacity duration-300 indicator">
+          </div>
+          <span class="text-zinc-500 font-medium text-v-base tracking-wide line-clamp-1 break-words"
+            data-i18n="metric_visits">主页访问</span>
+          <div class="text-v-xl font-bold text-white mt-2 truncate tracking-tight">3,200</div>
         </div>
 
       </div>
 
       <!-- 3. The Main Trend Chart -->
-      <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 transition-colors duration-300 w-full flex flex-col gap-8 relative" id="chart-container" style="--chart-color: #247CFF">
-        <h3 class="font-bold text-xl text-white" id="chart-title">播放总数趋势</h3>
+      <div class="bg-[#0A0A0B] border border-vanso-border rounded-3xl p-8 w-full flex flex-col gap-6 relative"
+        id="chart-container" style="--chart-color: #FFFFFF">
+        <h3 class="font-bold text-v-large text-white line-clamp-1 break-words" id="chart-title"
+          data-i18n="metric_plays">播放总数</h3>
 
-        <div class="w-full h-[300px] relative mt-4">
+        <div class="w-full h-[320px] relative mt-4">
           <svg class="w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 1000 240">
             <defs>
               <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="var(--chart-color)" stop-opacity="0.3"/>
-                <stop offset="100%" stop-color="var(--chart-color)" stop-opacity="0.0"/>
+                <stop offset="0%" stop-color="var(--chart-color)" stop-opacity="0.15" />
+                <stop offset="100%" stop-color="var(--chart-color)" stop-opacity="0.0" />
               </linearGradient>
             </defs>
-            
+
             <!-- Horizontal Grid Lines -->
-            <path d="M0,40 L1000,40 M0,100 L1000,100 M0,160 L1000,160 M0,220 L1000,220" stroke="rgba(255,255,255,0.05)" stroke-width="1" fill="none"></path>
-            
+            <path d="M0,40 L1000,40 M0,100 L1000,100 M0,160 L1000,160 M0,220 L1000,220" stroke="rgba(255,255,255,0.04)"
+              stroke-width="1" fill="none" stroke-dasharray="4 6"></path>
+
             <!-- Chart Area & Line -->
             <g class="transition-all duration-500 ease-in-out">
-              <path d="M0,240 L0,180 C100,150 200,200 300,140 C400,90 500,150 600,80 C700,50 800,110 900,40 C950,20 1000,60 1000,60 L1000,240 Z" fill="url(#chartGradient)"></path>
-              <path d="M0,180 C100,150 200,200 300,140 C400,90 500,150 600,80 C700,50 800,110 900,40 C950,20 1000,60 1000,60" fill="none" stroke="var(--chart-color)" stroke-width="3" stroke-linecap="round"></path>
+              <path
+                d="M0,240 L0,180 C100,150 200,200 300,140 C400,90 500,150 600,80 C700,50 800,110 900,40 C950,20 1000,60 1000,60 L1000,240 Z"
+                fill="url(#chartGradient)"></path>
+              <path
+                d="M0,180 C100,150 200,200 300,140 C400,90 500,150 600,80 C700,50 800,110 900,40 C950,20 1000,60 1000,60"
+                fill="none" stroke="var(--chart-color)" stroke-width="3" stroke-linecap="round"></path>
             </g>
           </svg>
 
           <!-- Interactive Tooltip Hint -->
-          <div class="absolute top-[25%] left-[90%] -translate-x-1/2 -translate-y-full mb-3 bg-[#1E1E1E]/90 backdrop-blur-md border border-white/10 text-white text-sm px-4 py-2 rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] pointer-events-none flex flex-col items-center z-10">
-            <span class="text-zinc-400 text-xs mb-1">03-06</span>
-            <span class="font-bold text-[var(--chart-color)]">3,200 <span class="text-white font-medium ml-1" id="tooltip-label">播放</span></span>
-            <div class="absolute bottom-[-5px] left-1/2 -translate-x-1/2 w-2 h-2 bg-[#1E1E1E]/90 border-r border-b border-white/10 rotate-45"></div>
+          <div
+            class="absolute top-[25%] left-[80%] -translate-x-1/2 -translate-y-[130%] bg-[#1A1A1A]/95 backdrop-blur-md border border-vanso-border text-white px-4 py-2.5 rounded-xl shadow-xl pointer-events-none flex flex-col items-center z-10 min-w-[80px]">
+            <span class="text-zinc-400 mb-1 truncate w-full text-center text-v-small">03-06</span>
+            <span class="font-bold text-[var(--chart-color)] truncate w-full text-center text-v-base">3,200</span>
+            <div
+              class="absolute bottom-[-5px] left-1/2 -translate-x-1/2 w-2 h-2 bg-[#1A1A1A]/95 border-r border-b border-vanso-border rotate-45">
+            </div>
           </div>
-          
-          <!-- Data Point Dot -->
-          <div class="absolute top-[25%] left-[90%] w-4 h-4 bg-[#0A0A0B] rounded-full border-[3px] border-[var(--chart-color)] -translate-x-1/2 -translate-y-1/2 shadow-[0_0_15px_var(--chart-color)] z-10"></div>
-          
+
+          <!-- Data Point Dot with glow -->
+          <div class="absolute top-[25%] left-[80%] w-4 h-4 rounded-full -translate-x-1/2 -translate-y-1/2 z-10"
+            style="background: var(--chart-color); box-shadow: 0 0 12px var(--chart-color);"></div>
+
           <!-- X-Axis -->
-          <div class="absolute bottom-[-32px] left-0 w-full flex justify-between text-zinc-500 text-sm px-2 font-medium">
+          <div
+            class="absolute bottom-[-32px] left-0 w-full flex justify-between text-zinc-500 text-v-small font-medium">
             <span>03-01</span>
             <span>03-02</span>
             <span>03-03</span>
@@ -216,130 +300,191 @@
       </div>
 
       <!-- 4. Bottom Analytics Dashboard -->
-      <div class="grid grid-cols-1 gap-6 w-full mt-4">
+      <div class="grid grid-cols-2 gap-6 w-full mt-4">
+        <!-- Engagement Breakdown (Takes half width on Desktop) -->
+        <div class="bg-[#0A0A0B] border border-vanso-border rounded-3xl p-8 flex flex-col gap-8 h-full justify-center">
+          <h3 class="font-bold text-v-large text-white line-clamp-1 break-words" data-i18n="metric_breakdown">互动构成</h3>
 
-        <!-- Right Card: Engagement Breakdown -->
-        <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-colors duration-300 flex items-center justify-between">
-          <div class="flex flex-col h-full justify-start">
-            <h3 class="font-bold text-xl text-white mb-8">互动构成</h3>
-            <div class="flex flex-col gap-5">
-              <div class="flex items-center gap-3">
-                <div class="w-3 h-3 rounded-full bg-vanso-magenta shadow-[0_0_10px_#F5328A]"></div>
-                <span class="text-white font-medium">点赞 <span class="text-zinc-500 ml-2">60%</span></span>
+          <div class="flex items-center justify-start gap-16 px-4">
+            <!-- Donut Chart SVG -->
+            <div class="relative w-32 h-32 shrink-0">
+              <svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+                <circle cx="18" cy="18" r="15.91549430918954" fill="transparent" stroke="rgba(255,255,255,0.04)"
+                  stroke-width="4"></circle>
+                <!-- Cyan 10% -->
+                <circle cx="18" cy="18" r="15.91549430918954" fill="transparent" stroke="#54E3D5" stroke-width="4"
+                  stroke-dasharray="10 90" stroke-dashoffset="0" stroke-linecap="round"></circle>
+                <!-- Peach 30% -->
+                <circle cx="18" cy="18" r="15.91549430918954" fill="transparent" stroke="#ECA08B" stroke-width="4"
+                  stroke-dasharray="30 70" stroke-dashoffset="-10" stroke-linecap="round"></circle>
+                <!-- Magenta 60% -->
+                <circle cx="18" cy="18" r="15.91549430918954" fill="transparent" stroke="#F5328A" stroke-width="4"
+                  stroke-dasharray="60 40" stroke-dashoffset="-40" stroke-linecap="round"></circle>
+              </svg>
+            </div>
+
+            <!-- Legend -->
+            <div class="flex flex-col gap-5 w-full">
+              <div class="flex items-center gap-4">
+                <div class="flex items-center justify-center shrink-0 w-6 h-6">
+                  <svg class="w-5 h-5 text-vanso-peach" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5">
+                    </path>
+                  </svg>
+                </div>
+                <span class="text-zinc-400 text-v-base flex-1 truncate" data-i18n="stat_likes">点赞</span>
+                <span class="text-white text-v-base font-semibold shrink-0">60%</span>
               </div>
-              <div class="flex items-center gap-3">
-                <div class="w-3 h-3 rounded-full bg-vanso-peach shadow-[0_0_10px_#ECA08B]"></div>
-                <span class="text-white font-medium">收藏 <span class="text-zinc-500 ml-2">30%</span></span>
+              <div class="flex items-center gap-4">
+                <div class="flex items-center justify-center shrink-0 w-6 h-6">
+                  <svg class="w-5 h-5 text-vanso-magenta" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                    </path>
+                  </svg>
+                </div>
+                <span class="text-zinc-400 text-v-base flex-1 truncate" data-i18n="stat_saves">收藏</span>
+                <span class="text-white text-v-base font-semibold shrink-0">30%</span>
               </div>
-              <div class="flex items-center gap-3">
-                <div class="w-3 h-3 rounded-full bg-vanso-cyan shadow-[0_0_10px_#54E3D5]"></div>
-                <span class="text-white font-medium">评论 <span class="text-zinc-500 ml-2">10%</span></span>
+              <div class="flex items-center gap-4">
+                <div class="flex items-center justify-center shrink-0 w-6 h-6">
+                  <svg class="w-5 h-5 text-vanso-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
+                    </path>
+                  </svg>
+                </div>
+                <span class="text-zinc-400 text-v-base flex-1 truncate" data-i18n="stat_comments">评论</span>
+                <span class="text-white text-v-base font-semibold shrink-0">10%</span>
               </div>
             </div>
           </div>
-
-          <!-- Donut Chart SVG -->
-          <div class="relative w-40 h-40 mr-4">
-            <svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
-              <!-- Background Ring -->
-              <circle cx="18" cy="18" r="15.91549430918954" fill="transparent" stroke="rgba(255,255,255,0.05)" stroke-width="4"></circle>
-              <!-- Cyan 10% -->
-              <circle cx="18" cy="18" r="15.91549430918954" fill="transparent" stroke="#54E3D5" stroke-width="4" stroke-dasharray="10 90" stroke-dashoffset="0" stroke-linecap="round"></circle>
-              <!-- Peach 30% -->
-              <circle cx="18" cy="18" r="15.91549430918954" fill="transparent" stroke="#ECA08B" stroke-width="4" stroke-dasharray="30 70" stroke-dashoffset="-10" stroke-linecap="round"></circle>
-              <!-- Magenta 60% -->
-              <circle cx="18" cy="18" r="15.91549430918954" fill="transparent" stroke="#F5328A" stroke-width="4" stroke-dasharray="60 40" stroke-dashoffset="-40" stroke-linecap="round"></circle>
-            </svg>
-          </div>
-
         </div>
-
       </div>
     </div> <!-- End Page 1 -->
 
     <!-- ==================== PAGE 2: TRACKS LIST ==================== -->
     <div id="page-tracks" class="page-section flex-col gap-6 w-full">
-      <div class="flex items-center justify-between w-full">
-        <h1 class="font-extrabold text-3xl tracking-tight text-white">单曲数据</h1>
-        <div class="bg-white/5 backdrop-blur-md border border-white/10 p-1 rounded-lg">
-          <input type="text" placeholder="搜索歌曲..." class="bg-transparent border-none outline-none text-sm text-white px-4 py-1.5 w-48 placeholder:text-zinc-600">
+
+      <!-- Header Area for List -->
+      <div class="flex items-center justify-between w-full mb-2">
+        <h2 class="font-bold text-v-large text-white" data-i18n="nav_tracks">单曲数据</h2>
+        <!-- Sort Toggle (UXUI matches Filter Toggle) -->
+        <div class="bg-white/5 backdrop-blur-md border border-vanso-border p-1 rounded-lg flex shrink-0">
+          <button
+            class="sort-btn active px-6 py-2 rounded-md text-white bg-white/10 font-medium transition-all text-v-small whitespace-nowrap text-center cursor-pointer min-h-[40px] hover:text-white"
+            data-i18n="sort_plays">按播放量</button>
+          <button
+            class="sort-btn px-6 py-2 rounded-md text-zinc-500 transition-all text-v-small whitespace-nowrap text-center cursor-pointer min-h-[40px] hover:text-white"
+            data-i18n="sort_date">按发布时间</button>
         </div>
       </div>
 
-      <!-- Tracks List -->
-      <div class="flex flex-col gap-3 w-full mt-2">
-        
+      <!-- Tracks List (Grid for Desktop) -->
+      <div class="flex flex-col gap-4 w-full">
+
         <!-- Track Item 1 -->
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-4 flex items-center justify-between hover:bg-white/10 transition-all cursor-pointer group" onclick="openDrawer('Cyberpunk City', '12,540', '42%')">
-          <div class="flex items-center gap-4">
-            <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-vanso-cyan to-vanso-magenta shadow-md flex items-center justify-center relative overflow-hidden">
-              <div class="absolute inset-0 bg-black/20 mix-blend-overlay"></div>
-              <svg class="w-6 h-6 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"></path></svg>
+        <div
+          class="track-item bg-[#0A0A0B] border border-vanso-border rounded-2xl p-5 flex items-center justify-between transition-all cursor-pointer group hover:bg-vanso-hover"
+          onclick="openDrawer('Cyberpunk City', '12,540', '42%')">
+          <div class="flex items-center gap-5 min-w-0 pr-4">
+            <div
+              class="w-14 h-14 rounded-xl bg-zinc-800/80 flex items-center justify-center shrink-0 border border-vanso-border">
+              <svg class="w-6 h-6 text-vanso-cyan/60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3">
+                </path>
+              </svg>
             </div>
-            <div class="flex flex-col gap-1">
-              <span class="font-bold text-lg text-white group-hover:text-vanso-cyan transition-colors">Cyberpunk City</span>
-              <span class="text-xs text-zinc-500">2026-03-01</span>
+            <div class="flex flex-col gap-1 min-w-0">
+              <span class="font-semibold text-v-base text-white transition-colors truncate">Cyberpunk City</span>
+              <span class="text-v-small text-zinc-500 truncate">2026-03-01</span>
             </div>
           </div>
-          <div class="flex items-center gap-12 pr-6">
+          <div class="flex items-center gap-16 shrink-0 pr-4">
             <div class="flex flex-col text-right">
-              <span class="text-xs text-zinc-500 mb-0.5">播放量</span>
-              <span class="text-white font-medium">12,540</span>
+              <span class="text-v-small text-zinc-500 mb-1" data-i18n="metric_plays">播放量</span>
+              <span class="text-white font-bold text-v-base">12,540</span>
             </div>
             <div class="flex flex-col text-right w-16">
-              <span class="text-xs text-zinc-500 mb-0.5">完播率</span>
-              <span class="text-vanso-cyan font-medium">42%</span>
+              <span class="text-v-small text-zinc-500 mb-1" data-i18n="metric_completion">完播率</span>
+              <span class="text-v-base font-bold text-white">42%</span>
             </div>
-            <svg class="w-5 h-5 text-zinc-600 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            <svg class="w-6 h-6 text-zinc-600 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7"></path>
+            </svg>
           </div>
         </div>
 
         <!-- Track Item 2 -->
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-4 flex items-center justify-between hover:bg-white/10 transition-all cursor-pointer group" onclick="openDrawer('Neon Lights', '8,320', '58%')">
-          <div class="flex items-center gap-4">
-            <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 shadow-md flex items-center justify-center relative overflow-hidden">
-              <div class="absolute inset-0 bg-black/20 mix-blend-overlay"></div>
-              <svg class="w-6 h-6 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"></path></svg>
+        <div
+          class="track-item bg-[#0A0A0B] border border-vanso-border rounded-2xl p-5 flex items-center justify-between transition-all cursor-pointer group hover:bg-vanso-hover"
+          onclick="openDrawer('Neon Lights Extended Version With Very Long Title', '8,320', '58%')">
+          <div class="flex items-center gap-5 min-w-0 pr-4 max-w-[60%]">
+            <div
+              class="w-14 h-14 rounded-xl bg-zinc-800/80 flex items-center justify-center shrink-0 border border-vanso-border">
+              <svg class="w-6 h-6 text-vanso-peach/60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3">
+                </path>
+              </svg>
             </div>
-            <div class="flex flex-col gap-1">
-              <span class="font-bold text-lg text-white group-hover:text-vanso-cyan transition-colors">Neon Lights</span>
-              <span class="text-xs text-zinc-500">2026-02-24</span>
+            <div class="flex flex-col gap-1 min-w-0">
+              <span class="font-semibold text-v-base text-white transition-colors truncate">Neon Lights Extended Version
+                With Very Long Title</span>
+              <span class="text-v-small text-zinc-500 truncate">2026-02-24</span>
             </div>
           </div>
-          <div class="flex items-center gap-12 pr-6">
+          <div class="flex items-center gap-16 shrink-0 pr-4">
             <div class="flex flex-col text-right">
-              <span class="text-xs text-zinc-500 mb-0.5">播放量</span>
-              <span class="text-white font-medium">8,320</span>
+              <span class="text-v-small text-zinc-500 mb-1" data-i18n="metric_plays">播放量</span>
+              <span class="text-white font-bold text-v-base">8,320</span>
             </div>
             <div class="flex flex-col text-right w-16">
-              <span class="text-xs text-zinc-500 mb-0.5">完播率</span>
-              <span class="text-vanso-cyan font-medium">58%</span>
+              <span class="text-v-small text-zinc-500 mb-1" data-i18n="metric_completion">完播率</span>
+              <span class="text-v-base font-bold text-white">58%</span>
             </div>
-            <svg class="w-5 h-5 text-zinc-600 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            <svg class="w-6 h-6 text-zinc-600 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7"></path>
+            </svg>
           </div>
         </div>
 
-        <!-- Track Item 3 (Zero plays edge case test) -->
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-4 flex items-center justify-between hover:bg-white/10 transition-all cursor-pointer group" onclick="openDrawer('Silent Echoes (Draft)', '0', '0%')">
-          <div class="flex items-center gap-4">
-            <div class="w-14 h-14 rounded-lg bg-zinc-800 shadow-md flex items-center justify-center relative overflow-hidden">
-              <svg class="w-6 h-6 text-zinc-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"></path></svg>
+        <!-- Track Item 3 (Zero plays) -->
+        <div
+          class="track-item bg-[#0A0A0B] border border-vanso-border rounded-2xl p-5 flex items-center justify-between transition-all cursor-pointer group hover:bg-vanso-hover"
+          onclick="openDrawer('Silent Echoes (Draft)', '0', '0%')">
+          <div class="flex items-center gap-5 min-w-0 pr-4">
+            <div
+              class="w-14 h-14 rounded-xl bg-zinc-900 border border-zinc-800/50 flex items-center justify-center shrink-0">
+              <svg class="w-6 h-6 text-zinc-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3">
+                </path>
+              </svg>
             </div>
-            <div class="flex flex-col gap-1">
-              <span class="font-bold text-lg text-zinc-300 group-hover:text-white transition-colors">Silent Echoes (Draft)</span>
-              <span class="text-xs text-zinc-600">刚刚上传</span>
+            <div class="flex flex-col gap-1 min-w-0">
+              <span class="font-semibold text-v-base text-zinc-400 transition-colors truncate">Silent Echoes
+                (Draft)</span>
+              <span class="text-v-small text-zinc-600 truncate" data-i18n="status_just_uploaded">刚刚上传</span>
             </div>
           </div>
-          <div class="flex items-center gap-12 pr-6">
+          <div class="flex items-center gap-16 shrink-0 pr-4">
             <div class="flex flex-col text-right">
-              <span class="text-xs text-zinc-500 mb-0.5">播放量</span>
-              <span class="text-zinc-400 font-medium">0</span>
+              <span class="text-v-small text-zinc-500 mb-1" data-i18n="metric_plays">播放量</span>
+              <span class="text-zinc-500 font-bold text-v-base">0</span>
             </div>
             <div class="flex flex-col text-right w-16">
-              <span class="text-xs text-zinc-500 mb-0.5">完播率</span>
-              <span class="text-zinc-600 font-medium">-</span>
+              <span class="text-v-small text-zinc-500 mb-1" data-i18n="metric_completion">完播率</span>
+              <span class="text-zinc-600 font-bold text-v-base">-</span>
             </div>
-            <svg class="w-5 h-5 text-zinc-600 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            <svg class="w-6 h-6 text-zinc-600 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7"></path>
+            </svg>
           </div>
         </div>
 
@@ -348,203 +493,311 @@
 
   </div>
 
-  <!-- Single Track Analytics Drawer -->
+  <!-- Single Track Analytics Drawer (Slide from Right for Desktop) -->
   <div id="drawer-overlay" class="fixed inset-0 z-50 flex justify-end">
     <!-- Backdrop -->
     <div class="absolute inset-0 bg-black/60 backdrop-blur-sm cursor-pointer" onclick="closeDrawer()"></div>
-    
+
     <!-- Drawer Panel -->
-    <div id="drawer-content" class="relative w-[500px] max-w-full h-full bg-[#0A0A0B] border-l border-white/10 shadow-2xl flex flex-col">
+    <div id="drawer-content"
+      class="relative w-[500px] max-w-full h-full bg-[#0A0A0B] border-l border-vanso-border shadow-2xl flex flex-col">
+
       <!-- Close Button -->
-      <button class="absolute top-6 right-6 p-2 rounded-full bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white transition-colors cursor-pointer z-20" onclick="closeDrawer()">
-        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+      <button
+        class="absolute top-6 right-6 p-2 rounded-full hover:bg-white/10 text-zinc-500 hover:text-white transition-colors cursor-pointer z-10"
+        onclick="closeDrawer()">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
       </button>
 
       <!-- Content Inner -->
       <div class="p-8 overflow-y-auto flex-1 flex flex-col gap-8 custom-scrollbar">
-        
+
         <!-- 1. Header (Track Info) -->
-        <div class="flex items-center gap-4 mt-2">
-          <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-vanso-cyan to-vanso-magenta shadow-lg shadow-vanso-magenta/20 flex items-center justify-center shrink-0 overflow-hidden relative" id="drawer-cover">
-            <div class="absolute inset-0 bg-black/20 mix-blend-overlay"></div>
-            <svg class="w-6 h-6 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"></path></svg>
+        <div class="flex items-center gap-5 mt-4">
+          <div
+            class="w-20 h-20 rounded-xl bg-zinc-800/80 border border-vanso-border flex items-center justify-center shrink-0">
+            <svg class="w-8 h-8 text-vanso-cyan/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3">
+              </path>
+            </svg>
           </div>
-          <div class="flex flex-col gap-1 pr-8">
-            <h2 class="text-2xl font-bold text-white tracking-tight leading-none truncate" id="drawer-title">Cyberpunk City</h2>
-            <p class="text-sm text-[#A1A1AA]">上传时间: 2026-03-01</p>
+          <div class="flex flex-col gap-2 pr-10 min-w-0">
+            <h2 class="text-v-large font-bold text-white leading-snug line-clamp-2 break-words" id="drawer-title">
+              Cyberpunk City</h2>
+            <p class="text-v-small text-zinc-500 truncate"><span data-i18n="label_upload_date">上传时间:</span> 2026-03-01
+            </p>
           </div>
         </div>
 
-        <!-- 2 & 3. Hero Metrics + Content Quality Diagnosis (Side-by-Side) -->
-        <div class="grid grid-cols-2 gap-4 w-full">
+        <!-- 2 & 3. Hero Metrics + Content Quality Diagnosis -->
+        <div class="grid grid-cols-2 gap-4 w-full h-[140px]">
           <!-- Total Plays -->
-          <div class="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col justify-center gap-2 relative overflow-hidden group hover:bg-white/10 transition-colors">
-            <span class="text-[#A1A1AA] text-sm font-medium z-10">累计播放次数</span>
-            <span class="text-[36px] font-extrabold text-white leading-none tracking-tight z-10 mt-2" id="drawer-plays">12,540</span>
-            <div class="absolute right-[-20px] bottom-[-20px] opacity-[0.03] group-hover:opacity-[0.06] transition-opacity">
-              <svg class="w-24 h-24 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </div>
+          <div
+            class="bg-[#111113] border border-vanso-border rounded-2xl p-6 flex flex-col justify-between relative overflow-hidden h-full">
+            <span class="text-zinc-500 text-v-base font-medium z-10 line-clamp-1 break-words w-full"
+              data-i18n="metric_plays">累计播放次数</span>
+            <span class="text-v-xl font-bold text-white leading-none tracking-tight z-10 truncate"
+              id="drawer-plays">12,540</span>
           </div>
 
           <!-- Completion Rate -->
-          <div class="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col items-center justify-center relative group hover:bg-white/10 transition-colors">
-            <span class="absolute top-4 left-5 text-[#A1A1AA] text-sm font-medium">完播率</span>
-            
-            <div id="drawer-chart-container" class="relative w-28 h-28 flex items-center justify-center mt-6">
-              <!-- Normal State -->
-              <svg id="drawer-chart-svg" class="w-full h-full transform -rotate-90 absolute inset-0" viewBox="0 0 36 36">
-                <!-- Background -->
-                <circle cx="18" cy="18" r="16" fill="transparent" stroke="rgba(255,255,255,0.1)" stroke-width="3.5"></circle>
-                <!-- Progress -->
-                <circle id="drawer-chart-progress" cx="18" cy="18" r="16" fill="transparent" stroke="#38E4D7" stroke-width="3.5" stroke-dasharray="42 100" stroke-dashoffset="0" stroke-linecap="round" class="transition-all duration-1000 ease-out"></circle>
+          <div
+            class="bg-[#111113] border border-vanso-border rounded-2xl p-6 flex flex-col items-end justify-end relative overflow-hidden h-full">
+            <span
+              class="text-zinc-500 text-v-base font-medium z-10 line-clamp-1 break-words w-full text-left absolute top-6 left-6"
+              data-i18n="metric_completion">完播率</span>
+
+            <div id="drawer-chart-container" class="relative w-20 h-20 flex items-center justify-center">
+              <svg id="drawer-chart-svg" class="w-full h-full transform -rotate-90 absolute inset-0"
+                viewBox="0 0 36 36">
+                <circle cx="18" cy="18" r="16" fill="transparent" stroke="rgba(255,255,255,0.04)" stroke-width="3">
+                </circle>
+                <circle id="drawer-chart-progress" cx="18" cy="18" r="16" fill="transparent" stroke="#FFFFFF"
+                  stroke-width="3" stroke-dasharray="42 100" stroke-dashoffset="0" stroke-linecap="round"
+                  class="transition-all duration-1000 ease-out"></circle>
               </svg>
-              <span id="drawer-chart-text" class="text-2xl font-extrabold text-white tracking-tight z-10">42%</span>
+              <span id="drawer-chart-text"
+                class="text-v-base font-bold text-white tracking-tight z-10 truncate max-w-full px-1">42%</span>
             </div>
-            
-            <!-- Empty/Zero State -->
-            <div id="drawer-empty-state" class="absolute inset-0 flex flex-col items-center justify-center bg-[#0A0A0B]/80 backdrop-blur-sm hidden rounded-2xl">
-               <svg class="w-6 h-6 text-zinc-500 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-               <span class="text-xs font-medium text-zinc-400">暂无数据</span>
+
+            <div id="drawer-empty-state" class="absolute inset-0 flex flex-col items-center justify-center hidden">
+              <span class="text-v-small font-medium text-zinc-600 text-center px-2 break-words"
+                data-i18n="status_no_data">暂无数据</span>
             </div>
           </div>
         </div>
 
         <!-- 4. Interaction Details -->
-        <div class="flex flex-col gap-4 mt-4">
-          <div class="flex items-center gap-2">
-            <h3 class="text-lg font-bold text-white tracking-tight">互动明细</h3>
-            <div class="h-px flex-1 bg-gradient-to-r from-white/10 to-transparent"></div>
+        <div class="flex flex-col gap-4 mt-2">
+          <div class="flex items-center gap-4">
+            <h3 class="text-v-base font-medium text-zinc-500 shrink-0" data-i18n="metric_breakdown_detail">互动明细</h3>
+            <div class="h-px flex-1 bg-vanso-border"></div>
           </div>
-          
+
           <div class="grid grid-cols-3 gap-4">
-            <div class="bg-white/5 border border-white/10 rounded-2xl p-5 flex flex-col items-center justify-center gap-3 hover:bg-white/10 transition-colors">
-              <div class="w-10 h-10 rounded-full bg-vanso-magenta/10 flex items-center justify-center text-xl">👍</div>
-              <div class="flex flex-col items-center gap-1">
-                <span class="text-2xl font-bold text-white leading-none" id="drawer-likes">320</span>
-                <span class="text-xs text-zinc-500 font-medium">点赞</span>
+            <!-- Likes -->
+            <div
+              class="bg-[#111113] border border-vanso-border rounded-xl p-5 flex flex-col items-center justify-center gap-3">
+              <svg class="w-6 h-6 text-vanso-peach/70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5">
+                </path>
+              </svg>
+              <div class="flex flex-col items-center gap-1 w-full">
+                <span class="text-v-large font-bold text-white leading-none truncate w-full text-center"
+                  id="drawer-likes">320</span>
+                <span class="text-v-small text-zinc-600 line-clamp-1 break-words text-center w-full"
+                  data-i18n="stat_likes">点赞</span>
               </div>
             </div>
-            
-            <div class="bg-white/5 border border-white/10 rounded-2xl p-5 flex flex-col items-center justify-center gap-3 hover:bg-white/10 transition-colors">
-              <div class="w-10 h-10 rounded-full bg-vanso-peach/10 flex items-center justify-center text-xl">⭐</div>
-              <div class="flex flex-col items-center gap-1">
-                <span class="text-2xl font-bold text-white leading-none" id="drawer-saves">150</span>
-                <span class="text-xs text-zinc-500 font-medium">收藏</span>
+
+            <!-- Saves -->
+            <div
+              class="bg-[#111113] border border-vanso-border rounded-xl p-5 flex flex-col items-center justify-center gap-3">
+              <svg class="w-6 h-6 text-vanso-magenta/70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                </path>
+              </svg>
+              <div class="flex flex-col items-center gap-1 w-full">
+                <span class="text-v-large font-bold text-white leading-none truncate w-full text-center"
+                  id="drawer-saves">150</span>
+                <span class="text-v-small text-zinc-600 line-clamp-1 break-words text-center w-full"
+                  data-i18n="stat_saves">收藏</span>
               </div>
             </div>
-            
-            <div class="bg-white/5 border border-white/10 rounded-2xl p-5 flex flex-col items-center justify-center gap-3 hover:bg-white/10 transition-colors">
-              <div class="w-10 h-10 rounded-full bg-vanso-cyan/10 flex items-center justify-center text-xl">💬</div>
-              <div class="flex flex-col items-center gap-1">
-                <span class="text-2xl font-bold text-white leading-none" id="drawer-comments">24</span>
-                <span class="text-xs text-zinc-500 font-medium">评论</span>
+
+            <!-- Comments -->
+            <div
+              class="bg-[#111113] border border-vanso-border rounded-xl p-5 flex flex-col items-center justify-center gap-3">
+              <svg class="w-6 h-6 text-vanso-cyan/70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
+                </path>
+              </svg>
+              <div class="flex flex-col items-center gap-1 w-full">
+                <span class="text-v-large font-bold text-white leading-none truncate w-full text-center"
+                  id="drawer-comments">24</span>
+                <span class="text-v-small text-zinc-600 line-clamp-1 break-words text-center w-full"
+                  data-i18n="stat_comments">评论</span>
               </div>
             </div>
           </div>
         </div>
-        
+
       </div>
     </div>
   </div>
 
   <script>
-    // Tab switching logic for top navigation
+    // --- i18n Logic ---
+    const dict = {
+      zh: {
+        nav_overview: "数据总览",
+        nav_tracks: "单曲数据",
+        filter_7d: "近 7 日",
+        filter_30d: "近 30 日",
+        metric_plays: "播放总数",
+        metric_engagement: "互动总量",
+        metric_followers: "新增粉丝",
+        metric_visits: "主页访问",
+        metric_breakdown: "互动构成",
+        stat_likes: "点赞",
+        stat_saves: "收藏",
+        stat_comments: "评论",
+        sort_plays: "按播放量",
+        sort_date: "按发布时间",
+        status_just_uploaded: "刚刚上传",
+        label_upload_date: "上传时间:",
+        metric_completion: "完播率",
+        status_no_data: "暂无数据",
+        metric_breakdown_detail: "互动明细"
+      },
+      en: {
+        nav_overview: "Overview",
+        nav_tracks: "Tracks",
+        filter_7d: "Last 7 Days",
+        filter_30d: "Last 30 Days",
+        metric_plays: "Total Plays",
+        metric_engagement: "Engagement",
+        metric_followers: "New Fans",
+        metric_visits: "Profile Visits",
+        metric_breakdown: "Engagement Breakdown",
+        stat_likes: "Likes",
+        stat_saves: "Favorites",
+        stat_comments: "Comments",
+        sort_plays: "By Plays",
+        sort_date: "By Date",
+        status_just_uploaded: "Just Uploaded",
+        label_upload_date: "Uploaded:",
+        metric_completion: "Completion",
+        status_no_data: "Not Enough Data",
+        metric_breakdown_detail: "Engagement Details"
+      }
+    };
+
+    let currentLang = 'zh';
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'zh' ? 'en' : 'zh';
+      document.documentElement.lang = currentLang;
+      document.getElementById('lang-toggle').innerText = currentLang === 'zh' ? 'EN / 中文' : '中文 / EN';
+
+      const elements = document.querySelectorAll('[data-i18n]');
+      elements.forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[currentLang][key]) {
+          el.innerText = dict[currentLang][key];
+        }
+      });
+
+      const cards = document.querySelectorAll('.metric-card');
+      cards.forEach(card => {
+        const key = card.getAttribute('data-title-i18n');
+        if (dict[currentLang][key]) {
+          card.setAttribute('data-title', dict[currentLang][key]);
+          if (card.classList.contains('active')) {
+            document.getElementById('chart-title').innerText = dict[currentLang][key];
+          }
+        }
+      });
+    }
+
+    // --- Tab & UI Logic ---
     function switchPage(pageId) {
-      // Update Tabs
       const tabs = document.querySelectorAll('.top-tab');
       tabs.forEach(t => t.classList.remove('active'));
       event.target.classList.add('active');
-      
-      // Update Pages
+
       const pages = document.querySelectorAll('.page-section');
       pages.forEach(p => p.classList.remove('active'));
       document.getElementById('page-' + pageId).classList.add('active');
     }
 
-    // Card switching logic in Overview
     const cards = document.querySelectorAll('.metric-card');
     const chartContainer = document.getElementById('chart-container');
     const chartTitle = document.getElementById('chart-title');
-    const tooltipLabel = document.getElementById('tooltip-label');
-
-    const labels = {
-      '播放总数趋势': '播放',
-      '互动总量趋势': '互动',
-      '新增粉丝趋势': '粉丝',
-      '主页访问趋势': '次访问'
-    };
 
     cards.forEach(card => {
       card.addEventListener('click', () => {
-        cards.forEach(c => c.classList.remove('active'));
+        cards.forEach(c => {
+          c.classList.remove('active');
+          c.style.setProperty('--card-color', '#A1A1AA');
+        });
         card.classList.add('active');
-        
-        const newColor = card.getAttribute('data-color');
-        const newTitle = card.getAttribute('data-title');
-        
-        chartContainer.style.setProperty('--chart-color', newColor);
-        chartTitle.textContent = newTitle;
-        tooltipLabel.textContent = labels[newTitle] || '';
+        const color = card.getAttribute('data-color');
+        card.style.setProperty('--card-color', color);
+
+        chartTitle.textContent = card.getAttribute('data-title');
+        chartContainer.style.setProperty('--chart-color', color);
       });
     });
 
-    // Filter toggle logic
     const filterBtns = document.querySelectorAll('.filter-btn');
     filterBtns.forEach(btn => {
       btn.addEventListener('click', (e) => {
         filterBtns.forEach(b => {
-          b.className = 'filter-btn px-6 py-2 rounded-full text-sm font-medium transition-colors duration-300 text-zinc-400 hover:text-white cursor-pointer';
+          b.className = 'filter-btn px-8 py-2 rounded-md text-zinc-500 transition-all text-v-small whitespace-nowrap text-center cursor-pointer min-h-[40px] hover:text-white';
         });
-        e.target.className = 'filter-btn active px-6 py-2 rounded-full text-sm font-medium transition-colors duration-300 bg-white/10 text-white shadow-sm cursor-pointer';
+        e.target.className = 'filter-btn active px-8 py-2 rounded-md text-white bg-white/10 font-medium transition-all text-v-small whitespace-nowrap text-center cursor-pointer min-h-[40px]';
       });
     });
 
-    // Drawer Logic (Dynamic Data injection)
+    const sortBtns = document.querySelectorAll('.sort-btn');
+    sortBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        sortBtns.forEach(b => {
+          b.className = 'sort-btn px-6 py-2 rounded-md text-zinc-500 transition-all text-v-small whitespace-nowrap text-center cursor-pointer min-h-[40px] hover:text-white';
+        });
+        e.target.className = 'sort-btn active px-6 py-2 rounded-md text-white bg-white/10 font-medium transition-all text-v-small whitespace-nowrap text-center cursor-pointer min-h-[40px] hover:text-white';
+      });
+    });
+
     const drawerOverlay = document.getElementById('drawer-overlay');
-    
+
     function openDrawer(title, plays, completion) {
-      // Set Text Data
       document.getElementById('drawer-title').textContent = title;
       document.getElementById('drawer-plays').textContent = plays;
-      
-      // Handle Zero/Empty state logic
+
       const isZero = plays === '0';
       const emptyStateEl = document.getElementById('drawer-empty-state');
       const chartSvgEl = document.getElementById('drawer-chart-svg');
       const chartTextEl = document.getElementById('drawer-chart-text');
       const progressEl = document.getElementById('drawer-chart-progress');
-      
+
       if (isZero) {
         emptyStateEl.classList.remove('hidden');
-        chartSvgEl.classList.add('opacity-10');
+        chartSvgEl.classList.add('hidden');
         chartTextEl.classList.add('hidden');
-        // Fake zero stats for empty tracks
         document.getElementById('drawer-likes').textContent = '0';
         document.getElementById('drawer-saves').textContent = '0';
         document.getElementById('drawer-comments').textContent = '0';
       } else {
         emptyStateEl.classList.add('hidden');
-        chartSvgEl.classList.remove('opacity-10');
+        chartSvgEl.classList.remove('hidden');
         chartTextEl.classList.remove('hidden');
-        
-        // Parse percentage and animate circle
+
         chartTextEl.textContent = completion;
         const percentVal = parseInt(completion.replace('%', ''));
         progressEl.setAttribute('stroke-dasharray', `${percentVal} 100`);
-        
-        // Fake random stats based on track for visual variety
+
         document.getElementById('drawer-likes').textContent = Math.floor(Math.random() * 500) + 50;
         document.getElementById('drawer-saves').textContent = Math.floor(Math.random() * 200) + 10;
         document.getElementById('drawer-comments').textContent = Math.floor(Math.random() * 50) + 1;
       }
-      
-      // Open Drawer
+
       drawerOverlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
     }
-    
+
     function closeDrawer() {
       drawerOverlay.classList.remove('open');
+      document.body.style.overflow = '';
     }
   </script>
 </body>
+
 </html>

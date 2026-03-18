@@ -16,6 +16,11 @@ const routes = [
                 component: () => import('../views/DashboardPage.vue'),
             },
             {
+                path: 'statistics',
+                name: 'Statistics',
+                component: () => import('../views/StatisticsPage.vue'),
+            },
+            {
                 path: 'new-drop',
                 name: 'NewDrop',
                 component: () => import('../views/NewDropPage.vue'),

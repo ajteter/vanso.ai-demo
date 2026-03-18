@@ -85,6 +85,26 @@ onBeforeUnmount(() => document.removeEventListener('click', handleClickOutside))
             >Dashboard</span>
           </button>
 
+          <!-- Statistics Link -->
+          <button
+            class="flex gap-3 items-center py-[10px] rounded-lg w-full transition-colors duration-300 cursor-pointer"
+            :class="currentPage === 'Statistics'
+              ? 'bg-white/10 border-l-2 border-vanso-magenta pl-[14px] pr-[12px]' 
+              : 'px-3 hover:bg-white/5'"
+            @click="navigateTo('Statistics')"
+          >
+            <!-- Statistics Icon (bar chart) -->
+            <svg class="shrink-0 size-[18px]" :class="currentPage === 'Statistics' ? 'text-white' : 'text-zinc-400'" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="1" y="8" width="4" height="9" rx="1" stroke="currentColor" stroke-width="1.5"/>
+              <rect x="7" y="4" width="4" height="13" rx="1" stroke="currentColor" stroke-width="1.5"/>
+              <rect x="13" y="1" width="4" height="16" rx="1" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+            <span 
+              class="font-['Inter',sans-serif] font-medium text-sm leading-[21px]"
+              :class="currentPage === 'Statistics' ? 'text-white' : 'text-zinc-400'"
+            >Statistics</span>
+          </button>
+
           <!-- My Drops Link -->
           <button
             class="flex gap-3 items-center py-[10px] rounded-lg w-full transition-colors duration-300 cursor-pointer"
@@ -105,6 +125,7 @@ onBeforeUnmount(() => document.removeEventListener('click', handleClickOutside))
             >My Drops</span>
           </button>
         </nav>
+
       </div>
     </div>
 

@@ -1,0 +1,195 @@
+16-bit
+2-step
+accordion
+acid breaks
+acid house
+acid jazz
+acid rock
+acid techno
+acid trance
+acoustic
+african
+afrikaner
+afro house
+afro trap
+afro-cuban jazz
+afro-jazz
+afro-rock
+afrobeat
+afropiano
+afroswing
+algorave
+alt-country
+alt-pop
+alternative r&b
+alternative rock
+ambient
+ambient dub
+ambient house
+ambient noise wall
+ambient techno
+ambient trance
+american primitivism
+americana
+anti-folk
+appalachian folk
+arabic
+avant-garde jazz
+bachata
+balkan brass band
+barbershop
+bedroom pop
+bengali
+big band
+bluegrass
+blues
+blues rock
+boom bap
+bossa nova
+breakbeat
+breakstep
+bubblegum bass
+bubblegum dance
+cabaret
+cajun
+calypso
+cape verdean
+caribbean
+carnatic
+celtic
+chanson
+chicago blues
+chillstep
+chillsynth
+chillwave
+choral
+city pop
+classical
+cloud rap
+coptic
+country
+crunk
+cumbia
+dakar
+dance
+dancecore
+dancehall
+dancepop
+dark
+delta blues
+dembow
+dirty south
+disco
+doo-wop
+dream pop
+dreamy
+drill
+drill and bass
+drum
+drum and bass
+drumstep
+dubstep
+dubstepcore
+edm
+egyptian
+electro
+electronic
+electropop
+emo
+fife
+fife and drum blues
+flamenco
+folk
+french
+g-funk
+garage
+glitch hop
+gnawa
+goa trance
+gospel
+grime
+griot
+grunge
+harpsichord
+havana
+hawaiian
+hindi
+hip hop
+house
+hyper
+hyphy
+hypnagogic
+illbient
+indie pop
+indie rock
+instrumental
+j-pop
+japanese
+jazz
+jungle
+k-pop
+kawaii
+kawaii future bass
+klezmer
+korean
+koto
+liquid
+liquid drum and bass
+liverpool
+lo-fi
+mandarin
+mariachi
+math rock
+mento
+merengue
+metal
+motown
+new jack swing
+new orleans
+norteño
+opera
+pacific reggae
+piano
+polka
+pop
+popcore
+portuguese
+prog
+psychedelic
+punk
+r&b
+raga
+rap
+reggae
+reggaeton
+rock
+rockabilly
+roots reggae
+rumba
+russian
+salsa
+samba
+saxophone
+sertanejo
+shoegaze
+sitar
+slushwave
+soulful
+southern rock
+spanish
+surf rock
+swamp blues
+swing
+symphonic
+symphonic metal
+synthpop
+synthwave
+tabla
+tango
+techno
+texas blues
+tokyo
+trance
+trap
+tuareg
+urdu

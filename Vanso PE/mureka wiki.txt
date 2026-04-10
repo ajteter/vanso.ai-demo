@@ -1,0 +1,1138 @@
+🎵 欢迎来到 Mureka Wiki！ 🌟
+这里是您掌握 Mureka 平台的终极资源库！🎶 Mureka 是一款革命性 AI 音乐生成工具，让您仅用文字就能创作出惊艳的歌曲。无论您是专业音乐人 🎸 还是创意爱好者 🎨，Mureka Wiki 都能为您提供全面指南，助您解锁 Mureka 的无限潜能！🚀
+注意⚠️:  本wiki仅适用于下一版开发中的Mureka基础模型，对于当前线上模型在流派/风格，多维度音乐标签上不能完全支持
+
+---
+🎼 Prompt使用手册
+- Mureka 支持丰富的音乐prompt，助您精准控制 AI 音乐生成，打造独特风格！
+🎸 流派与风格（Genres & Styles）
+这里为你梳理了Mureka重点支持的主流音乐风格及其常见二级曲风标签，帮助你更科学地使用曲风标签。每个主流曲风下都列举了常见的二级曲风，便于你快速定位和选择合适的风格标签。
+📝 标签使用建议
+- 每首歌建议选择1-3个最能代表其风格的标签。
+- 可以组合主流曲风与二级曲风（如"pop rock"、"latin jazz"）。
+- 地域标签（如"french pop"、"russian rap"）有助于描述风格来源。
+- 避免标签堆砌，保持简洁明了。
+
+---
+🌟 Pop（流行）
+- pop
+- latin pop
+- j-pop
+- pop/rock
+- french pop
+- indie pop
+- russian pop
+- k-pop
+- brazilian pop
+- dance-pop
+- pop rock
+- alternative pop/rock
+- pop-rock
+- electro-pop
+- mandopop
+- italian pop
+- synth-pop
+- c-pop
+- pop-punk
+- pop punk
+- contemporary pop/rock
+- alternative pop
+- cantopop
+- deutschpop
+- jazz-pop
+- spanish pop
+- traditional pop
+- christian pop
+- electropop
+- dream pop
+
+
+---
+
+🎸 Rock（摇滚）
+- rock
+- alternative rock
+- pop/rock
+- indie rock
+- latin rock
+- alternative/indie rock
+- punk rock
+- hard rock
+- j-rock
+- folk rock
+- pop rock
+- alternative pop/rock
+- russian rock
+- progressive rock
+- pop-rock
+- hardcore punk
+- heavy metal
+- christian rock
+- psychedelic rock
+- metal
+- rock en español
+- blues rock
+- death metal
+- instrumental rock
+- post-rock
+- french rock
+- progressive metal
+- alternative metal
+- thrash metal
+- rockabilly
+
+
+---
+
+🎤 Rap / Hip Hop（说唱/嘻哈）
+说唱是一个比较特殊的品类，使用说唱风格的时候建议歌词要比较贴合说唱这种风格，不然可能由于歌词和说唱风格差别太大而导致模型无法“说唱”出来，而是带有比较强的旋律
+- rap
+- hip hop
+- hip hop & rap
+- russian rap
+- french rap
+- trap
+- latin trap
+- deutschrap
+- latin rap
+- instrumental hip hop
+- rap italiano
+- trap / future bass
+- lo-fi hip hop
+- underground rap
+- j-rap
+- spanish rap
+- french hip hop
+- alternative hip hop
+- emo rap
+- christian rap
+- latin hip hop
+- cloud rap
+- christian hip hop
+- afro trap
+- underground hip hop
+- pop rap
+- rap rock
+- korean hip hop
+- trap latino
+- jazz rap
+
+
+---
+
+🎹 Electronic（电子）
+- electronic
+- ambient
+- house
+- trap
+- latin trap
+- chillout
+- techno
+- chillhop
+- downtempo
+- electronica
+- electro-pop
+- trance
+- indie electronic
+- techno (peak time / driving)
+- future bass
+- deep house
+- drum & bass
+- trap / future bass
+- electro house
+- industrial
+- idm
+- progressive house
+- dubstep
+- trance (main floor)
+- edm
+- tech house
+- industrial metal
+- hardstyle
+- jungle
+
+
+---
+
+🎷 Jazz（爵士）
+- jazz
+- bossa nova
+- swing
+- big band
+- latin jazz
+- bebop
+- smooth jazz
+- cool jazz
+- jazz fusion
+- west coast jazz
+- contemporary jazz
+- jazz instrument
+- vocal jazz
+- jazz-pop
+- guitar jazz
+- afro-cuban jazz
+- crossover jazz
+- fusion
+- brazilian jazz
+- western swing
+- soul jazz
+- mainstream jazz
+- jazz-funk
+- jazz rap
+- gypsy jazz
+- saxophone jazz
+- cuban jazz
+- latin big band
+- jazz rock
+- electro swing
+
+
+---
+
+🎻 Classical（古典）
+- classical
+- film score
+- romantic
+- opera
+- orchestral
+- baroque
+- choral
+- sacred music
+- chamber music
+- contemporary classical
+- baroque opera
+- minimalism
+- classical crossover
+- romantic opera
+- choral music
+- neo-classical
+- renaissance
+- modern classical
+- concerto
+- classical guitar
+- opera buffa
+- impressionism
+- classical chinese music
+
+
+---
+
+🍃 Folk（民谣）
+- folk
+- folk rock
+- folklore
+- latin american folk
+- singer-songwriter
+- brazilian folk
+- mexican folk
+- world music/folklore
+- bluegrass
+- folk pop
+- french folk
+- russian folk
+- neofolk
+- folk metal
+- spanish folk
+- chilean folk
+- americana
+- indie folk
+- chinese folk
+- celtic
+- dark folk
+- korean folk
+- folk music
+- latin folk
+- mexican folk music
+- portuguese folk
+- italian folk
+- celtic rock
+- irish folk
+- neapolitan folk
+
+
+---
+
+💜 R&B（节奏蓝调）
+- r&b
+- alternative r&b
+- french r&b
+- neo soul
+
+---
+
+🧡 Soul（灵魂乐）
+- soul
+- soul jazz
+- latin soul
+- soul pop
+- neo soul
+
+
+---
+
+💃 Latin（拉丁）
+- latin pop
+- latin
+- latin music
+- latin urban
+- reggaeton
+- norteño
+- latin rock
+- cumbia
+- salsa
+- tejano
+- latin trap
+- forró
+- bolero
+- mariachi
+- sertanejo
+- latin jazz
+- banda
+- latin rap
+- merengue
+- bachata
+- tango
+- latin american folk
+- latin hip hop
+- latin american
+- trap latino
+- alternative latin
+- latin soul
+- latin folk
+- latin house
+- latin big band
+
+
+---
+
+🤘 Metal（金属）
+- metalcore
+- heavy metal
+- metal
+- death metal
+- progressive metal
+- alternative metal
+- thrash metal
+- deathcore
+- industrial metal
+- black metal
+- gothic metal
+- power metal
+- extreme metal
+- folk metal
+- nu-metal
+- speed metal
+- melodic death metal
+- glam metal
+- christian metal
+- symphonic metal
+- doom metal
+- technical death metal
+- nu metal
+- groove metal
+- melodic metalcore
+- rap metal
+- trap metal
+- sludge metal
+- mathcore
+
+
+---
+
+🎸 Blues（布鲁斯）
+- blues
+- blues rock
+- country blues
+
+
+---
+
+🤠 Country（乡村）
+- country
+- bluegrass
+- country rock
+- americana
+- brazilian country
+- traditional country
+- country pop
+- honky tonk
+- country blues
+- contemporary country
+- brazilian country music
+
+
+---
+
+🏴‍☠️ Punk（朋克）
+- punk rock
+- hardcore punk
+- pop punk
+- post-punk
+- ska punk
+- punk
+- post-punk revival
+- skate punk
+- garage punk
+- russian punk
+- punk revival
+- folk punk
+
+🏷️ 多维度音乐标签
+本章将Mureka可以支持的常见音乐标签（tags）按不同维度进行归类，每个维度下都列举了常用标签，便于你快速定位和选择。
+
+😊 情绪（Emotion）
+- romantic
+- emotional
+- melancholic
+- upbeat
+- energetic
+- sentimental
+- heartbreak
+- reflective
+- relaxing
+- romance
+- bittersweet
+- nostalgic
+- happy
+- dark
+- intense
+- sad
+- inspirational
+- dramatic
+- uplifting
+- hopeful
+- passionate
+- peaceful
+- dreamy
+- fun
+- moody
+- positive
+- empowering
+- soothing
+- haunting
+- playful
+- sorrow
+- longing
+- cheerful
+- confidence
+- ambition
+- hope
+- motivation
+- empowerment
+- passion
+- desire
+- love
+- love song
+- sadness
+- epic
+- exciting
+- angry
+- joyful
+- calm
+
+
+---
+
+🎹 乐器/编制（Instrument/Ensemble）
+- instrumental
+- acoustic
+- piano
+- guitar
+- orchestral
+- strings
+- synth
+- vocal
+- choir
+- band
+- solo
+- duet
+- ensemble
+- electronic
+- drums
+- bass
+- violin
+- saxophone
+- trio
+- quartet
+- choral
+- vocaloid
+- guitar-driven
+- piano solo
+- guitar solo
+- vocal harmony
+- flute
+- percussion
+- cello
+- trumpet
+- organ
+- a cappella
+- synth-driven
+- jazz ensemble
+- jazz guitar
+- jazz piano
+- piano trio
+- guitar solos
+- solo piano
+- vocal performance
+- choral music
+- classical guitar
+
+---
+🏳️‍🌈 人声音色/性别/性向（Gender/Sexuality）
+Tips: 
+- 使用性别标签时，不建议使用过于复杂的其他标签，否则模型有概率因为兼顾其他标签而忽略掉人声性别标签
+- 使用性别控制时可以尝试加入一些形容词配合使用达到更细致的效果，比如powerful male vocal, soulful male vocal, sweet female vocal, emotional female vocal等
+
+- 男性相关：
+  - male lead vocal
+  - male lead singer
+  - male singer
+  - male vocalist
+  - male lead vocals
+  - male vocals
+  - male lead voice
+  - male voice
+  - male
+  - man
+- 女性相关：
+  - female lead vocal
+  - female lead singer
+  - female singer
+  - female vocalist
+  - female lead vocals
+  - female vocals
+  - female lead voice
+  - female voice
+  - female
+  - women
+
+
+---
+
+💥 动态（Dynamics/Feel）
+- danceable
+- high energy
+- upbeat
+- intense
+- aggressive
+- calm
+- relaxing
+- mellow
+- fast-paced
+- slow
+- soft
+- hard
+- powerful
+- smooth
+- rhythmic
+- minimal
+- dramatic
+- trippy
+- hypnotic
+- atmospheric
+- ambient
+- chill
+- chillout
+- downtempo
+- lo-fi
+- meditative
+- soothing
+- dreamy
+- uplifting
+- exuberant
+- lively
+- vibrant
+- dynamic
+- fast tempo
+- slow tempo
+- major mode
+- minor mode
+- 4/4 time signature
+- 4 beats per bar
+- groove
+- swing
+- beat
+- catchy
+- melodic
+- hardstyle
+- deep house
+- future bass
+- progressive
+- trance
+- dubstep
+- techno
+- house
+- dance
+- dance music
+- dancefloor
+- club
+- club music
+- party music
+
+
+---
+
+🏞️ 场景/用途（Scene/Usage）
+- party
+- workout
+- study
+- sleep
+- driving
+- chill
+- background music
+- dinner
+- focus
+- travel
+- meditation
+- wedding
+- gaming
+- dance
+- cooking
+- running
+- spa
+- yoga
+- training
+- commute
+- reading
+- celebration
+- festival
+- nightlife
+- club
+- background
+- opening theme
+- intro
+- interlude
+- outro
+- soundtrack
+- film score
+- video game music
+- anime soundtrack
+- game soundtrack
+- film music
+- movie soundtrack
+- tv theme
+- television theme
+- animation
+- musical
+- concert
+- live performance
+- album track
+- album opener
+- bonus track
+- cover
+- remix
+- cover song
+- cover version
+- radio edit
+- single
+- ep
+- debut album
+- debut single
+
+
+---
+
+🎯 主题/内容（Theme/Content）
+- love
+- heartbreak
+- relationship
+- friendship
+- family
+- youth
+- childhood
+- nostalgia
+- hope
+- faith
+- worship
+- praise
+- spiritual
+- religious
+- devotion
+- empowerment
+- freedom
+- struggle
+- resilience
+- ambition
+- motivation
+- inspiration
+- dreams
+- storytelling
+- narrative
+- social commentary
+- political
+- activism
+- rebellion
+- critique
+- satire
+- protest
+- feminism
+- confidence
+- self-expression
+- self-discovery
+- self-reflection
+- personal growth
+- personal reflection
+- emotional struggle
+- emotional pain
+- longing
+- loss
+- sorrow
+- despair
+- betrayal
+- revenge
+- forgiveness
+- reconciliation
+- apology
+- confession
+- peace
+- war
+- violence
+- crime
+- money
+- materialism
+- luxury
+- wealth
+- power
+- success
+- fame
+- celebrity
+- cultural heritage
+- cultural identity
+- cultural fusion
+- cultural impact
+- cultural critique
+- protest song
+- anti-war
+- anti-establishment
+- self-love
+
+
+---
+
+🕰️ 年代/风格（Era/Style）
+- 1950s
+- 1960s
+- 1970s
+- 1980s
+- 1990s
+- 2000s
+- 2010s
+- 2020s
+- classic
+- vintage
+- modern
+- contemporary
+- retro
+- oldies
+- new wave
+- synth-pop
+- disco
+- funk
+- jazz standards
+- jazz standard
+- classic rock
+- classic jazz
+- classic pop
+- classic country
+- classic tango
+- classic italian songs
+- baroque
+- romantic
+- impressionism
+- minimalism
+- renaissance
+- medieval
+- swing era
+- romantic period
+- baroque period
+- classical period
+- 19th century
+- 20th century
+- 21st century
+- golden age
+- post-rock
+- post-punk
+- emo revival
+- grunge
+- britpop
+- shoegaze
+- psychedelic
+- psychedelic rock
+- progressive rock
+- progressive
+- alternative
+- indie
+- mainstream
+- underground
+- experimental
+- fusion
+- crossover
+- hard
+- soft
+- fast
+- slow
+
+
+---
+
+🌍 语言/地域（Language/Region）
+- english
+- spanish
+- french
+- german
+- italian
+- portuguese
+- russian
+- japanese
+- korean
+- chinese
+- latin
+- brazilian
+- mexican
+- argentine
+- cuban
+- caribbean
+- african
+- afrobeat
+- afro-cuban
+- latin american
+- regional mexican
+- norteño
+- banda
+- mariachi
+- sertanejo
+- forró
+- cumbia
+- salsa
+- bachata
+- bolero
+- tango
+- flamenco
+- samba
+- bossa nova
+- reggae
+- dancehall
+- calypso
+- ska
+- k-pop
+- j-pop
+- c-pop
+- cantopop
+- mandopop
+- deutschrap
+- french rap
+- russian rap
+- italian rap
+- spanish rap
+- latin rap
+- latin trap
+- latin hip hop
+- brazilian funk
+- brazilian pop
+- brazilian rock
+- brazilian jazz
+- brazilian country
+- german pop
+- german rap
+- german rock
+- german hip hop
+- german folk
+- french pop
+- french music
+- french chanson
+- french hip hop
+- french r&b
+- french reggae
+- french culture
+- japanese pop
+- japanese rock
+- japanese rap
+- japanese hip hop
+- japanese folk
+- japanese music
+- japanese hip-hop
+- korean pop
+- korean hip hop
+- korean rap
+- chinese pop
+- chinese rap
+- chinese music
+- chinese folk
+- chinese hip hop
+- russian pop
+- russian rock
+- russian rap
+- russian hip hop
+- russian folk
+- russian music
+- russian culture
+- italian pop
+- italian rock
+- italian rap
+- italian hip hop
+- italian folk
+- italian music
+- spanish pop
+- spanish rock
+- spanish rap
+- spanish hip hop
+- spanish folk
+- spanish music
+- spanish lyrics
+- latin music
+- latin pop
+- latin rock
+- latin jazz
+- latin urban
+- latin american music
+- latin american folk
+- latin american rock
+- latin american hip hop
+- latin rhythms
+- latin influence
+- latin reggae
+- latin soul
+- latin house
+- latin big band
+- latin trap
+- latin hip-hop
+- latin folk
+- latin dance
+- latin alternative
+- latin christian
+- latin american
+
+
+---
+
+🧩 其他（Other/特色）
+- cover
+- remix
+- live
+- remastered
+- original
+- single
+- album track
+- bonus track
+- debut album
+- debut single
+- radio edit
+- ep
+- collaboration
+- duet
+- trio
+- quartet
+- ensemble
+- solo artist
+- vocal
+- vocal harmony
+- vocal performance
+- choral
+- choir
+- a cappella
+- karaoke
+- soundtrack
+- film score
+- video game music
+- anime soundtrack
+- game soundtrack
+- film music
+- movie soundtrack
+- tv theme
+- television theme
+- animation
+- musical
+- concert
+- live performance
+- album opener
+- album closer
+- interlude
+- outro
+- intro
+- opening theme
+- ending theme
+- background music
+- study music
+- sleep aid
+- meditation
+- yoga
+- spa
+- training
+- running
+- cooking
+- dinner
+- party music
+- club music
+- dance music
+- dancefloor
+- festival
+- celebration
+- wedding
+- birthday
+- holiday
+- christmas
+- christmas carol
+- christmas music
+- halloween
+- spring
+- summer
+- autumn
+- winter
+- rainy day
+- sunshine
+- night
+- nighttime
+- morning
+- beach
+- travel
+- road trip
+- adventure
+- fantasy
+- sci-fi
+- horror
+- comedy
+- drama
+- action
+- suspense
+- thriller
+- mystery
+- documentary
+- educational
+- children
+- kids
+- family
+- family-friendly
+- friendship
+- relationship
+- loss
+- longing
+- hope
+- faith
+- worship
+- praise
+- spiritual
+- religious
+- devotion
+- empowerment
+- freedom
+- struggle
+- resilience
+- ambition
+- motivation
+- inspiration
+- dreams
+- storytelling
+- narrative
+- social commentary
+- political
+- activism
+- rebellion
+- critique
+- satire
+- protest
+- feminism
+- confidence
+- self-expression
+- self-discovery
+- self-reflection
+- personal growth
+- personal reflection
+- emotional struggle
+- emotional pain
+- sorrow
+- despair
+- betrayal
+- revenge
+- forgiveness
+- reconciliation
+- apology
+- confession
+
+
+---
+
+📝 标签使用建议
+- 每首歌建议选择1-3个最能代表其风格和用途的标签。
+- 可以组合不同维度的标签（如"romantic piano"或"party dance"）。
+- 选择标签时，优先考虑音乐的主情绪、场景和特色。
+- 避免标签堆砌，保持简洁明了。
+
+
+---
+🔖 结构标签
+📌 Mureka Wiki 提供完整的歌曲结构指南，掌握这些结构功能，可以更精准地设计歌曲的情绪曲线和记忆点
+结构功能
+暂时无法在飞书文档外展示此内容
+各结构协同作用
+1. 经典结构范例：
+前奏 → 主歌1 → 预副歌 → 副歌 → 主歌2 → 预副歌 → 副歌 → 桥段 → 副歌 → 尾奏
+2. 功能互补：
+  - 情绪推进：主歌（铺垫）→ 预副歌（蓄力）→ 副歌（爆发）
+  - 避免单调：通过桥段打破重复性副歌的疲劳感
+  - 动态平衡：间奏/静默段落调节歌曲呼吸感
+3. 特殊变体：
+  - 省略预副歌：直接主歌→副歌（更简洁）
+  - 双桥段：用于复杂叙事歌曲（如摇滚史诗）
+  - 无前奏：直接以主歌开场（突出冲击力）
+使用方法
+- 结构标签一般嵌入在歌词中使用并加以方括号比如[meta tags]来让AI区分该部分是否演唱。如果不加方括号而只写结构标签，AI会认为该部分是需要演唱的。一个规范的带结构歌词示例如下：
+[INTRO]
+[VERSE]
+Neon lights
+City streets
+Let's take a little ride
+Underneath the moonlit sky
+[CHORUS]
+We'll paint the town red
+Break all the rules
+Forget about the world
+Forget about the fools
+[BREAK]
+[VERSE]
+Dancin' 'til the break of dawn
+Losing all control
+We'll let the rhythm guide us
+Take us to places unknown
+Through the streets we'll go
+On this midnight stroll
+[CHORUS]
+We'll paint the town red
+Break all the rules
+Forget about the world
+Forget about the fools
+[OUTRO]
+- 标签大小写均可以，建议按照表格中的格式使用以达到最理想的控制效果
+- 不同语言间的标签不建议混用
+- 英语的标签控制效果是比较理想的，建议优先使用英语标签
+- 结构顺序和重复次数可根据创作需求自由调整
+- 支持在歌曲结构中加入段落索引，比如[Verse 1]， [Verse 2]，[Chorus 1]，[Chorus 2]
+- 如果想要歌曲自然结束，建议加入[OUTRO]
+- Mureka支持的完整的多语种歌曲结构列表如下：
+暂时无法在飞书文档外展示此内容
+
+🎵 Mureka AI 高级歌曲制作技巧 🎛️
+🎯 核心解决方案
+通过特殊标注技巧引导 Mureka AI，轻松生成具备以下特点的歌曲：
+- 🎤 多样化演唱技巧
+- 🎸 多声部和声
+- 🔄 完整歌曲结构
+
+---
+✨ 实用技巧示例
+1️⃣ 元音延长技巧（副歌旋律化）
+📌 作用：让歌词更悠长、更具歌唱性
+🎵 示例：
+再-见-见-见 → 生成效果类似抒情歌曲的拖音
+goo-o-o-odbye → 生成o的长拖音或者转音
+💡 适用场景：副歌、高潮段落
+
+---
+2️⃣ 括号多声部技巧
+📌 作用：自动添加和声，建议加在歌词的末尾，使用半角圆括号
+🎵 示例：
+跳起恰恰恰（恰恰） → （恰恰）会以和声的方式进行演唱
+PS：这个不一定会完全可控，有一定概率会不唱，需要多加尝试
+
+---
+3️⃣ 方括号结构标记
+📌 作用：让AI明确歌曲框架，详见结构标签部分

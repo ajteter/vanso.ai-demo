@@ -62,146 +62,224 @@ defineEmits(['click']);
 </script>
 ```
 
-### 2.2 Android (Jetpack Compose)
+### 2.2 Android (Traditional XML)
 
+因为项目使用的是传统 XML 系统，我们要动态绑定背景渐变色，同时赋予 `#` 号光晕阴影效果。
+
+**1. `item_hashtag.xml` (视图布局)**
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/chipContainer"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingStart="8dp"
+    android:paddingEnd="8dp"
+    android:paddingTop="6dp"
+    android:paddingBottom="6dp"
+    android:clickable="true"
+    android:focusable="true">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <!-- 霓虹灯起辉符号 -->
+        <TextView
+            android:id="@+id/tvHash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="#"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:shadowRadius="8"
+            android:shadowColor="#000000"
+            android:shadowDx="0"
+            android:shadowDy="0" />
+
+        <TextView
+            android:id="@+id/tvHashtagText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="hashtag"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="italic" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ivPlayButton"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/ic_play"
+        app:tint="#A1A1AA" />
+</LinearLayout>
+```
+
+**2. 动态绑定逻辑 (在 ViewHolder 中实现)**
 ```kotlin
-import androidx.compose.animation.animateColorAsState
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.interaction.collectIsPressedAsState
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.PlayArrow
-import androidx.compose.material3.Icon
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontStyle
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import android.graphics.Color
+import android.graphics.drawable.GradientDrawable
+import android.util.TypedValue
+import androidx.core.graphics.ColorUtils
 
-val VibrantNeonPalette = listOf(
-    Color(0xFFFBBF24), Color(0xFFFB7185), Color(0xFF4ADE80),
-    Color(0xFF6EE7B7), Color(0xFF60A5FA), Color(0xFFA78BFA),
-    Color(0xFFF472B6), Color(0xFFFDE047), Color(0xFF22D3EE)
-)
-
-@Composable
-fun HashtagChip(
-    text: String,
-    accentColor: Color = VibrantNeonPalette.random(),
-    onClick: () -> Unit
-) {
-    val interactionSource = remember { MutableInteractionSource() }
-    val isPressed by interactionSource.collectIsPressedAsState()
+fun bindHashtagView(view: View, text: String, accentColorString: String) {
+    val chipContainer = view.findViewById<LinearLayout>(R.id.chipContainer)
+    val tvHash = view.findViewById<TextView>(R.id.tvHash)
+    val tvHashtagText = view.findViewById<TextView>(R.id.tvHashtagText)
     
-    val baseColor = if (isPressed) Color.White else accentColor
-    val iconColor by animateColorAsState(if (isPressed) Color.White else Color(0xFFA1A1AA))
+    val accentColorInt = Color.parseColor(accentColorString)
+    tvHashtagText.text = text
+    tvHash.setTextColor(accentColorInt)
+    
+    // 设置 50% 深度的霓虹发光阴影 (Alpha: 0x80 = 128)
+    val shadowColor = ColorUtils.setAlphaComponent(accentColorInt, 128)
+    tvHash.setShadowLayer(8f, 0f, 0f, shadowColor)
 
-    Surface(
-        color = Color.Transparent,
-        shape = RoundedCornerShape(4.dp),
-        border = BorderStroke(1.dp, Color.White.copy(0.04f)),
-        modifier = Modifier
-            .background(
-                Brush.horizontalGradient(
-                    colors = listOf(baseColor.copy(alpha = 0.15f), Color.White.copy(alpha = 0.02f))
-                ),
-                shape = RoundedCornerShape(4.dp)
-            )
-            .clickable(interactionSource, indication = null, onClick = onClick)
-    ) {
-        Row(
-            modifier = Modifier.padding(horizontal = 8.dp, vertical = 6.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(10.dp)
-        ) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Text(text = "#", color = accentColor, fontWeight = FontWeight.Bold, fontSize = 14.sp)
-                Spacer(modifier = Modifier.width(4.dp))
-                Text(
-                    text = text,
-                    color = Color.White,
-                    fontSize = 14.sp,
-                    fontWeight = FontWeight.Medium,
-                    fontStyle = FontStyle.Italic
-                )
-            }
-            Icon(
-                imageVector = Icons.Filled.PlayArrow,
-                contentDescription = "Play",
-                tint = iconColor,
-                modifier = Modifier.size(12.dp)
-            )
-        }
+    // 动态生成渐变背景 (左端15%霓虹色，右端2%白色)
+    // 15% opacity ≈ 38, 2% opacity ≈ 5, 4% opacity ≈ 10
+    val startColor = ColorUtils.setAlphaComponent(accentColorInt, 38)
+    val endColor = Color.argb(5, 255, 255, 255)
+    val borderStrokeColor = Color.argb(10, 255, 255, 255) 
+
+    val dpToPx = { dp: Float -> TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, view.resources.displayMetrics) }
+    
+    val bgDrawable = GradientDrawable(
+        GradientDrawable.Orientation.LEFT_RIGHT,
+        intArrayOf(startColor, endColor)
+    ).apply {
+        cornerRadius = dpToPx(4f)
+        setStroke(dpToPx(1f).toInt(), borderStrokeColor)
     }
+
+    chipContainer.background = bgDrawable
+
+    // (可选附加) 监听按下状态的亮度变化或使用 StateListDrawable 切换样式
 }
 ```
 
-### 2.3 iOS (SwiftUI)
+### 2.3 iOS (UIKit)
 
 ```swift
-import SwiftUI
+import UIKit
 
-struct HashtagChip: View {
-    let text: String
-    let accentHex: String
-    let action: () -> Void
+class HashtagChipControl: UIControl {
     
-    @State private var isHovered = false
+    private let textLabel = UILabel()
+    private let hashLabel = UILabel()
+    private let playIconView = UIImageView()
+    private let gradientLayer = CAGradientLayer()
     
-    var body: some View {
-        Button(action: action) {
-            var parsedColor = Color.white
-            if accentHex.hasPrefix("#") {
-                parsedColor = Color(hex: accentHex)
-            }
-
-            return HStack(spacing: 10) {
-                HStack(spacing: 4) {
-                    Text("#")
-                        .font(.system(size: 14, weight: .bold))
-                        .foregroundColor(parsedColor)
-                        .shadow(color: parsedColor.opacity(0.5), radius: 4, x: 0, y: 0)
-                    
-                    Text(text)
-                        .font(.system(size: 14, weight: .medium))
-                        .foregroundColor(.white)
-                        .italic()
-                }
-
-                Image(systemName: "play.fill")
-                    .resizable()
-                    .frame(width: 10, height: 10)
-                    .foregroundColor(isHovered ? .white : Color(white: 0.63))
-            }
-            .padding(.horizontal, 8)
-            .padding(.vertical, 6)    
-            .background(
-                RoundedRectangle(cornerRadius: 4)
-                    .fill(LinearGradient(
-                        gradient: Gradient(colors: [parsedColor.opacity(0.15), Color.white.opacity(0.02)]),
-                        startPoint: .leading,
-                        endPoint: .trailing
-                    ))
-            )
-            .background(
-                RoundedRectangle(cornerRadius: 4) 
-                    .stroke(Color.white.opacity(isHovered ? 0.08 : 0.04), lineWidth: 1)
-            )
+    var accentColor: UIColor = .cyan {
+        didSet {
+            updateColors()
         }
-        .buttonStyle(PlainButtonStyle())
-        .onHover { hovering in
-            withAnimation(.easeInOut(duration: 0.2)) {
-                isHovered = hovering
+    }
+    
+    var text: String = "" {
+        didSet {
+            textLabel.text = text
+        }
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupUI()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupUI()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        // Ensure gradient layer matches dynamic bounds
+        gradientLayer.frame = bounds
+        gradientLayer.cornerRadius = 4
+    }
+    
+    override var isHighlighted: Bool {
+        didSet {
+            UIView.animate(withDuration: 0.2) {
+                // Dim on press and brighten icon
+                self.alpha = self.isHighlighted ? 0.8 : 1.0
+                self.playIconView.tintColor = self.isHighlighted ? .white : UIColor(white: 0.63, alpha: 1.0)
             }
         }
+    }
+    
+    private func setupUI() {
+        layer.cornerRadius = 4
+        layer.borderWidth = 1
+        layer.borderColor = UIColor(white: 1.0, alpha: 0.04).cgColor
+        
+        // Setup Gradient
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
+        layer.insertSublayer(gradientLayer, at: 0)
+        
+        // Hashtag Symbol
+        hashLabel.text = "#"
+        hashLabel.font = .systemFont(ofSize: 14, weight: .bold)
+        
+        // Texts
+        textLabel.font = .italicSystemFont(ofSize: 14)
+        textLabel.textColor = .white
+        
+        let textStack = UIStackView(arrangedSubviews: [hashLabel, textLabel])
+        textStack.axis = .horizontal
+        textStack.spacing = 4
+        textStack.alignment = .center
+        
+        // Play Icon
+        playIconView.image = UIImage(systemName: "play.fill")
+        playIconView.tintColor = UIColor(white: 0.63, alpha: 1.0)
+        playIconView.contentMode = .scaleAspectFit
+        playIconView.translatesAutoresizingMaskIntoConstraints = false
+        playIconView.widthAnchor.constraint(equalToConstant: 10).isActive = true
+        playIconView.heightAnchor.constraint(equalToConstant: 10).isActive = true
+        
+        // Main Container Stack
+        let mainStack = UIStackView(arrangedSubviews: [textStack, playIconView])
+        mainStack.axis = .horizontal
+        mainStack.spacing = 10
+        mainStack.alignment = .center
+        mainStack.isUserInteractionEnabled = false // Allow parent UIControl to handle taps
+        
+        addSubview(mainStack)
+        mainStack.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Layout Config (padding: 6px 8px)
+        NSLayoutConstraint.activate([
+            mainStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
+            mainStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
+            mainStack.topAnchor.constraint(equalTo: topAnchor, constant: 6),
+            mainStack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -6)
+        ])
+        
+        updateColors()
+    }
+    
+    private func updateColors() {
+        hashLabel.textColor = accentColor
+        
+        // Neon Glow Shadow for # (50% opacity, 8 Radius blur)
+        hashLabel.layer.shadowColor = accentColor.cgColor
+        hashLabel.layer.shadowRadius = 8
+        hashLabel.layer.shadowOpacity = 0.5
+        hashLabel.layer.shadowOffset = .zero
+        
+        // Horizontal Gradient (Left: 15% opacity neon, Right: 2% opacity white)
+        let startColor = accentColor.withAlphaComponent(0.15).cgColor
+        let endColor = UIColor(white: 1.0, alpha: 0.02).cgColor
+        gradientLayer.colors = [startColor, endColor]
     }
 }
 ```

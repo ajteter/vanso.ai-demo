@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanso Creator Input Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        'vanso-magenta': '#F5328A',
+                        'vanso-cyan': '#54E3D5',
+                        'vanso-peach': '#ECA08B',
+                        'vanso-bg': '#000000',
+                        'vanso-border': 'rgba(255, 255, 255, 0.1)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f5f5f5;
+            color: #fff;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .phone-frame {
+            width: 100%;
+            max-width: 430px;
+            height: 932px;
+            background-color: #000;
+            position: relative;
+            overflow-y: auto;
+            overflow-x: hidden;
+            border: 12px solid #1a1a1a;
+            border-radius: 54px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .phone-frame::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .cta-gradient {
+            background: linear-gradient(134deg, #F5328A 19.26%, #ECA08B 57.57%, #54E3D5 91.14%);
+        }
+
+        .footer-sticky {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 24px;
+            padding-bottom: 48px;
+            background: linear-gradient(to top, #000 85%, transparent);
+            z-index: 100;
+        }
+
+        .content-scroll {
+            flex: 1;
+            overflow-y: auto;
+            padding-bottom: 140px;
+        }
+
+        .content-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tag-active {
+            background: rgba(84, 227, 213, 0.1) !important;
+            border-color: rgba(84, 227, 213, 0.5) !important;
+            color: #54E3D5 !important;
+        }
+    </style>
+</head>
+
+<body class="font-sans">
+
+    <div class="phone-frame">
+        <header
+            class="flex justify-between items-center px-6 pt-14 pb-5 sticky top-0 z-50 bg-black/60 backdrop-blur-xl">
+            <h1 class="text-xl font-bold tracking-tight text-white">New Drop</h1>
+            <button
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 border border-vanso-border">
+                <i data-lucide="x" class="w-5 h-5 text-zinc-400"></i>
+            </button>
+        </header>
+
+        <div class="content-scroll hide-scrollbar">
+            <main class="px-6 space-y-9 pt-2">
+                <section class="space-y-6">
+                    <button
+                        class="w-full flex items-center justify-center gap-3 py-3.5 rounded-2xl bg-white/5 border border-vanso-border text-zinc-400 font-semibold hover:bg-white/10 transition-all active:scale-[0.98]">
+                        <i data-lucide="folder-up" class="w-5 h-5"></i>
+                        Upload My Track
+                    </button>
+                    <div class="flex items-center gap-4 px-2">
+                        <div class="flex-1 h-px bg-white/10"></div>
+                        <span class="text-zinc-600 text-[10px] font-bold uppercase tracking-[0.2em]">or</span>
+                        <div class="flex-1 h-px bg-white/10"></div>
+                    </div>
+                </section>
+
+                <section class="space-y-5">
+                    <h2 class="text-lg font-bold flex items-center gap-2 px-1">✨ Create Music 🎵</h2>
+
+                    <div class="bg-white/5 backdrop-blur-2xl border border-vanso-border rounded-3xl p-5 space-y-4">
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-1.5 px-1 relative group w-max">
+                                <p class="text-[10px] font-bold text-zinc-500 tracking-wide">Works best in these languages:</p>
+                                <button type="button"
+                                    class="text-zinc-500 hover:text-white transition-colors cursor-help">
+                                    <i data-lucide="info" class="w-3.5 h-3.5"></i>
+                                </button>
+
+                                <!-- Tooltip -->
+                                <div
+                                    class="absolute bottom-full left-0 mb-2 w-[220px] p-3 rounded-xl bg-[#1a1a1a] border border-white/10 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 pointer-events-none">
+                                    <p class="text-[10.5px] text-zinc-300 leading-relaxed font-medium text-left">
+                                        English, Portuguese, Spanish, Japanese, Korean, Chinese, German, French,
+                                        Italian, Russian
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div
+                                class="relative bg-black/20 border border-white/5 rounded-2xl p-4 focus-within:border-vanso-magenta/30 transition-colors">
+                                <textarea id="style-input"
+                                    class="w-full bg-transparent border-none text-white resize-none outline-none min-h-[160px] text-base font-medium leading-7 placeholder-zinc-700 pb-10"
+                                    placeholder="Describe the style, mood, or instruments..."></textarea>
+
+                                <div class="absolute bottom-3 right-3">
+                                    <button type="button" id="random-template-btn"
+                                        class="flex items-center justify-center p-2 rounded-full text-zinc-400 bg-transparent hover:bg-white/10 hover:text-white transition-all">
+                                        <i data-lucide="dices" class="w-5 h-5"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-white/5 space-y-4">
+                            <div id="genres-main" class="flex gap-2.5 overflow-x-auto hide-scrollbar -mx-2 px-2"></div>
+                            <div class="pt-4 border-t border-white/5 flex items-center justify-between px-2">
+                                <div class="flex items-center bg-black/40 rounded-full p-1 border border-white/5">
+                                    <button id="mode-vocal"
+                                        class="px-4 py-1.5 rounded-full text-[11px] font-bold transition-all bg-white/10 text-white"
+                                        onclick="setTrackMode('vocal')">Vocal</button>
+                                    <button id="mode-inst"
+                                        class="px-4 py-1.5 rounded-full text-[11px] font-bold transition-all text-zinc-500 hover:text-zinc-300"
+                                        onclick="setTrackMode('instrumental')">Instrumental</button>
+                                </div>
+                                <div id="vocal-sub-options" class="flex items-center gap-3">
+                                    <button class="vocal-opt text-[11px] font-bold text-vanso-cyan transition-colors"
+                                        onclick="setVocalType('auto', this)">Auto</button>
+                                    <button
+                                        class="vocal-opt text-[11px] font-bold text-zinc-500 hover:text-zinc-300 transition-colors"
+                                        onclick="setVocalType('male', this)">Male</button>
+                                    <button
+                                        class="vocal-opt text-[11px] font-bold text-zinc-500 hover:text-zinc-300 transition-colors"
+                                        onclick="setVocalType('female', this)">Female</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="lyrics-section"
+                    class="bg-white/5 border border-vanso-border rounded-3xl overflow-hidden transition-all duration-300">
+                    <button id="lyrics-toggle-btn"
+                        onclick="toggleAccordion('lyrics-view', 'lyrics-icon', 'lyrics-toggle-btn')"
+                        class="w-full flex justify-between items-center p-6 text-zinc-300 hover:text-white transition-colors disabled:cursor-not-allowed disabled:text-zinc-600">
+                        <span class="font-bold tracking-tight">Lyrics <span
+                                class="text-zinc-600 font-normal ml-1">Optional</span></span>
+                        <i id="lyrics-icon" data-lucide="chevron-down"
+                            class="w-5 h-5 text-zinc-500 transition-transform"></i>
+                    </button>
+                    <div id="lyrics-view" class="max-h-0 overflow-hidden transition-all duration-500 opacity-0">
+                        <div class="px-6 pb-7 space-y-4 pt-1 border-t border-white/5">
+                            <div class="space-y-2">
+                                <label data-radio-group="lyrics"
+                                    class="block relative cursor-pointer radio-option group">
+                                    <input type="radio" name="l-opt" value="auto" checked onchange="updateL(this.value)"
+                                        class="absolute opacity-0">
+                                    <div
+                                        class="flex items-center justify-between p-4 rounded-2xl border border-white/5 bg-black/20 transition-all">
+                                        <span class="radio-label text-sm font-bold text-zinc-400">Auto</span>
+                                        <div
+                                            class="r-circle w-4 h-4 rounded-full border-2 border-zinc-600 flex items-center justify-center">
+                                            <div class="w-2 h-2 rounded-full bg-vanso-cyan hidden"></div>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label data-radio-group="lyrics"
+                                    class="block relative cursor-pointer radio-option group">
+                                    <input type="radio" name="l-opt" value="manual" onchange="updateL(this.value)"
+                                        class="absolute opacity-0">
+                                    <div
+                                        class="flex items-center justify-between p-4 rounded-2xl border border-white/5 bg-black/20 transition-all">
+                                        <span class="radio-label text-sm font-bold text-zinc-400">Manual</span>
+                                        <div
+                                            class="r-circle w-4 h-4 rounded-full border-2 border-zinc-600 flex items-center justify-center">
+                                            <div class="w-2 h-2 rounded-full bg-vanso-cyan hidden"></div>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                            <div id="m-area" class="hidden animate-in fade-in zoom-in-95 duration-300">
+                                <div class="relative bg-black/40 border border-white/10 rounded-2xl p-4">
+                                    <textarea
+                                        class="w-full bg-transparent border-none text-white placeholder-zinc-600 outline-none min-h-[140px] text-sm"
+                                        placeholder="Paste your lyrics here..."></textarea>
+                                    <button
+                                        class="absolute bottom-3 right-3 flex items-center gap-2 px-3 py-1.5 rounded-full border border-vanso-cyan/40 text-vanso-cyan text-[10px] font-bold bg-vanso-cyan/10 hover:bg-vanso-cyan/20 transition-all">
+                                        <i data-lucide="wand-2" class="w-3.5 h-3.5"></i>
+                                        Enhance
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <footer class="footer-sticky">
+            <button
+                class="w-full flex items-center justify-center gap-2 text-white font-black text-xl rounded-full py-4.5 shadow-[0_0_40px_rgba(245,50,138,0.25)] hover:scale-[1.02] active:scale-95 transition-all duration-300 cta-gradient">Create</button>
+        </footer>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        const GENRE_DATA = ['Pop', 'Rap', 'R&B', 'EDM', 'Rock', 'Jazz'];
+
+        const PROMPT_TEMPLATES = [
+            'A dreamy synth-pop song with female vocals, shimmering pads, warm analog bass, catchy topline, romantic night-drive mood, 118 BPM, polished radio-ready production.',
+            'An emotional piano ballad with male vocals, intimate verses, cinematic strings, heartfelt chorus, slow build, warm spacious mix, 72 BPM.',
+            'A high-energy Latin pop anthem with female vocals, reggaeton groove, bright guitars, massive hook, summer festival atmosphere, 102 BPM.',
+            'A dark melodic trap record with male vocals, deep 808s, crisp hi-hats, moody synth textures, memorable chorus, late-night city energy, 140 BPM.',
+            'A soft lo-fi R&B track with airy vocals, mellow electric piano, dusty drums, nostalgic mood, subtle vinyl texture, intimate bedroom-pop feel, 84 BPM.'
+        ];
+
+        let selectedGenre = null;
+        let trackMode = 'vocal';
+        let vocalType = 'auto';
+
+        function setPromptTemplate(template) {
+            document.getElementById('style-input').value = template;
+        }
+
+        function randomizePromptTemplate() {
+            const input = document.getElementById('style-input');
+            let nextTemplate = PROMPT_TEMPLATES[Math.floor(Math.random() * PROMPT_TEMPLATES.length)];
+            if (PROMPT_TEMPLATES.length > 1) {
+                while (nextTemplate === input.value) {
+                    nextTemplate = PROMPT_TEMPLATES[Math.floor(Math.random() * PROMPT_TEMPLATES.length)];
+                }
+            }
+            input.value = nextTemplate;
+            input.focus();
+        }
+
+        function appendToInput(text) {
+            const input = document.getElementById('style-input');
+            const current = input.value.trim();
+            // remove trailing comma if it exists to be safe, but just basic concatenation:
+            input.value = current ? `${current}, ${text}` : text;
+            input.focus();
+        }
+
+        function initGenres() {
+            const container = document.getElementById('genres-main');
+            container.innerHTML = '';
+            GENRE_DATA.forEach(genre => {
+                const btn = document.createElement('button');
+                btn.className = "genre-tag whitespace-nowrap px-4 py-2 rounded-full border border-vanso-border bg-black/20 text-zinc-400 text-[11px] font-bold hover:text-white transition-all";
+                btn.innerText = genre;
+                btn.onclick = () => selectGenre(genre, btn);
+                container.appendChild(btn);
+            });
+        }
+
+        function selectGenre(genre, btn) {
+            document.querySelectorAll('.genre-tag').forEach(b => b.classList.remove('tag-active'));
+            if (selectedGenre !== genre) {
+                selectedGenre = genre;
+                btn.classList.add('tag-active');
+                appendToInput(genre);
+            } else {
+                selectedGenre = null;
+            }
+        }
+
+        function setTrackMode(mode) {
+            trackMode = mode;
+            const btnVocal = document.getElementById('mode-vocal');
+            const btnInst = document.getElementById('mode-inst');
+            const subOptions = document.getElementById('vocal-sub-options');
+
+            if (mode === 'vocal') {
+                btnVocal.className = "px-4 py-1.5 rounded-full text-[11px] font-bold transition-all bg-white/10 text-white";
+                btnInst.className = "px-4 py-1.5 rounded-full text-[11px] font-bold transition-all text-zinc-500 hover:text-zinc-300";
+                subOptions.style.display = 'flex';
+                setLyricsEnabled(true);
+            } else {
+                btnInst.className = "px-4 py-1.5 rounded-full text-[11px] font-bold transition-all bg-white/10 text-white";
+                btnVocal.className = "px-4 py-1.5 rounded-full text-[11px] font-bold transition-all text-zinc-500 hover:text-zinc-300";
+                subOptions.style.display = 'none';
+                setLyricsEnabled(false);
+            }
+        }
+
+        function setVocalType(type, btn) {
+            vocalType = type;
+            document.querySelectorAll('.vocal-opt').forEach(b => {
+                b.className = "vocal-opt text-[11px] font-bold text-zinc-500 hover:text-zinc-300 transition-colors";
+            });
+            btn.className = "vocal-opt text-[11px] font-bold text-vanso-cyan transition-colors";
+        }
+
+        function setLyricsEnabled(enabled) {
+            const lyricsSection = document.getElementById('lyrics-section');
+            const lyricsToggleBtn = document.getElementById('lyrics-toggle-btn');
+            const lyricsView = document.getElementById('lyrics-view');
+            const lyricsIcon = document.getElementById('lyrics-icon');
+            const manualArea = document.getElementById('m-area');
+            const lyricsInputs = document.querySelectorAll('input[name="l-opt"]');
+            const manualTextarea = manualArea.querySelector('textarea');
+            const polishBtn = manualArea.querySelector('button');
+
+            if (enabled) {
+                lyricsSection.classList.remove('opacity-50');
+                lyricsSection.classList.add('opacity-100');
+                lyricsToggleBtn.disabled = false;
+                lyricsInputs.forEach(input => input.disabled = false);
+                manualTextarea.disabled = false;
+                polishBtn.disabled = false;
+                return;
+            }
+
+            lyricsSection.classList.remove('opacity-100');
+            lyricsSection.classList.add('opacity-50');
+            lyricsToggleBtn.disabled = true;
+            lyricsView.style.maxHeight = null;
+            lyricsView.style.opacity = '0';
+            lyricsIcon.style.transform = 'rotate(0deg)';
+            lyricsInputs.forEach((input, index) => {
+                input.disabled = true;
+                input.checked = index === 0;
+            });
+            manualTextarea.disabled = true;
+            polishBtn.disabled = true;
+            manualArea.style.display = 'none';
+            syncRadioStyles('lyrics');
+        }
+
+        function toggleAccordion(id, iconId, buttonId) {
+            const toggleBtn = document.getElementById(buttonId);
+            if (toggleBtn && toggleBtn.disabled) return;
+            const el = document.getElementById(id);
+            const icon = document.getElementById(iconId);
+            if (el.style.maxHeight) { el.style.maxHeight = null; el.style.opacity = "0"; icon.style.transform = "rotate(0deg)"; }
+            else { el.style.maxHeight = "600px"; el.style.opacity = "1"; icon.style.transform = "rotate(180deg)"; }
+        }
+
+        function updateL(val) {
+            document.getElementById('m-area').style.display = (val === 'manual' ? 'block' : 'none');
+            syncRadioStyles('lyrics');
+        }
+
+        function syncRadioStyles(groupName) {
+            document.querySelectorAll(`[data-radio-group="${groupName}"]`).forEach(opt => {
+                const input = opt.querySelector('input');
+                const label = opt.querySelector('.radio-label');
+                const circ = opt.querySelector('.r-circle');
+                const dot = opt.querySelector('.r-circle div');
+                if (input.checked) {
+                    label.classList.replace('text-zinc-400', 'text-white');
+                    circ.classList.replace('border-zinc-600', 'border-vanso-cyan');
+                    dot.classList.remove('hidden');
+                } else {
+                    label.classList.replace('text-white', 'text-zinc-400');
+                    circ.classList.replace('border-vanso-cyan', 'border-zinc-600');
+                    dot.classList.add('hidden');
+                }
+            });
+        }
+
+        document.getElementById('random-template-btn').addEventListener('click', randomizePromptTemplate);
+
+        window.onload = () => {
+            setPromptTemplate(PROMPT_TEMPLATES[0]);
+            initGenres();
+            updateL('auto');
+        };
+    </script>
+</body>
+
+</html>

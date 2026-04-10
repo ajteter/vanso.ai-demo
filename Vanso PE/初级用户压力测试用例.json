@@ -1,0 +1,241 @@
+{
+    "id": 1,
+    "category": "LATAM_Spanish",
+    "scenario": "Broken Heart",
+    "prompt": "triste",
+    "lyrics": "me dejaste solo, quiero beber",
+    "test_objective": "能否根据极简西语提示词生成完整的伤感流行乐"
+  },
+  {
+    "id": 2,
+    "category": "LATAM_Spanish",
+    "scenario": "Friday Party",
+    "prompt": "reggaeton",
+    "lyrics": "fiesta viernes, vamos a bailar",
+    "test_objective": "测试拉美最核心的雷鬼节拍准确度"
+  },
+  {
+    "id": 3,
+    "category": "LATAM_Spanish",
+    "scenario": "Traffic Anger",
+    "prompt": "rock rápido",
+    "lyrics": "mucho tráfico, llego tarde jefe",
+    "test_objective": "高语速下的西语连读自然度"
+  },
+  {
+    "id": 4,
+    "category": "LATAM_Spanish",
+    "scenario": "Sweet Love",
+    "prompt": "romántico",
+    "lyrics": "te amo mi amor, eres mi sol",
+    "test_objective": "抒情氛围感与木吉他/钢琴乐器质感"
+  },
+  {
+    "id": 5,
+    "category": "LATAM_Spanish",
+    "scenario": "Utility Sleep",
+    "prompt": "dormir lofi",
+    "lyrics": "buenas noches",
+    "test_objective": "短歌词+长前奏/尾奏的氛围音生成能力"
+  },
+  {
+    "id": 6,
+    "category": "Brazil_Portuguese",
+    "scenario": "Favela Party",
+    "prompt": "funk carioca, Bum-cha-cha",
+    "lyrics": "desce desce, rio de janeiro",
+    "test_objective": "能否精准还原巴西放克特有的极简鼓点(Bum-cha-cha)"
+  },
+  {
+    "id": 7,
+    "category": "Brazil_Portuguese",
+    "scenario": "Bar Sadness",
+    "prompt": "sertanejo",
+    "lyrics": "chorando no bar, volta pra mim",
+    "test_objective": "测试巴西乡村音乐特有的手风琴/吉他音色"
+  },
+  {
+    "id": 8,
+    "category": "Brazil_Portuguese",
+    "scenario": "Football Passion",
+    "prompt": "animado",
+    "lyrics": "gol gol, meu time campeão",
+    "test_objective": "大合唱氛围感 (Stadium Anthem effect)"
+  },
+  {
+    "id": 9,
+    "category": "Brazil_Portuguese",
+    "scenario": "Morning Group Chat",
+    "prompt": "bom dia",
+    "lyrics": "bom dia grupo, vamos trabalhar",
+    "test_objective": "日常对话语气的音乐化处理"
+  },
+  {
+    "id": 10,
+    "category": "Brazil_Portuguese",
+    "scenario": "Rainy Commute",
+    "prompt": "chuva",
+    "lyrics": "ônibus lotado, pensando na vida",
+    "test_objective": "非音乐术语提示词（“雨”）的场景脑补能力"
+  },
+  {
+    "id": 11,
+    "category": "SEA_Mixed",
+    "scenario": "No Money (Philippines)",
+    "prompt": "sad pop",
+    "lyrics": "wala na pera, gutom na",
+    "test_objective": "Taglish (他加禄语+英语) 的口音自然度"
+  },
+  {
+    "id": 12,
+    "category": "SEA_Mixed",
+    "scenario": "Crush (Philippines)",
+    "prompt": "sweet",
+    "lyrics": "crush kita, smile mo ganda",
+    "test_objective": "亚洲甜美流行风 (K-pop/J-pop influence)"
+  },
+  {
+    "id": 13,
+    "category": "SEA_Mixed",
+    "scenario": "OT Work (Malaysia)",
+    "prompt": "funny rap",
+    "lyrics": "boss why OT, friday night leh",
+    "test_objective": "Manglish (大马英语俚语 'leh') 的断句与押韵"
+  },
+  {
+    "id": 14,
+    "category": "SEA_Mixed",
+    "scenario": "Late Night Food (Malaysia)",
+    "prompt": "cafe vibes",
+    "lyrics": "mamak stall, teh tarik satu",
+    "test_objective": "极其本地化的词汇发音测试"
+  },
+  {
+    "id": 15,
+    "category": "SEA_Mixed",
+    "scenario": "Gaming Meme",
+    "prompt": "EDM",
+    "lyrics": "push tower, GG WP",
+    "test_objective": "快节奏电子乐与游戏黑话的结合"
+  },
+  {
+    "id": 16,
+    "category": "AFRICA_SA_Mixed",
+    "scenario": "Weekend Groove (South Africa)",
+    "prompt": "amapiano",
+    "lyrics": "weekend groove, dance now",
+    "test_objective": "Amapiano 标志性的 Log drum 贝斯线能否生成"
+  },
+  {
+    "id": 17,
+    "category": "AFRICA_SA_Mixed",
+    "scenario": "Power Cut (South Africa)",
+    "prompt": "dark beat",
+    "lyrics": "load shedding again, no power",
+    "test_objective": "幽默吐槽向的暗黑节奏匹配"
+  },
+  {
+    "id": 18,
+    "category": "AFRICA_SA_Mixed",
+    "scenario": "Hustle (Kenya)",
+    "prompt": "afrobeats",
+    "lyrics": "nairobi hustle, chasing money",
+    "test_objective": "Afrobeats 极具弹性的打击乐律动"
+  },
+  {
+    "id": 19,
+    "category": "AFRICA_SA_Mixed",
+    "scenario": "Homesick (Nepal)",
+    "prompt": "nepali folk",
+    "lyrics": "aama ko yaad, missing home",
+    "test_objective": "南亚次大陆传统乐器（如塔布拉鼓/长笛）的识别"
+  },
+  {
+    "id": 20,
+    "category": "AFRICA_SA_Mixed",
+    "scenario": "Festival (Nepal)",
+    "prompt": "happy",
+    "lyrics": "dashain aayo, happy time",
+    "test_objective": "小语种+基础英语的节日欢快氛围"
+  },
+  {
+    "id": 21,
+    "category": "Extreme_Minimalist",
+    "scenario": "Zero Lyrics",
+    "prompt": "phonk",
+    "lyrics": "",
+    "test_objective": "只输入曲风不输入歌词，能否输出纯高质量器乐"
+  },
+  {
+    "id": 22,
+    "category": "Extreme_Minimalist",
+    "scenario": "Zero Prompt",
+    "prompt": "",
+    "lyrics": "I am so tired today",
+    "test_objective": "不输入曲风只输入一句词，模型能否自动推断情绪编曲"
+  },
+  {
+    "id": 23,
+    "category": "Extreme_Minimalist",
+    "scenario": "Single Word",
+    "prompt": "pop",
+    "lyrics": "hello",
+    "test_objective": "极简输入下，是生成短音效还是自动扩写成一首歌"
+  },
+  {
+    "id": 24,
+    "category": "Extreme_Minimalist",
+    "scenario": "Pure Emoji",
+    "prompt": "🎸🔥🤘",
+    "lyrics": "🚀🚀🚀",
+    "test_objective": "能否解析 Emoji 语义（吉他+火=燃向摇滚）"
+  },
+  {
+    "id": 25,
+    "category": "Extreme_Minimalist",
+    "scenario": "Gibberish",
+    "prompt": "asdfgh",
+    "lyrics": "qwertyuiop",
+    "test_objective": "乱码输入时，是报错阻断、生成噪音，还是唱出乱码？（容错率测试）"
+  },
+  {
+    "id": 26,
+    "category": "Extreme_Minimalist",
+    "scenario": "Semantic Conflict",
+    "prompt": "depressive sad funeral",
+    "lyrics": "BEST DAY EVER I WON THE LOTTERY HAHAHA",
+    "test_objective": "提示词与歌词情绪完全冲突时，模型听谁的？"
+  },
+  {
+    "id": 27,
+    "category": "Extreme_Minimalist",
+    "scenario": "Punctuation Only",
+    "prompt": "...",
+    "lyrics": "??? !!!",
+    "test_objective": "异常符号输入时的兜底逻辑"
+  },
+  {
+    "id": 28,
+    "category": "Extreme_Minimalist",
+    "scenario": "Vague Instruction",
+    "prompt": "make a viral tiktok song",
+    "lyrics": "dance with me",
+    "test_objective": "能否理解 'tiktok song' 这种非音乐专业术语的抽象概念"
+  },
+  {
+    "id": 29,
+    "category": "Extreme_Minimalist",
+    "scenario": "Sound Effect Request",
+    "prompt": "cat meowing over heavy bass",
+    "lyrics": "meow meow meow",
+    "test_objective": "是否具备跨界（音效+音乐）的生成能力"
+  },
+  {
+    "id": 30,
+    "category": "Extreme_Minimalist",
+    "scenario": "Overly Long Lyrics",
+    "prompt": "fast rap",
+    "lyrics": "today i woke up and ate a sandwich then i took the bus but the bus was late so i had to run to the office and my boss was looking at me with angry eyes and i spilled coffee on my shirt and now i just want to go home and sleep",
+    "test_objective": "输入没有换行符的极长碎碎念，AI能否自动寻找呼吸口和节奏断句"
+  }
+]

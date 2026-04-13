@@ -1,0 +1,44 @@
+[
+    {
+        "User_Description": "funk carioca, Bum-cha-cha desce desce, rio de janeiro",
+        "Main_Genre": "Rap/Hip Hop",
+        "Vocal_Gender": "Auto",
+        "User_Location": "BR",
+        "Notes": "ID: 6, Category: Brazil_Portuguese, Objective: 能否精准还原巴西放克特有的极简鼓点(Bum-cha-cha)"
+    },
+    {
+        "User_Description": "sad pop wala na pera, gutom na",
+        "Main_Genre": "Pop",
+        "Vocal_Gender": "Auto",
+        "User_Location": "PH",
+        "Notes": "ID: 11, Category: SEA_Mixed, Objective: Taglish (他加禄语+英语) 的口音自然度"
+    },
+    {
+        "User_Description": "I am so tired today",
+        "Main_Genre": "Pop",
+        "Vocal_Gender": "Auto",
+        "User_Location": "BO",
+        "Notes": "ID: 22, Category: Extreme_Minimalist, Objective: 不输入曲风只输入一句词，模型能否自动推断情绪编曲"
+    },
+    {
+        "User_Description": "🎸🔥🤘 🚀🚀🚀",
+        "Main_Genre": "Rock",
+        "Vocal_Gender": "Auto",
+        "User_Location": "PH",
+        "Notes": "ID: 24, Category: Extreme_Minimalist, Objective: 能否解析 Emoji 语义（吉他+火=燃向摇滚）"
+    },
+    {
+        "User_Description": "depressive sad funeral BEST DAY EVER I WON THE LOTTERY HAHAHA",
+        "Main_Genre": "Pop",
+        "Vocal_Gender": "Auto",
+        "User_Location": "ZA",
+        "Notes": "ID: 26, Category: Extreme_Minimalist, Objective: 提示词与歌词情绪完全冲突时，模型听谁的？"
+    },
+    {
+        "User_Description": "fast rap today i woke up and ate a sandwich then i took the bus but the bus was late so i had to run to the office and my boss was looking at me with angry eyes and i spilled coffee on my shirt and now i just want to go home and sleep",
+        "Main_Genre": "Rap/Hip Hop",
+        "Vocal_Gender": "Male",
+        "User_Location": "EC",
+        "Notes": "ID: 30, Category: Extreme_Minimalist, Objective: 输入没有换行符的极长碎碎念，AI能否自动寻找呼吸口和节奏断句"
+    }
+]

@@ -54,10 +54,24 @@ A. 核心仲裁法则 (Arbitration Rules - Priority Pyramid)
  若语言为中文：副歌 (Chorus) 必须押韵（AABB 或 ABAB），无论参数是否提及。这是不可违反的硬性规则。
 B. 参数-音乐映射表 (Parameter-to-Music Mapping)
 (用于理解100维度参数如何转化为音乐元素)
-暂时无法在飞书文档外展示此内容
+参数 Tier	核心作用	影响目标
+TIER_0	定义音乐骨架	style_prompt 的主干（Genre, Mood, Tempo, Vocals）
+TIER_1	定义叙事结构	歌词的段落安排、情节走向
+TIER_2	定义听感细节	style_prompt 的乐器和人声描述
+TIER_3	定义歌词质感	押韵策略、句长、节奏密度
+TIER_4	定义修辞内容	意象体系、隐喻、金句
+TIER_5	定义市场策略	调整语言风格、规避禁词
 C. 场景-流派映射指南 (中国大陆通用版)
 (当 TIER_0 的流派参数为空时，根据主题场景选择华语主流风格)
-暂时无法在飞书文档外展示此内容
+场景类型	核心流派 (Core Genres)	关键修饰词	现实逻辑判断
+日常/风景/静物	Mandopop, Acoustic Ballad, Light Piano	Sentimental, Healing, Warm	万能默认。适用于朋友圈、Vlog、生活照。主打走心、治愈。
+时尚/街拍/城市	C-Pop, Urban, City Pop	Groovy, Modern, Chill	适用于穿搭、探店、城市夜景。主打律动感，避免太地下的风格。
+中式/古建/茶	Chinese Traditional, Gufeng, New Age	Ethereal, Pentatonic	适用于汉服、古镇、寺庙。必须用中国乐器标签。
+科技/数码/展示	Modern Electronic, Tech House, Ambient	Futuristic, Clean	适用于产品展示、UI界面。主打干净、高级感，慎用 Glitch/IDM。
+情感/深夜/人像	Piano Ballad, Slow Rock, R&B	Emotional, Deep, Romantic	适用于情绪人像、深夜独处。主打旋律性和人声情感。
+运动/燃/快剪	Chinese Rock, Pop Rock, Electronic Rock	High Energy, Powerful	适用于运动、赛车、卡点视频。
+失恋/伤感	Mandopop Ballad, Piano Ballad, Slow R&B	Melancholic, Bittersweet, Nostalgic	适用于分手、思念、遗憾主题。主打抒情和情感宣泄。
+甜蜜/恋爱	Sweet Pop, Acoustic, City Pop	Warm, Playful, Romantic	适用于表白、热恋、甜蜜回忆。主打轻快和温馨。
 D. 结构生成逻辑 (Structure Logic)
 从 TIER_1 提取结构参数：
 - 宏结构 (123)：决定歌曲整体框架   
@@ -93,7 +107,10 @@ E. 歌词生成与表演脚本指南 (Lyrics & Performance Script Guide)
 - (pause): 停顿，适用于情感转折点  
 - (melodic): 旋律性强，适用于副歌 Hook
 4.4 押韵规则 (Rhyme Rules - 强制执行)
-暂时无法在飞书文档外展示此内容
+语言	押韵要求	押韵模式
+中文	副歌必须押韵，主歌建议押韵	AABB（每2句押）或 ABAB
+英文	副歌建议押韵	AABB / ABAB / ABCB
+粤语/台语	副歌必须押韵	AABB，注意入声字
 4.1. 中文副歌句数规则 (Chinese Chorus Length - 80% Confidence)
 经验法则：中文流行音乐的副歌（Chorus）通常为 8句。
 - 适用范围：Mandopop、C-Pop、华语抒情等中文流行风格（约80%的情况适用）  

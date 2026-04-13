@@ -1,0 +1,170 @@
+[
+    {
+        "User_Description": "triste me dejaste solo, quiero beber",
+        "Main_Genre": "Pop",
+        "Vocal_Gender": "Auto",
+        "User_Location": "CO"
+    },
+    {
+        "User_Description": "reggaeton fiesta viernes, vamos a bailar",
+        "Main_Genre": "Latin",
+        "Vocal_Gender": "Auto",
+        "User_Location": "EC"
+    },
+    {
+        "User_Description": "rock rápido mucho tráfico, llego tarde jefe",
+        "Main_Genre": "Rock",
+        "Vocal_Gender": "Auto",
+        "User_Location": "EC"
+    },
+    {
+        "User_Description": "romántico te amo mi amor, eres mi sol",
+        "Main_Genre": "Pop",
+        "Vocal_Gender": "Auto",
+        "User_Location": "PE"
+    },
+    {
+        "User_Description": "dormir lofi buenas noches",
+        "Main_Genre": "Electronic",
+        "Vocal_Gender": "Auto",
+        "User_Location": "PE"
+    },
+    {
+        "User_Description": "funk carioca, Bum-cha-cha desce desce, rio de janeiro",
+        "Main_Genre": "Rap/Hip Hop",
+        "Vocal_Gender": "Auto",
+        "User_Location": "BR"
+    },
+    {
+        "User_Description": "sertanejo chorando no bar, volta pra mim",
+        "Main_Genre": "Latin",
+        "Vocal_Gender": "Auto",
+        "User_Location": "BR"
+    },
+    {
+        "User_Description": "animado gol gol, meu time campeão",
+        "Main_Genre": "Pop",
+        "Vocal_Gender": "Auto",
+        "User_Location": "BR"
+    },
+    {
+        "User_Description": "bom dia bom dia grupo, vamos trabalhar",
+        "Main_Genre": "Pop",
+        "Vocal_Gender": "Auto",
+        "User_Location": "BR"
+    },
+    {
+        "User_Description": "chuva ônibus lotado, pensando na vida",
+        "Main_Genre": "Pop",
+        "Vocal_Gender": "Auto",
+        "User_Location": "BR"
+    },
+    {
+        "User_Description": "sad pop wala na pera, gutom na",
+        "Main_Genre": "Pop",
+        "Vocal_Gender": "Auto",
+        "User_Location": "PH"
+    },
+    {
+        "User_Description": "sweet crush kita, smile mo ganda",
+        "Main_Genre": "Pop",
+        "Vocal_Gender": "Female",
+        "User_Location": "PH"
+    },
+    {
+        "User_Description": "funny rap boss why OT, friday night leh",
+        "Main_Genre": "Rap/Hip Hop",
+        "Vocal_Gender": "Male",
+        "User_Location": "MY"
+    },
+    {
+        "User_Description": "cafe vibes mamak stall, teh tarik satu",
+        "Main_Genre": "Pop",
+        "Vocal_Gender": "Female",
+        "User_Location": "MY"
+    },
+    {
+        "User_Description": "push tower, GG WP",
+        "Main_Genre": "Electronic",
+        "Vocal_Gender": "Auto",
+        "User_Location": "NP"
+    },
+    {
+        "User_Description": "amapiano weekend groove, dance now",
+        "Main_Genre": "Pop",
+        "Vocal_Gender": "Auto",
+        "User_Location": "ZA"
+    },
+    {
+        "User_Description": "dark beat load shedding again, no power",
+        "Main_Genre": "Pop",
+        "Vocal_Gender": "Auto",
+        "User_Location": "ZA"
+    },
+    {
+        "User_Description": "afrobeats nairobi hustle, chasing money",
+        "Main_Genre": "Pop",
+        "Vocal_Gender": "Auto",
+        "User_Location": "KE"
+    },
+    {
+        "User_Description": "nepali folk aama ko yaad, missing home",
+        "Main_Genre": "Folk",
+        "Vocal_Gender": "Auto",
+        "User_Location": "NP"
+    },
+    {
+        "User_Description": "happy dashain aayo, happy time",
+        "Main_Genre": "Pop",
+        "Vocal_Gender": "Auto",
+        "User_Location": "NP"
+    },
+    {
+        "User_Description": "I am so tired today",
+        "Main_Genre": "Pop",
+        "Vocal_Gender": "Auto",
+        "User_Location": "BO"
+    },
+    {
+        "User_Description": "pop hello",
+        "Main_Genre": "Pop",
+        "Vocal_Gender": "Auto",
+        "User_Location": "PE"
+    },
+    {
+        "User_Description": "🎸🔥🤘 🚀🚀🚀",
+        "Main_Genre": "Rock",
+        "Vocal_Gender": "Auto",
+        "User_Location": "PH"
+    },
+    {
+        "User_Description": "asdfgh qwertyuiop",
+        "Main_Genre": "Pop",
+        "Vocal_Gender": "Auto",
+        "User_Location": "BR"
+    },
+    {
+        "User_Description": "depressive sad funeral BEST DAY EVER I WON THE LOTTERY HAHAHA",
+        "Main_Genre": "Pop",
+        "Vocal_Gender": "Auto",
+        "User_Location": "ZA"
+    },
+    {
+        "User_Description": "... ??? !!!",
+        "Main_Genre": "Pop",
+        "Vocal_Gender": "Auto",
+        "User_Location": "MY"
+    },
+    {
+        "User_Description": "make a viral tiktok song dance with me",
+        "Main_Genre": "Pop",
+        "Vocal_Gender": "Auto",
+        "User_Location": "BO"
+    },
+    {
+        "User_Description": "fast rap today i woke up and ate a sandwich then i took the bus but the bus was late so i had to run to the office and my boss was looking at me with angry eyes and i spilled coffee on my shirt and now i just want to go home and sleep",
+        "Main_Genre": "Rap/Hip Hop",
+        "Vocal_Gender": "Male",
+        "User_Location": "EC"
+    }
+]

@@ -174,7 +174,7 @@ If `User_Description` contains explicit violence, sexual content, drug glorifica
 # 5. OUTPUT EXAMPLES
 
 **Example A — English Vocal Song:**
-(Input: User_Description="breakup in the rain, city lights", Main_Genre="Pop", Vocal_Gender="Female", User_Location="US")
+(Input: User_Description="breakup in the rain, city lights", Main_Genre="Pop", Vocal_Gender="Female", User_Location="PH")
 ```json
 {
   "title": "Neon Rain",

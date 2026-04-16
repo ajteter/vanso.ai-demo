@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanso Creator - Generating Success</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        'vanso-magenta': '#F5328A',
+                        'vanso-cyan': '#54E3D5',
+                        'vanso-peach': '#ECA08B',
+                        'vanso-bg': '#000000',
+                        'vanso-border': 'rgba(255, 255, 255, 0.1)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f5f5f5;
+            color: #fff;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .phone-frame {
+            width: 100%;
+            max-width: 430px;
+            height: 932px;
+            background-color: #000;
+            position: relative;
+            overflow: hidden;
+            border: 12px solid #1a1a1a;
+            border-radius: 54px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cta-gradient {
+            background: linear-gradient(134deg, #F5328A 19.26%, #ECA08B 57.57%, #54E3D5 91.14%);
+        }
+
+        /* Floating animation for the hero icon */
+        @keyframes float {
+            0% {
+                transform: translateY(0px) scale(1);
+            }
+
+            50% {
+                transform: translateY(-15px) scale(1.03);
+            }
+
+            100% {
+                transform: translateY(0px) scale(1);
+            }
+        }
+
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes aura-pulse {
+
+            0%,
+            100% {
+                opacity: 0.25;
+            }
+
+            50% {
+                opacity: 0.10;
+            }
+        }
+
+        .animate-aura-pulse {
+            opacity: 0.15;
+            animation: aura-pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite both;
+        }
+    </style>
+</head>
+
+<body class="font-sans">
+
+    <div class="phone-frame relative bg-black overflow-hidden z-0 flex flex-col justify-between">
+        <!-- Sonic Aura Background Effects -->
+        <div
+            class="absolute top-[20%] right-[-50px] w-[400px] h-[400px] bg-vanso-magenta mix-blend-screen blur-[140px] pointer-events-none -z-10 animate-aura-pulse">
+        </div>
+        <div class="absolute bottom-[20%] left-[-100px] w-[350px] h-[350px] bg-vanso-cyan mix-blend-screen blur-[140px] pointer-events-none -z-10 animate-aura-pulse"
+            style="animation-delay: 2s;"></div>
+
+        <header class="flex items-center px-6 pt-14 pb-5 sticky top-0 z-50">
+            <!-- Left Chevron to naturally return to input screen -->
+            <button onclick="window.location.href='ai-creator-input.html'"
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 border border-vanso-border absolute left-6 transition-colors hover:bg-white/10">
+                <i data-lucide="chevron-left" class="w-5 h-5 text-zinc-400"></i>
+            </button>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-1 flex flex-col items-center justify-center px-8 z-10 -mt-10">
+
+            <!-- Core Loading Visual -->
+            <div class="relative w-40 h-40 mb-10 flex items-center justify-center animate-float">
+                <!-- Glowing rings -->
+                <div
+                    class="absolute inset-0 border-[2px] border-vanso-magenta/30 rounded-full animate-[ping_3s_cubic-bezier(0,0,0.2,1)_infinite]">
+                </div>
+                <div class="absolute inset-4 border-[2px] border-vanso-cyan/30 rounded-full animate-[ping_3s_cubic-bezier(0,0,0.2,1)_infinite]"
+                    style="animation-delay: 1.5s;"></div>
+
+                <!-- Glass Core -->
+                <div
+                    class="w-24 h-24 bg-white/5 backdrop-blur-2xl border border-white/20 rounded-full flex items-center justify-center shadow-[0_0_60px_rgba(245,50,138,0.4)] overflow-hidden">
+                    <img src="../../design_guideline/vanso-logo.webp" alt="Vanso AI"
+                        class="w-16 h-16 rounded-full animate-pulse object-cover">
+                </div>
+            </div>
+
+            <!-- Typography -->
+            <div class="text-center space-y-4 max-w-[300px]">
+                <h1
+                    class="text-3xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white to-zinc-400">
+                    Generating...
+                </h1>
+                <p class="text-[15px] font-medium text-zinc-400 leading-relaxed">
+                    AI is rendering your drop. It usually takes 2-3 minutes.
+                </p>
+                <p class="text-[13px] text-zinc-500 font-medium leading-relaxed">
+                    It will be auto-published to your drops. We'll notify you when it's ready.
+                </p>
+            </div>
+        </main>
+
+        <!-- Action Bar -->
+        <footer class="p-6 pb-12 z-10 w-full space-y-4 bg-gradient-to-t from-black via-black/80 to-transparent">
+            <!-- Secondary CTA -->
+            <button onclick="window.location.href='ai-creator-input.html'"
+                class="w-full flex items-center justify-center gap-2 text-zinc-300 font-semibold text-[16px] rounded-2xl py-3.5 bg-white/5 border border-white/10 hover:bg-white/10 hover:text-white active:scale-95 transition-all duration-300 cursor-pointer">
+                Continue Generating
+            </button>
+        </footer>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

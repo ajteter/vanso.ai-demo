@@ -113,26 +113,32 @@
 
         <div class="content-scroll hide-scrollbar">
             <main class="px-6 space-y-6 pt-2">
-                <section class="space-y-4 pt-2">
-                    <div class="flex items-center justify-center gap-3 pb-2">
-                        <div class="inline-flex items-center justify-center px-3.5 py-1.5 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 shadow-sm gap-1.5">
-                            <img src="vanso-text-colored.svg" alt="vanso" class="h-[10px] w-auto block">
-                            <span class="text-zinc-400 font-bold text-[11px] leading-none tracking-[-0.5px]">AI</span>
-                        </div>
-                        <h2 class="text-[22px] font-black tracking-tight text-white drop-shadow-md">
-                            Create Music
-                        </h2>
+                <button
+                    class="w-full flex items-center justify-center gap-3 py-3.5 rounded-2xl bg-transparent border border-white/10 text-zinc-500 font-medium hover:bg-white/5 hover:border-white/20 hover:text-zinc-400 transition-all active:scale-[0.98]">
+                    <i data-lucide="folder-up" class="w-5 h-5"></i>
+                    Upload My Track
+                </button>
+
+                <div class="flex items-center gap-4 px-2">
+                    <div class="flex-1 h-px bg-white/10"></div>
+                    <span class="text-zinc-600 text-[10px] font-bold uppercase tracking-[0.2em]">or</span>
+                    <div class="flex-1 h-px bg-white/10"></div>
+                </div>
+
+                <div class="flex justify-center mb-10 mt-2">
+                    <div
+                        class="inline-flex items-center justify-center px-4 py-2.5 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_4px_20px_rgba(0,0,0,0.4)] gap-1.5">
+                        <img src="vanso-text-colored.svg" alt="vanso" class="h-[12px] w-auto block">
+                        <span class="text-zinc-400 font-bold text-[13px] leading-none tracking-[-0.5px]">AI</span>
                     </div>
+                </div>
+
+                <section class="space-y-4">
+                    <h2 class="text-[22px] font-black tracking-tight text-white drop-shadow-md text-center pb-2">
+                        Create Music
+                    </h2>
 
                     <div class="space-y-7">
-                        <!-- Mode Switcher -->
-                        <div class="space-y-3">
-                            <div class="flex items-center bg-black/40 rounded-full p-1 border border-white/5 shadow-inner w-full">
-                                <button id="mode-auto" class="flex-1 py-3 rounded-full text-[14px] font-bold transition-all bg-white/10 text-white shadow-sm" onclick="setTrackMode('auto')">Simple</button>
-                                <button id="mode-custom" class="flex-1 py-3 rounded-full text-[14px] font-bold transition-all text-zinc-500 hover:text-zinc-300" onclick="setTrackMode('custom')">Custom</button>
-                            </div>
-                        </div>
-
                         <!-- Module 1: Prompt Input (Single Box) -->
                         <div class="space-y-3">
                             <div
@@ -141,20 +147,9 @@
                                     class="w-full bg-transparent border-none text-white resize-none outline-none min-h-[160px] text-[15px] font-normal leading-relaxed placeholder-zinc-500 pb-10"
                                     placeholder="Describe the style, mood, or instruments..."></textarea>
 
-                                <div id="instrumental-toggle-wrapper" class="absolute bottom-4 left-4 flex items-center transition-opacity duration-300 z-10">
-                                    <label class="flex items-center gap-2.5 cursor-pointer group bg-white/10 hover:bg-white/15 border border-white/10 rounded-full pl-3 pr-4 py-2 transition-all shadow-sm">
-                                        <div class="relative w-4 h-4 rounded-[4px] border border-zinc-500 bg-black/40 overflow-hidden flex items-center justify-center transition-colors group-hover:border-zinc-300">
-                                            <input type="checkbox" id="instrumental-checkbox" class="absolute inset-0 opacity-0 cursor-pointer z-20" onchange="toggleInstrumental(this.checked)">
-                                            <div id="instrumental-check-bg" class="absolute inset-0 bg-white opacity-0 transition-opacity"></div>
-                                            <i data-lucide="check" id="instrumental-check-icon" class="w-2.5 h-2.5 text-black opacity-0 scale-50 transition-all pointer-events-none relative z-10 font-bold"></i>
-                                        </div>
-                                        <span class="text-[12px] font-bold text-white transition-colors">Instrumental</span>
-                                    </label>
-                                </div>
-
                                 <div class="absolute bottom-4 right-4">
                                     <button type="button" id="random-template-btn"
-                                        class="flex items-center justify-center p-2.5 rounded-full text-zinc-400 bg-black/20 hover:bg-white/10 hover:text-white transition-all z-10">
+                                        class="flex items-center justify-center p-2.5 rounded-full text-zinc-400 bg-black/20 hover:bg-white/10 hover:text-white transition-all">
                                         <i data-lucide="dices" class="w-5 h-5"></i>
                                     </button>
                                 </div>
@@ -171,24 +166,53 @@
 
                         <!-- Module 2: Creative Configuration -->
                         <div class="space-y-6">
+                            <!-- Row 1: 3-way Segmented Control & Help Text -->
+                            <div class="space-y-2">
+                                <div
+                                    class="flex items-center bg-black/40 rounded-full p-1 border border-white/5 shadow-inner w-full">
+                                    <button id="mode-auto"
+                                        class="flex-1 py-2.5 rounded-full text-[13px] font-bold transition-all bg-white/10 text-white"
+                                        onclick="setTrackMode('auto')">Auto</button>
+                                    <button id="mode-custom"
+                                        class="flex-1 py-2.5 rounded-full text-[13px] font-bold transition-all text-zinc-500 hover:text-zinc-300"
+                                        onclick="setTrackMode('custom')">Custom</button>
+                                    <button id="mode-inst"
+                                        class="flex-1 py-2.5 rounded-full text-[13px] font-bold transition-all text-zinc-500 hover:text-zinc-300"
+                                        onclick="setTrackMode('instrumental')">Instrumental</button>
+                                </div>
+                                <p id="mode-help-text"
+                                    class="text-[13px] text-zinc-500 font-medium opacity-70 px-4 text-center transition-opacity">
+                                    AI auto-generates lyrics, vocals, and style.
+                                </p>
+                            </div>
 
                             <!-- Vocal Controls Group -->
                             <div id="vocal-controls-group" class="space-y-6">
-                                <!-- Vocal Genders -->
-                                <div id="vocal-sub-options" class="flex items-center gap-5 pl-5">
+                                <!-- Vocal Genders (Select) -->
+                                <div id="vocal-sub-options" class="flex items-center gap-5 pl-5 w-full">
                                     <span class="text-[13px] text-zinc-500 min-w-[90px] whitespace-nowrap">Vocal
                                         Gender</span>
-                                    <div class="flex gap-4 overflow-x-auto hide-scrollbar pr-6 flex-1">
-                                        <button class="vocal-opt text-[13px] font-bold text-white transition-colors whitespace-nowrap" onclick="setVocalType('auto', this)">Auto</button>
-                                        <button class="vocal-opt text-[13px] font-bold text-zinc-500 hover:text-zinc-300 transition-colors whitespace-nowrap" onclick="setVocalType('male', this)">Male</button>
-                                        <button class="vocal-opt text-[13px] font-bold text-zinc-500 hover:text-zinc-300 transition-colors whitespace-nowrap" onclick="setVocalType('female', this)">Female</button>
+                                    <div class="relative w-[130px]">
+                                        <select id="vocal-select"
+                                            class="w-full appearance-none bg-white/5 hover:bg-white/10 border border-white/10 rounded-full pl-4 pr-8 py-1.5 text-[12px] font-bold text-white outline-none focus:border-vanso-cyan/50 transition-all cursor-pointer shadow-sm">
+                                            <option value="auto" class="bg-zinc-900 font-medium">Auto</option>
+                                            <option value="male" class="bg-zinc-900 font-medium">Male</option>
+                                            <option value="female" class="bg-zinc-900 font-medium">Female</option>
+                                        </select>
+                                        <i data-lucide="chevron-down"
+                                            class="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-400 pointer-events-none"></i>
                                     </div>
                                 </div>
-                                <!-- Genre Picker -->
-                                <div id="genres-wrapper" class="flex items-center gap-5 pl-5">
+                                <!-- Genre Picker (Select) -->
+                                <div id="genres-wrapper" class="flex items-center gap-5 pl-5 w-full">
                                     <span class="text-[13px] text-zinc-500 min-w-[90px] whitespace-nowrap">Main
                                         Genre</span>
-                                    <div id="genres-main" class="flex gap-6 overflow-x-auto hide-scrollbar pr-6 flex-1">
+                                    <div class="relative w-[130px]">
+                                        <select id="genre-select"
+                                            class="w-full appearance-none bg-white/5 hover:bg-white/10 border border-white/10 rounded-full pl-4 pr-8 py-1.5 text-[13px] font-bold text-white outline-none focus:border-vanso-cyan/50 transition-all cursor-pointer shadow-sm">
+                                        </select>
+                                        <i data-lucide="chevron-down"
+                                            class="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-400 pointer-events-none"></i>
                                     </div>
                                 </div>
 
@@ -252,32 +276,12 @@
         lucide.createIcons();
 
         const GENRE_DATA = ['Auto', 'Pop', 'Rock', 'Rap/HipHop', 'Electronic', 'R&B', 'Latin', 'Soul', 'Folk', 'Metal', 'Blues', 'Country', 'Punk', 'Jazz', 'Classical'];
-        const PROMPT_TEMPLATES =[
-            // ⚡ 极短词组 (1-3 words) - 占比 50%：降低认知门槛，主打情绪与氛围
-            'Cyberpunk beats',
-            'Rainy lo-fi',
-            'Gym phonk',
-            'Sad piano',
-            'Epic boss music',
-            'Late night drive',
-            'Happy acoustic',
-            'Funny cat rap',
-            'Chill afrobeats',
-            'Workout EDM',
-
-            // 🚶 简短场景 (4-6 words) - 占比 35%：日常小碎片，主打社交与功能
-            'Happy birthday to my mom',
-            'Stuck in traffic jam rap',
-            'A song for my dog',
-            'Waking up with good vibes',
-            'Crying in the club dance',
-            'Reggaeton for a beach party',
-            'Relaxing beat for deep sleep',
-
-            // 🎬 中等短句 (7-10 words) - 占比 15%：提供“原来还能这样玩”的叙事灵感
-            'An epic metal song about hating Monday mornings',
-            'A romantic R&B track for our one year anniversary',
-            'A dramatic opera about dropping my pizza on the floor'
+        const PROMPT_TEMPLATES = [
+            'A dreamy synth-pop song with female vocals, shimmering pads, warm analog bass, catchy topline, romantic night-drive mood, 118 BPM, polished radio-ready production.',
+            'An emotional piano ballad with male vocals, intimate verses, cinematic strings, heartfelt chorus, slow build, warm spacious mix, 72 BPM.',
+            'A high-energy Latin pop anthem with female vocals, reggaeton groove, bright guitars, massive hook, summer festival atmosphere, 102 BPM.',
+            'A dark melodic trap record with male vocals, deep 808s, crisp hi-hats, moody synth textures, memorable chorus, late-night city energy, 140 BPM.',
+            'A soft lo-fi R&B track with airy vocals, mellow electric piano, dusty drums, nostalgic mood, subtle vinyl texture, intimate bedroom-pop feel, 84 BPM.'
         ];
 
         const MODE_BUTTON_ACTIVE_CLASS = "flex-1 py-2.5 rounded-full text-[13px] font-bold transition-all bg-white/10 text-white";
@@ -311,14 +315,13 @@
             styleInput: document.getElementById('style-input'),
             randomTemplateBtn: document.getElementById('random-template-btn'),
             genresWrapper: document.getElementById('genres-wrapper'),
-            genresMain: document.getElementById('genres-main'),
-            instrumentalToggleWrapper: document.getElementById('instrumental-toggle-wrapper'),
-            instrumentalCheckIcon: document.getElementById('instrumental-check-icon'),
-            instrumentalCheckBg: document.getElementById('instrumental-check-bg'),
+            genreSelect: document.getElementById('genre-select'),
             modeAutoBtn: document.getElementById('mode-auto'),
             modeCustomBtn: document.getElementById('mode-custom'),
+            modeInstBtn: document.getElementById('mode-inst'),
+            modeHelpText: document.getElementById('mode-help-text'),
             vocalSubOptions: document.getElementById('vocal-sub-options'),
-            vocalOptionButtons: Array.from(document.querySelectorAll('.vocal-opt')),
+            vocalSelect: document.getElementById('vocal-select'),
             vocalControlsGroup: document.getElementById('vocal-controls-group'),
             lyricsControls: document.getElementById('lyrics-controls'),
             lyricsCustomLabel: document.getElementById('lyrics-custom-label'),
@@ -332,29 +335,12 @@
         };
 
         const state = {
-            selectedGenre: null,
-            selectedGenreButton: null,
+            selectedGenre: 'Auto',
             trackMode: 'auto',
-            isInstrumental: false,
             vocalType: 'auto',
             lyricsMode: 'auto',
-            activeVocalButton: document.querySelector('.vocal-opt.text-white') || null,
-            activeGenreButton: null,
             currentTemplate: ''
         };
-
-        function toggleInstrumental(checked) {
-            state.isInstrumental = checked;
-            if (checked) {
-                DOM.instrumentalCheckBg.classList.add('opacity-100');
-                DOM.instrumentalCheckIcon.classList.remove('opacity-0', 'scale-50');
-                DOM.instrumentalCheckIcon.classList.add('opacity-100', 'scale-100');
-            } else {
-                DOM.instrumentalCheckBg.classList.remove('opacity-100');
-                DOM.instrumentalCheckIcon.classList.add('opacity-0', 'scale-50');
-                DOM.instrumentalCheckIcon.classList.remove('opacity-100', 'scale-100');
-            }
-        }
 
         const DEFAULT_PLACEHOLDER = "Describe the style, mood, or instruments...";
 
@@ -397,72 +383,64 @@
 
         function initGenres() {
             const fragment = document.createDocumentFragment();
-            DOM.genresMain.textContent = '';
+            DOM.genreSelect.innerHTML = '';
 
-            GENRE_DATA.forEach((genre, index) => {
-                const btn = document.createElement('button');
-                btn.type = 'button';
-                btn.className = GENRE_OPTION_INACTIVE_CLASS;
-                btn.textContent = genre;
-                btn.onclick = () => selectGenre(genre, btn);
-                fragment.appendChild(btn);
-
-                if (index === 0) {
-                    const colorClass = GENRE_COLORS[genre] || 'text-white';
-                    btn.className = `${GENRE_OPTION_ACTIVE_BASE_CLASS} ${colorClass}`;
-                    state.activeGenreButton = btn;
-                    state.selectedGenre = genre;
-                }
+            GENRE_DATA.forEach((genre) => {
+                const opt = document.createElement('option');
+                opt.value = genre;
+                opt.textContent = genre;
+                opt.className = 'bg-zinc-900 font-medium text-white';
+                fragment.appendChild(opt);
             });
 
-            DOM.genresMain.appendChild(fragment);
-        }
+            DOM.genreSelect.appendChild(fragment);
 
-        function selectGenre(genre, btn) {
-            if (state.activeGenreButton === btn) return;
-
-            if (state.activeGenreButton) {
-                state.activeGenreButton.className = GENRE_OPTION_INACTIVE_CLASS;
-            }
-
-            const colorClass = GENRE_COLORS[genre] || 'text-white';
-            btn.className = `${GENRE_OPTION_ACTIVE_BASE_CLASS} ${colorClass}`;
-            state.activeGenreButton = btn;
-            state.selectedGenre = genre;
-        }
-
-        function setVocalType(type, btn) {
-            state.vocalType = type;
-
-            if (state.activeVocalButton) {
-                state.activeVocalButton.className = VOCAL_OPTION_INACTIVE_CLASS;
-            }
-
-            btn.className = VOCAL_OPTION_ACTIVE_CLASS;
-            state.activeVocalButton = btn;
+            // Core event bindings
+            DOM.genreSelect.addEventListener('change', (e) => {
+                state.selectedGenre = e.target.value;
+            });
+            DOM.vocalSelect.addEventListener('change', (e) => {
+                state.vocalType = e.target.value;
+            });
         }
 
         function setTrackMode(mode) {
             state.trackMode = mode;
 
+            // Switch segmented control styles
             DOM.modeAutoBtn.className = (mode === 'auto') ? MODE_BUTTON_ACTIVE_CLASS : MODE_BUTTON_INACTIVE_CLASS;
             DOM.modeCustomBtn.className = (mode === 'custom') ? MODE_BUTTON_ACTIVE_CLASS : MODE_BUTTON_INACTIVE_CLASS;
+            DOM.modeInstBtn.className = (mode === 'instrumental') ? MODE_BUTTON_ACTIVE_CLASS : MODE_BUTTON_INACTIVE_CLASS;
 
+            // Handle help text visibility and content
             if (mode === 'custom') {
-                DOM.instrumentalToggleWrapper.style.display = 'none';
+                DOM.modeHelpText.classList.add('hidden');
+            } else {
+                DOM.modeHelpText.classList.remove('hidden');
+                if (mode === 'auto') {
+                    DOM.modeHelpText.innerHTML = "AI auto-generates lyrics, vocals, and style.";
+                } else if (mode === 'instrumental') {
+                    DOM.modeHelpText.innerHTML = "AI auto-generates pure music only.<br>No vocals or lyrics.";
+                }
+            }
+
+            // Handle visibility for Options Group
+            if (mode === 'custom') {
                 DOM.vocalControlsGroup.style.display = 'block';
                 DOM.vocalSubOptions.style.display = 'flex';
                 DOM.genresWrapper.style.display = 'flex';
                 DOM.lyricsControls.style.display = 'block';
             } else {
-                DOM.instrumentalToggleWrapper.style.display = 'flex';
+                // Both Auto and Instrumental hide the manual options block completely
                 DOM.vocalControlsGroup.style.display = 'none';
                 DOM.vocalSubOptions.style.display = 'none';
                 DOM.genresWrapper.style.display = 'none';
                 DOM.lyricsControls.style.display = 'none';
-                setLyricsMode(false);
+                setLyricsMode(false); // Make sure lyric mode switch falls back gracefully
             }
         }
+
+        // Vocal Select handler handles state, no dedicated button setter required anymore
 
         function setLyricsMode(isCustom) {
             state.lyricsMode = isCustom ? 'custom' : 'auto';

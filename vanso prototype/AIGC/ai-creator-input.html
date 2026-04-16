@@ -44,12 +44,12 @@
             height: 932px;
             background-color: #000;
             position: relative;
-            overflow-y: auto;
-            overflow-x: hidden;
+            overflow: hidden;
             border: 12px solid #1a1a1a;
             border-radius: 54px;
             display: flex;
             flex-direction: column;
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
         }
 
         .phone-frame::-webkit-scrollbar {
@@ -67,17 +67,6 @@
 
         .cta-gradient {
             background: linear-gradient(134deg, #F5328A 19.26%, #ECA08B 57.57%, #54E3D5 91.14%);
-        }
-
-        .footer-sticky {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 24px;
-            padding-bottom: 48px;
-            background: linear-gradient(to top, #000 85%, transparent);
-            z-index: 100;
         }
 
         .content-scroll {
@@ -115,7 +104,8 @@
             <main class="px-6 space-y-6 pt-2">
                 <section class="space-y-4 pt-2">
                     <div class="flex items-center justify-center gap-3 pb-2">
-                        <div class="inline-flex items-center justify-center px-3.5 py-1.5 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 shadow-sm gap-1.5">
+                        <div
+                            class="inline-flex items-center justify-center px-3.5 py-1.5 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 shadow-sm gap-1.5">
                             <img src="vanso-text-colored.svg" alt="vanso" class="h-[10px] w-auto block">
                             <span class="text-zinc-400 font-bold text-[11px] leading-none tracking-[-0.5px]">AI</span>
                         </div>
@@ -127,9 +117,14 @@
                     <div class="space-y-7">
                         <!-- Mode Switcher -->
                         <div class="space-y-3">
-                            <div class="flex items-center bg-black/40 rounded-full p-1 border border-white/5 shadow-inner w-full">
-                                <button id="mode-auto" class="flex-1 py-3 rounded-full text-[14px] font-bold transition-all bg-white/10 text-white shadow-sm" onclick="setTrackMode('auto')">Simple</button>
-                                <button id="mode-custom" class="flex-1 py-3 rounded-full text-[14px] font-bold transition-all text-zinc-500 hover:text-zinc-300" onclick="setTrackMode('custom')">Custom</button>
+                            <div
+                                class="flex items-center bg-black/40 rounded-full p-1 border border-white/5 shadow-inner w-full">
+                                <button id="mode-auto"
+                                    class="flex-1 py-3 rounded-full text-[14px] font-bold transition-all bg-white/10 text-white shadow-sm"
+                                    onclick="setTrackMode('auto')">Simple</button>
+                                <button id="mode-custom"
+                                    class="flex-1 py-3 rounded-full text-[14px] font-bold transition-all text-zinc-500 hover:text-zinc-300"
+                                    onclick="setTrackMode('custom')">Custom</button>
                             </div>
                         </div>
 
@@ -141,14 +136,22 @@
                                     class="w-full bg-transparent border-none text-white resize-none outline-none min-h-[160px] text-[15px] font-normal leading-relaxed placeholder-zinc-500 pb-10"
                                     placeholder="Describe the style, mood, or instruments..."></textarea>
 
-                                <div id="instrumental-toggle-wrapper" class="absolute bottom-4 left-4 flex items-center transition-opacity duration-300 z-10">
-                                    <label class="flex items-center gap-2.5 cursor-pointer group bg-white/10 hover:bg-white/15 border border-white/10 rounded-full pl-3 pr-4 py-2 transition-all shadow-sm">
-                                        <div class="relative w-4 h-4 rounded-[4px] border border-zinc-500 bg-black/40 overflow-hidden flex items-center justify-center transition-colors group-hover:border-zinc-300">
-                                            <input type="checkbox" id="instrumental-checkbox" class="absolute inset-0 opacity-0 cursor-pointer z-20" onchange="toggleInstrumental(this.checked)">
-                                            <div id="instrumental-check-bg" class="absolute inset-0 bg-white opacity-0 transition-opacity"></div>
-                                            <i data-lucide="check" id="instrumental-check-icon" class="w-2.5 h-2.5 text-black opacity-0 scale-50 transition-all pointer-events-none relative z-10 font-bold"></i>
+                                <div id="instrumental-toggle-wrapper"
+                                    class="absolute bottom-4 left-4 flex items-center transition-opacity duration-300 z-10">
+                                    <label
+                                        class="flex items-center gap-2.5 cursor-pointer group bg-white/10 hover:bg-white/15 border border-white/10 rounded-full pl-3 pr-4 py-2 transition-all shadow-sm">
+                                        <div
+                                            class="relative w-4 h-4 rounded-[4px] border border-zinc-500 bg-black/40 overflow-hidden flex items-center justify-center transition-colors group-hover:border-zinc-300">
+                                            <input type="checkbox" id="instrumental-checkbox"
+                                                class="absolute inset-0 opacity-0 cursor-pointer z-20"
+                                                onchange="toggleInstrumental(this.checked)">
+                                            <div id="instrumental-check-bg"
+                                                class="absolute inset-0 bg-white opacity-0 transition-opacity"></div>
+                                            <i data-lucide="check" id="instrumental-check-icon"
+                                                class="w-2.5 h-2.5 text-black opacity-0 scale-50 transition-all pointer-events-none relative z-10 font-bold"></i>
                                         </div>
-                                        <span class="text-[12px] font-bold text-white transition-colors">Instrumental</span>
+                                        <span
+                                            class="text-[12px] font-bold text-white transition-colors">Instrumental</span>
                                     </label>
                                 </div>
 
@@ -173,60 +176,64 @@
                         <div class="space-y-6">
 
                             <!-- Vocal Controls Group -->
-                            <div id="vocal-controls-group" class="space-y-6">
-                                <!-- Vocal Genders -->
-                                <div id="vocal-sub-options" class="flex items-center gap-5 pl-5">
-                                    <span class="text-[13px] text-zinc-500 min-w-[90px] whitespace-nowrap">Vocal
-                                        Gender</span>
-                                    <div class="flex gap-4 overflow-x-auto hide-scrollbar pr-6 flex-1">
-                                        <button class="vocal-opt text-[13px] font-bold text-white transition-colors whitespace-nowrap" onclick="setVocalType('auto', this)">Auto</button>
-                                        <button class="vocal-opt text-[13px] font-bold text-zinc-500 hover:text-zinc-300 transition-colors whitespace-nowrap" onclick="setVocalType('male', this)">Male</button>
-                                        <button class="vocal-opt text-[13px] font-bold text-zinc-500 hover:text-zinc-300 transition-colors whitespace-nowrap" onclick="setVocalType('female', this)">Female</button>
-                                    </div>
+                            <!-- Vocal Genders -->
+                            <div id="vocal-sub-options" class="hidden flex items-center gap-5">
+                                <span class="text-[13px] text-zinc-500 min-w-[90px] whitespace-nowrap">Vocal
+                                    Gender</span>
+                                <div class="flex gap-4 overflow-x-auto hide-scrollbar pr-6 flex-1">
+                                    <button
+                                        class="vocal-opt text-[13px] font-bold text-white transition-colors whitespace-nowrap"
+                                        onclick="setVocalType('auto', this)">Auto</button>
+                                    <button
+                                        class="vocal-opt text-[13px] font-bold text-zinc-500 hover:text-zinc-300 transition-colors whitespace-nowrap"
+                                        onclick="setVocalType('male', this)">Male</button>
+                                    <button
+                                        class="vocal-opt text-[13px] font-bold text-zinc-500 hover:text-zinc-300 transition-colors whitespace-nowrap"
+                                        onclick="setVocalType('female', this)">Female</button>
                                 </div>
-                                <!-- Genre Picker -->
-                                <div id="genres-wrapper" class="flex items-center gap-5 pl-5">
-                                    <span class="text-[13px] text-zinc-500 min-w-[90px] whitespace-nowrap">Main
-                                        Genre</span>
-                                    <div id="genres-main" class="flex gap-6 overflow-x-auto hide-scrollbar pr-6 flex-1">
-                                    </div>
+                            </div>
+                            <!-- Genre Picker -->
+                            <div id="genres-wrapper" class="hidden flex items-center gap-5">
+                                <span class="text-[13px] text-zinc-500 min-w-[90px] whitespace-nowrap">Main
+                                    Genre</span>
+                                <div id="genres-main" class="flex gap-6 overflow-x-auto hide-scrollbar pr-6 flex-1">
                                 </div>
+                            </div>
 
-                                <!-- Lyrics Controls Card -->
-                                <div id="lyrics-controls" class="space-y-4">
-                                    <div class="flex items-center gap-5 pl-5 w-full">
-                                        <span id="lyrics-custom-label"
-                                            class="text-[13px] text-zinc-500 min-w-[90px] whitespace-nowrap">Custom
-                                            Lyrics</span>
-                                        <button id="lyrics-toggle-switch" type="button" onclick="toggleLyricsMode()"
-                                            aria-pressed="false"
-                                            class="relative inline-flex h-6 w-11 items-center rounded-full border border-white/10 bg-black/40 transition-all">
-                                            <span id="lyrics-toggle-thumb"
-                                                class="inline-block h-4 w-4 translate-x-1 rounded-full bg-zinc-500 transition-transform"></span>
-                                        </button>
-                                    </div>
-                                    <div id="m-area"
-                                        class="hidden animate-in fade-in zoom-in-95 duration-300 pt-1 relative">
-                                        <!-- Keep the text area inside its own bounds -->
-                                        <div
-                                            class="relative bg-black/30 border border-white/5 rounded-2xl p-4 focus-within:border-vanso-cyan/30 transition-colors overflow-hidden">
+                            <!-- Lyrics Controls Card -->
+                            <div id="lyrics-controls" class="hidden space-y-4">
+                                <div class="flex items-center gap-5 w-full">
+                                    <span id="lyrics-custom-label"
+                                        class="text-[13px] text-zinc-500 min-w-[90px] whitespace-nowrap">Custom
+                                        Lyrics</span>
+                                    <button id="lyrics-toggle-switch" type="button" onclick="toggleLyricsMode()"
+                                        aria-pressed="false"
+                                        class="relative inline-flex h-6 w-11 items-center rounded-full border border-white/10 bg-black/40 transition-all">
+                                        <span id="lyrics-toggle-thumb"
+                                            class="inline-block h-4 w-4 translate-x-1 rounded-full bg-zinc-500 transition-transform"></span>
+                                    </button>
+                                </div>
+                                <div id="m-area"
+                                    class="hidden animate-in fade-in zoom-in-95 duration-300 pt-1 relative">
+                                    <!-- Keep the text area inside its own bounds -->
+                                    <div
+                                        class="relative bg-black/30 border border-white/5 rounded-2xl p-4 focus-within:border-vanso-cyan/30 transition-colors overflow-hidden">
 
-                                            <!-- Loading Overlay -->
-                                            <div id="lyrics-loading-overlay"
-                                                class="absolute inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 z-10">
-                                                <i data-lucide="loader-2"
-                                                    class="w-6 h-6 text-vanso-magenta animate-spin"></i>
-                                            </div>
-
-                                            <textarea id="custom-lyrics-input"
-                                                class="w-full bg-transparent border-none text-white placeholder-zinc-600 outline-none min-h-[140px] text-[11px] leading-relaxed relative z-0"
-                                                placeholder="Paste your lyrics here...&#10;&#10;Supported structural tags:&#10;[Intro], [Verse], [Pre-Chorus], [Chorus]&#10;[Bridge], [Break], [Outro]"></textarea>
-                                            <button id="enhance-btn" type="button"
-                                                class="absolute bottom-3 right-3 flex items-center gap-2 px-3 py-1.5 rounded-full text-zinc-400 bg-black/40 border border-white/5 hover:bg-white/10 hover:text-white transition-all text-[13px] shadow-sm z-0">
-                                                <i data-lucide="wand-2" class="w-3.5 h-3.5"></i>
-                                                <span id="enhance-btn-text">Enhance</span>
-                                            </button>
+                                        <!-- Loading Overlay -->
+                                        <div id="lyrics-loading-overlay"
+                                            class="absolute inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 z-10">
+                                            <i data-lucide="loader-2"
+                                                class="w-6 h-6 text-vanso-magenta animate-spin"></i>
                                         </div>
+
+                                        <textarea id="custom-lyrics-input"
+                                            class="w-full bg-transparent border-none text-white placeholder-zinc-600 outline-none min-h-[140px] text-[11px] leading-relaxed relative z-0"
+                                            placeholder="Paste your lyrics here...&#10;&#10;Supported structural tags:&#10;[Intro], [Verse], [Pre-Chorus], [Chorus]&#10;[Bridge], [Break], [Outro]"></textarea>
+                                        <button id="enhance-btn" type="button"
+                                            class="absolute bottom-3 right-3 flex items-center gap-2 px-3 py-1.5 rounded-full text-zinc-400 bg-black/40 border border-white/5 hover:bg-white/10 hover:text-white transition-all text-[13px] shadow-sm z-0">
+                                            <i data-lucide="wand-2" class="w-3.5 h-3.5"></i>
+                                            <span id="enhance-btn-text">Enhance</span>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -236,15 +243,19 @@
             </main>
         </div>
 
-        <footer class="footer-sticky pointer-events-none flex flex-col items-center gap-3">
-            <button onclick="window.location.href='ai-creator-generating.html'"
-                class="pointer-events-auto w-full flex items-center justify-center gap-2 text-white font-semibold text-[16px] rounded-2xl py-3.5 shadow-[0_0_20px] shadow-vanso-magenta/30 hover:scale-[1.02] hover:shadow-[0_0_30px] hover:shadow-vanso-magenta/50 active:scale-95 transition-all duration-300 cta-gradient cursor-pointer">
-                <i data-lucide="sparkles" class="w-5 h-5"></i>
-                Create
-            </button>
-            <p class="pointer-events-auto text-[11px] text-zinc-600 font-medium text-center tracking-wide">
-                Tracks will be identified as AI-generated in the community.
-            </p>
+        <footer
+            class="absolute bottom-0 inset-x-0 box-border px-6 pb-12 pt-24 bg-gradient-to-t from-black via-black/95 to-transparent z-[100] pointer-events-none overflow-hidden">
+            <div aria-hidden="true" class="absolute inset-x-0 bottom-0 h-[150px] bg-black"></div>
+            <div class="relative z-10 flex flex-col items-center gap-3">
+                <button onclick="window.location.href='ai-creator-generating.html'"
+                    class="pointer-events-auto w-full flex items-center justify-center gap-2 text-white font-bold text-[16px] rounded-2xl py-3.5 shadow-lg hover:shadow-xl hover:shadow-vanso-magenta/30 active:scale-[0.98] transition-all duration-300 cta-gradient cursor-pointer border border-white/10">
+                    <i data-lucide="sparkles" class="w-5 h-5"></i>
+                    Create
+                </button>
+                <p class="pointer-events-auto text-[11px] text-zinc-500 font-medium text-center tracking-wide">
+                    Tracks will be identified as AI-generated in the community.
+                </p>
+            </div>
         </footer>
     </div>
 
@@ -252,7 +263,17 @@
         lucide.createIcons();
 
         const GENRE_DATA = ['Auto', 'Pop', 'Rock', 'Rap/HipHop', 'Electronic', 'R&B', 'Latin', 'Soul', 'Folk', 'Metal', 'Blues', 'Country', 'Punk', 'Jazz', 'Classical'];
-        const PROMPT_TEMPLATES =[
+        const PROMPT_TEMPLATES = [
+
+            // 🚶 简短场景 (4-6 words) - 占比 35%：日常小碎片，主打社交与功能
+            'Happy birthday to my mom',
+            'Stuck in traffic jam rap',
+            'A song for my dog',
+            'Waking up with good vibes',
+            'Crying in the club dance',
+            'Reggaeton for a beach party',
+            'Relaxing beat for deep sleep',
+
             // ⚡ 极短词组 (1-3 words) - 占比 50%：降低认知门槛，主打情绪与氛围
             'Cyberpunk beats',
             'Rainy lo-fi',
@@ -265,15 +286,6 @@
             'Chill afrobeats',
             'Workout EDM',
 
-            // 🚶 简短场景 (4-6 words) - 占比 35%：日常小碎片，主打社交与功能
-            'Happy birthday to my mom',
-            'Stuck in traffic jam rap',
-            'A song for my dog',
-            'Waking up with good vibes',
-            'Crying in the club dance',
-            'Reggaeton for a beach party',
-            'Relaxing beat for deep sleep',
-
             // 🎬 中等短句 (7-10 words) - 占比 15%：提供“原来还能这样玩”的叙事灵感
             'An epic metal song about hating Monday mornings',
             'A romantic R&B track for our one year anniversary',
@@ -284,8 +296,6 @@
         const MODE_BUTTON_INACTIVE_CLASS = "flex-1 py-2.5 rounded-full text-[13px] font-bold transition-all text-zinc-500 hover:text-zinc-300";
         const VOCAL_OPTION_ACTIVE_CLASS = "vocal-opt text-[13px] font-bold text-white transition-colors";
         const VOCAL_OPTION_INACTIVE_CLASS = "vocal-opt text-[13px] font-bold text-zinc-500 hover:text-zinc-300 transition-colors";
-        const MODE_OPTION_ACTIVE_CLASS = "mode-opt text-[13px] font-bold text-white transition-colors whitespace-nowrap";
-        const MODE_OPTION_INACTIVE_CLASS = "mode-opt text-[13px] font-bold text-zinc-500 hover:text-zinc-300 transition-colors whitespace-nowrap";
         const GENRE_OPTION_ACTIVE_BASE_CLASS = "genre-opt text-[13px] font-bold transition-colors whitespace-nowrap";
         const GENRE_OPTION_INACTIVE_CLASS = "genre-opt text-[13px] font-bold text-zinc-500 hover:text-zinc-300 transition-colors whitespace-nowrap";
 
@@ -318,14 +328,11 @@
             modeAutoBtn: document.getElementById('mode-auto'),
             modeCustomBtn: document.getElementById('mode-custom'),
             vocalSubOptions: document.getElementById('vocal-sub-options'),
-            vocalOptionButtons: Array.from(document.querySelectorAll('.vocal-opt')),
-            vocalControlsGroup: document.getElementById('vocal-controls-group'),
             lyricsControls: document.getElementById('lyrics-controls'),
             lyricsCustomLabel: document.getElementById('lyrics-custom-label'),
             lyricsToggleSwitch: document.getElementById('lyrics-toggle-switch'),
             lyricsToggleThumb: document.getElementById('lyrics-toggle-thumb'),
             manualArea: document.getElementById('m-area'),
-            lyricsTextarea: document.querySelector('#m-area textarea'),
             enhanceBtn: document.getElementById('enhance-btn'),
             enhanceBtnText: document.getElementById('enhance-btn-text'),
             lyricsOverlay: document.getElementById('lyrics-loading-overlay')
@@ -333,7 +340,6 @@
 
         const state = {
             selectedGenre: null,
-            selectedGenreButton: null,
             trackMode: 'auto',
             isInstrumental: false,
             vocalType: 'auto',
@@ -374,26 +380,6 @@
             }
             setPromptTemplate(nextTemplate);
         }
-
-        function appendToInput(text) {
-            const current = DOM.styleInput.value.trim();
-            const tags = current ? current.split(',').map(t => t.trim()) : [];
-
-            if (tags.includes(text)) {
-                // Toggle off: remove tag
-                const filtered = tags.filter(t => t !== text);
-                DOM.styleInput.value = filtered.join(', ');
-                return false; // Removed
-            } else {
-                // Toggle on: add tag
-                tags.push(text);
-                DOM.styleInput.value = tags.join(', ');
-                DOM.styleInput.focus();
-                return true; // Added
-            }
-        }
-
-
 
         function initGenres() {
             const fragment = document.createDocumentFragment();
@@ -444,22 +430,16 @@
 
         function setTrackMode(mode) {
             state.trackMode = mode;
+            const isCustom = mode === 'custom';
 
-            DOM.modeAutoBtn.className = (mode === 'auto') ? MODE_BUTTON_ACTIVE_CLASS : MODE_BUTTON_INACTIVE_CLASS;
-            DOM.modeCustomBtn.className = (mode === 'custom') ? MODE_BUTTON_ACTIVE_CLASS : MODE_BUTTON_INACTIVE_CLASS;
+            DOM.modeAutoBtn.className = isCustom ? MODE_BUTTON_INACTIVE_CLASS : MODE_BUTTON_ACTIVE_CLASS;
+            DOM.modeCustomBtn.className = isCustom ? MODE_BUTTON_ACTIVE_CLASS : MODE_BUTTON_INACTIVE_CLASS;
+            DOM.instrumentalToggleWrapper.style.display = isCustom ? 'none' : 'flex';
+            DOM.vocalSubOptions.style.display = isCustom ? 'flex' : 'none';
+            DOM.genresWrapper.style.display = isCustom ? 'flex' : 'none';
+            DOM.lyricsControls.style.display = isCustom ? 'block' : 'none';
 
-            if (mode === 'custom') {
-                DOM.instrumentalToggleWrapper.style.display = 'none';
-                DOM.vocalControlsGroup.style.display = 'block';
-                DOM.vocalSubOptions.style.display = 'flex';
-                DOM.genresWrapper.style.display = 'flex';
-                DOM.lyricsControls.style.display = 'block';
-            } else {
-                DOM.instrumentalToggleWrapper.style.display = 'flex';
-                DOM.vocalControlsGroup.style.display = 'none';
-                DOM.vocalSubOptions.style.display = 'none';
-                DOM.genresWrapper.style.display = 'none';
-                DOM.lyricsControls.style.display = 'none';
+            if (!isCustom) {
                 setLyricsMode(false);
             }
         }
